@@ -67,8 +67,11 @@
         </div>
 
         <div class="container-login100-form-btn">
-            <button class="login100-form-btn">
-                ثبت نام
+            <button class="login100-form-btn" name="type" value="owner">
+                ثبت‌نام به عنوان فروشنده
+            </button>
+            <button class="login100-form-btn" name="type" value="customer" style="margin-top: 8px">
+                ثبت‌نام به عنوان خریدار
             </button>
         </div>
 
