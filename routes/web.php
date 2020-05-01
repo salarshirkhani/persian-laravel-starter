@@ -25,4 +25,28 @@ Route::prefix('dashboard')
     ->namespace('Dashboard')
     ->group(function() {
         Route::get('', 'IndexController@get')->name('index');
+
+        Route::prefix('admin')
+            ->name('admin.')
+            ->middleware('user_type:admin')
+            ->namespace('Admin')
+            ->group(function() {
+                Route::get('', 'IndexController@get')->name('index');
+            });
+
+        Route::prefix('customer')
+            ->name('customer.')
+            ->middleware('user_type:customer')
+            ->namespace('Customer')
+            ->group(function() {
+                Route::get('', 'IndexController@get')->name('index');
+            });
+
+        Route::prefix('owner')
+            ->name('owner.')
+            ->middleware('user_type:owner')
+            ->namespace('Owner')
+            ->group(function() {
+                Route::get('', 'IndexController@get')->name('index');
+            });
     });
