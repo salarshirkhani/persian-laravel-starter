@@ -14,7 +14,7 @@ class LoginTest extends TestCase
 
     public function test_user_can_view_a_login_form()
     {
-        $response = $this->get('/login');
+        $response = $this->get(route('login'));
 
         $response->assertSuccessful();
         $response->assertViewIs('auth.login');
@@ -24,9 +24,9 @@ class LoginTest extends TestCase
     {
         $user = factory(User::class)->make();
 
-        $response = $this->actingAs($user)->get('/login');
+        $response = $this->actingAs($user)->get(route('login'));
 
-        $response->assertRedirect(RouteServiceProvider::HOME);
+        $response->assertRedirect(route('dashboard.index'));
     }
 
     public function test_user_can_login_with_correct_credentials()
@@ -35,12 +35,12 @@ class LoginTest extends TestCase
             'password' => bcrypt($password = 'test-password'),
         ]);
 
-        $response = $this->post('/login', [
+        $response = $this->post(route('login'), [
             'email' => $user->email,
             'password' => $password,
         ]);
 
-        $response->assertRedirect(RouteServiceProvider::HOME);
+        $response->assertRedirect(route('dashboard.index'));
         $this->assertAuthenticatedAs($user);
     }
 
@@ -50,12 +50,12 @@ class LoginTest extends TestCase
             'password' => bcrypt('correct-password'),
         ]);
 
-        $response = $this->from('/login')->post('/login', [
+        $response = $this->from(route('login'))->post(route('login'), [
             'email' => $user->email,
             'password' => 'invalid-password',
         ]);
 
-        $response->assertRedirect('/login');
+        $response->assertRedirect(route('login'));
         $response->assertSessionHasErrors('email');
         $this->assertTrue(session()->hasOldInput('email'));
         $this->assertEquals($user->email, session()->getOldInput('email'));
@@ -70,13 +70,13 @@ class LoginTest extends TestCase
             'password' => bcrypt($password = 'correct-password'),
         ]);
 
-        $response = $this->post('/login', [
+        $response = $this->post(route('login'), [
             'email' => $user->email,
             'password' => $password,
             'remember' => 'on',
         ]);
 
-        $response->assertRedirect(RouteServiceProvider::HOME);
+        $response->assertRedirect(route('dashboard.index'));
         $response->assertCookie(\Auth::guard()->getRecallerName(), vsprintf('%s|%s|%s', [
             $user->id,
             $user->getRememberToken(),

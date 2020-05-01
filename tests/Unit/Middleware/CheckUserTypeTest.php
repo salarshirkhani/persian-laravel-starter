@@ -27,7 +27,7 @@ class CheckUserTypeTest extends TestCase
         $middleware = new CheckUserType();
 
         $response = new TestResponse($middleware->handle(Request::create('/'), function () {}, 'admin'));
-        $response->assertRedirect('/dashboard');
+        $response->assertRedirect(route('dashboard.index'));
     }
 
     public function test_no_action_on_correct_type() {

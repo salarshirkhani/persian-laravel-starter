@@ -14,7 +14,7 @@ class RegisterTest extends TestCase
 
     public function test_user_can_view_a_register_form()
     {
-        $response = $this->get('/register');
+        $response = $this->get(route('register', [], false));
 
         $response->assertSuccessful();
         $response->assertViewIs('auth.register');
@@ -24,9 +24,9 @@ class RegisterTest extends TestCase
     {
         $user = factory(User::class)->make();
 
-        $response = $this->actingAs($user)->get('/register');
+        $response = $this->actingAs($user)->get(route('register', [], false));
 
-        $response->assertRedirect(RouteServiceProvider::HOME);
+        $response->assertRedirect(route('dashboard.index'));
     }
 
     public function test_user_can_register()
@@ -36,7 +36,7 @@ class RegisterTest extends TestCase
             'password' => bcrypt($password = 'test-password'),
         ]);
 
-        $response = $this->post('/register', [
+        $response = $this->post(route('register', [], false), [
             'first_name' => $user->first_name,
             'last_name' => $user->last_name,
             'email' => $user->email,
@@ -46,7 +46,7 @@ class RegisterTest extends TestCase
         ]);
 
         $response->assertSessionDoesntHaveErrors();
-        $response->assertRedirect(RouteServiceProvider::HOME);
+        $response->assertRedirect(route('dashboard.index'));
         $this->assertAuthenticated();
         /** @var \App\User $new_user */
         $new_user = \Auth::guard()->user();
@@ -63,7 +63,7 @@ class RegisterTest extends TestCase
     {
         $user = factory(User::class)->make();
 
-        $response = $this->from('/register')->post('/register', [
+        $response = $this->from(route('register', [], false))->post(route('register', [], false), [
             'first_name' => $user->first_name,
             'last_name' => $user->last_name,
             'email' => $user->email,
@@ -72,11 +72,11 @@ class RegisterTest extends TestCase
             'type' => 'customer'
         ]);
 
-        $response->assertRedirect('/register');
+        $response->assertRedirect(route('register', [], false));
         $response->assertSessionHasErrors('password');
         $this->assertGuest();
 
-        $response = $this->from('/register')->post('/register', [
+        $response = $this->from(route('register', [], false))->post(route('register', [], false), [
             'first_name' => $user->first_name,
             'last_name' => $user->last_name,
             'email' => $user->email,
@@ -84,7 +84,7 @@ class RegisterTest extends TestCase
             'type' => 'customer'
         ]);
 
-        $response->assertRedirect('/register');
+        $response->assertRedirect(route('register', [], false));
         $response->assertSessionHasErrors('password');
         $this->assertGuest();
     }
@@ -93,7 +93,7 @@ class RegisterTest extends TestCase
     {
         $user = factory(User::class)->make();
 
-        $response = $this->from('/register')->post('/register', [
+        $response = $this->from(route('register', [], false))->post(route('register', [], false), [
             'first_name' => $user->first_name,
             'last_name' => $user->last_name,
             'email' => $user->email,
@@ -102,7 +102,7 @@ class RegisterTest extends TestCase
             'type' => 'admin'
         ]);
 
-        $response->assertRedirect('/register');
+        $response->assertRedirect(route('register', [], false));
         $response->assertSessionHasErrors('type');
         $this->assertGuest();
     }
@@ -111,7 +111,7 @@ class RegisterTest extends TestCase
     {
         $user = factory(User::class)->make();
 
-        $response = $this->from('/register')->post('/register', [
+        $response = $this->from(route('register', [], false))->post(route('register', [], false), [
             'last_name' => $user->last_name,
             'email' => $user->email,
             'password' => $password = 'test-password',
@@ -119,7 +119,7 @@ class RegisterTest extends TestCase
             'type' => 'customer'
         ]);
 
-        $response->assertRedirect('/register');
+        $response->assertRedirect(route('register', [], false));
         $response->assertSessionHasErrors('first_name');
         $this->assertGuest();
     }
@@ -128,7 +128,7 @@ class RegisterTest extends TestCase
     {
         $user = factory(User::class)->make();
 
-        $response = $this->from('/register')->post('/register', [
+        $response = $this->from(route('register', [], false))->post(route('register', [], false), [
             'first_name' => $user->first_name,
             'email' => $user->email,
             'password' => $password = 'test-password',
@@ -136,7 +136,7 @@ class RegisterTest extends TestCase
             'type' => 'customer'
         ]);
 
-        $response->assertRedirect('/register');
+        $response->assertRedirect(route('register', [], false));
         $response->assertSessionHasErrors('last_name');
         $this->assertGuest();
     }
@@ -145,7 +145,7 @@ class RegisterTest extends TestCase
     {
         $user = factory(User::class)->make();
 
-        $response = $this->from('/register')->post('/register', [
+        $response = $this->from(route('register', [], false))->post(route('register', [], false), [
             'first_name' => $user->first_name,
             'last_name' => $user->last_name,
             'password' => $password = 'test-password',
@@ -153,7 +153,7 @@ class RegisterTest extends TestCase
             'type' => 'customer'
         ]);
 
-        $response->assertRedirect('/register');
+        $response->assertRedirect(route('register', [], false));
         $response->assertSessionHasErrors('email');
         $this->assertGuest();
     }
@@ -162,7 +162,7 @@ class RegisterTest extends TestCase
     {
         $user = factory(User::class)->make();
 
-        $response = $this->from('/register')->post('/register', [
+        $response = $this->from(route('register', [], false))->post(route('register', [], false), [
             'first_name' => $user->first_name,
             'last_name' => $user->last_name,
             'email' => 'arbitrary-invalid-email@',
@@ -171,7 +171,7 @@ class RegisterTest extends TestCase
             'type' => 'customer'
         ]);
 
-        $response->assertRedirect('/register');
+        $response->assertRedirect(route('register', [], false));
         $response->assertSessionHasErrors('email');
         $this->assertGuest();
     }
@@ -180,14 +180,14 @@ class RegisterTest extends TestCase
     {
         $user = factory(User::class)->make();
 
-        $response = $this->from('/register')->post('/register', [
+        $response = $this->from(route('register', [], false))->post(route('register', [], false), [
             'first_name' => $user->first_name,
             'last_name' => $user->last_name,
             'email' => $user->email,
             'type' => 'customer'
         ]);
 
-        $response->assertRedirect('/register');
+        $response->assertRedirect(route('register', [], false));
         $response->assertSessionHasErrors('password');
         $this->assertGuest();
     }
@@ -196,7 +196,7 @@ class RegisterTest extends TestCase
     {
         $user = factory(User::class)->make();
 
-        $response = $this->from('/register')->post('/register', [
+        $response = $this->from(route('register', [], false))->post(route('register', [], false), [
             'first_name' => $user->first_name,
             'last_name' => $user->last_name,
             'email' => $user->email,
@@ -204,7 +204,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => $password,
         ]);
 
-        $response->assertRedirect('/register');
+        $response->assertRedirect(route('register', [], false));
         $response->assertSessionHasErrors('type');
         $this->assertGuest();
     }
