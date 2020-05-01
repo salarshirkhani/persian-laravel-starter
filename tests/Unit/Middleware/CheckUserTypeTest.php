@@ -10,65 +10,36 @@ use Illuminate\Http\Request;
 
 class CheckUserTypeTest extends TestCase
 {
-    private const TYPES = ['admin', 'customer', 'owner'];
-
-    public function routeDataProvider()
-    {
-        return [
-            'admin-type' => ['/dashboard/admin', 'admin'],
-            'customer-type' => ['/dashboard/customer', 'customer'],
-            'owner-type' => ['/dashboard/owner', 'owner'],
-        ];
-    }
-
-    /**
-     * @dataProvider routeDataProvider
-     */
-    public function test_forbidden_on_guest($route, $type) {
-        $request = Request::create($route);
-        $this->expectException(\Illuminate\Auth\AuthenticationException::class);
-
+    public function test_forbidden_on_guest() {
         $middleware = new CheckUserType();
 
-        $middleware->handle($request, function ($req) {}, $type);
+        $this->expectException(\Illuminate\Auth\AuthenticationException::class);
+        $middleware->handle(Request::create('/'), function () {}, 'admin');
     }
 
-    /**
-     * @dataProvider routeDataProvider
-     */
-    public function test_redirect_to_index_on_invalid_type($route, $type) {
-        foreach (array_diff(self::TYPES, [$type]) as $invalid_type) {
-            $user = factory(User::class)->make([
-                'type' => $invalid_type
-            ]);
-
-            $this->actingAs($user);
-
-            $request = Request::create($route);
-
-            $middleware = new CheckUserType();
-
-            $response = new TestResponse($middleware->handle($request, function () {}, $type));
-            $response->assertRedirect('/dashboard');
-        }
-
-    }
-
-    /**
-     * @dataProvider routeDataProvider
-     */
-    public function test_no_action_on_correct_type($route, $type) {
+    public function test_redirect_to_index_on_invalid_type() {
         $user = factory(User::class)->make([
-            'type' => $type
+            'type' => 'customer'
         ]);
 
         $this->actingAs($user);
 
-        $request = Request::create($route);
+        $middleware = new CheckUserType();
+
+        $response = new TestResponse($middleware->handle(Request::create('/'), function () {}, 'admin'));
+        $response->assertRedirect('/dashboard');
+    }
+
+    public function test_no_action_on_correct_type() {
+        $user = factory(User::class)->make([
+            'type' => 'admin'
+        ]);
+
+        $this->actingAs($user);
 
         $middleware = new CheckUserType();
 
-        $response = $middleware->handle($request, function () { return null; }, $type);
+        $response = $middleware->handle(Request::create('/'), function () { return null; }, 'admin');
         $this->assertNull($response);
     }
 }
