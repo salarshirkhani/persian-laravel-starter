@@ -3,8 +3,5 @@
     @include('dashboard.customer.sidebar')
 @endsection
 @section('hierarchy')
-    @include('dashboard.partials.breadcumb-item', [
-        'title' => __('داشبورد'),
-        'route' => 'dashboard.customer.index'
-    ])
+    <x-breadcrumb-item title="داشبورد" route="dashboard.customer.index" />
 @endsection
