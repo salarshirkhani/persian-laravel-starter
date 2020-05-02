@@ -34,6 +34,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\User|null $creator
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Keyword[] $keywords
  * @property-read int|null $keywords_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
+ * @property-read int|null $products_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Company newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Company newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Company query()
@@ -92,6 +94,13 @@ class Company extends Model
 
     public function keywords() {
         return $this->belongsToMany('App\Keyword', 'company_keyword_relation', 'company_id', 'keyword_id')->withTimestamps();
+    }
+
+    public function products() {
+        if (!empty($this->type) && $this->type != 'product')
+            throw new \LogicException("This company type doesn't support products.");
+
+        return $this->hasMany('App\Product', 'company_id');
     }
 
     public function creator() {
