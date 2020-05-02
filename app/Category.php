@@ -22,6 +22,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\Category|null $parent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
  * @property-read int|null $products_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Service[] $services
+ * @property-read int|null $services_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Category newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Category newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Category query()
@@ -53,6 +55,13 @@ class Category extends Model
             throw new \LogicException("This category type doesn't support products.");
 
         return $this->hasMany('App\Product', 'category_id');
+    }
+
+    public function services() {
+        if (!empty($this->type) && $this->type != 'service')
+            throw new \LogicException("This category type doesn't support services.");
+
+        return $this->hasMany('App\Service', 'category_id');
     }
 
     public function parent() {

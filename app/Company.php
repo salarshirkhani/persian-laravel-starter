@@ -36,6 +36,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read int|null $keywords_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
  * @property-read int|null $products_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Service[] $services
+ * @property-read int|null $services_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Company newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Company newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Company query()
@@ -101,6 +103,13 @@ class Company extends Model
             throw new \LogicException("This company type doesn't support products.");
 
         return $this->hasMany('App\Product', 'company_id');
+    }
+
+    public function services() {
+        if (!empty($this->type) && $this->type != 'service')
+            throw new \LogicException("This company type doesn't support services.");
+
+        return $this->hasMany('App\Service', 'company_id');
     }
 
     public function creator() {
