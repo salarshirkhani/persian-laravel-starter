@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Category|null $category
  * @property-read \App\Company $company
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Keyword[] $keywords
+ * @property-read int|null $keywords_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Service newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Service newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Service query()
@@ -40,6 +42,10 @@ class Service extends Model
         'description',
         'photo'
     ];
+
+    public function keywords() {
+        return $this->belongsToMany('App\Keyword', 'service_keyword_relation', 'service_id', 'keyword_id')->withTimestamps();
+    }
 
     public function category() {
         return $this->belongsTo('App\Category', 'category_id');
