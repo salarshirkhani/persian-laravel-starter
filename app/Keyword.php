@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $type
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Company[] $companies
+ * @property-read int|null $companies_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Keyword newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Keyword newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Keyword query()
@@ -27,6 +29,13 @@ class Keyword extends Model
     protected $table = 'keywords';
 
     protected $fillable = ['name', 'type'];
+
+    public function companies() {
+        if (!empty($this->type) && $this->type != 'company')
+            throw new \LogicException("This keyword type doesn't support companies.");
+
+        return $this->belongsToMany('App\Company', 'company_keyword_relation', 'keyword_id', 'company_id')->withTimestamps();
+    }
 
     public static function syncKeywords(array $names, $type) {
         $existing_keywords = self::whereIn('name', $names)->where('type', $type)->get();

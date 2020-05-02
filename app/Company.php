@@ -32,6 +32,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Category|null $category
  * @property-read \App\User|null $creator
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Keyword[] $keywords
+ * @property-read int|null $keywords_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Company newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Company newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Company query()
@@ -87,6 +89,10 @@ class Company extends Model
 
         'type',
     ];
+
+    public function keywords() {
+        return $this->belongsToMany('App\Keyword', 'company_keyword_relation', 'company_id', 'keyword_id')->withTimestamps();
+    }
 
     public function creator() {
         return $this->belongsTo('App\User', 'creator_id');
