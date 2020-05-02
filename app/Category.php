@@ -17,6 +17,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Category[] $children
  * @property-read int|null $children_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Company[] $companies
+ * @property-read int|null $companies_count
  * @property-read \App\Category|null $parent
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Category newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Category newQuery()
@@ -36,6 +38,13 @@ class Category extends Model
     protected $table = 'categories';
 
     protected $fillable = ['name', 'slug', 'description', 'type'];
+
+    public function companies() {
+        if (!empty($this->type) && $this->type != 'company')
+            throw new \LogicException("This category type doesn't support companies.");
+
+        return $this->hasMany('App\Company', 'category_id');
+    }
 
     public function parent() {
         return $this->belongsTo('App\Category', 'parent_id');
