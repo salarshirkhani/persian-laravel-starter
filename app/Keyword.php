@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Company[] $companies
  * @property-read int|null $companies_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
+ * @property-read int|null $products_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Keyword newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Keyword newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Keyword query()
@@ -35,6 +37,12 @@ class Keyword extends Model
             throw new \LogicException("This keyword type doesn't support companies.");
 
         return $this->belongsToMany('App\Company', 'company_keyword_relation', 'keyword_id', 'company_id')->withTimestamps();
+    }
+
+    public function products() {
+        if (!empty($this->type) && $this->type != 'product')
+            throw new \LogicException("This category type doesn't support products.");
+        return $this->belongsToMany('App\Product', 'product_keyword_relation', 'keyword_id', 'product_id')->withTimestamps();
     }
 
     public static function syncKeywords(array $names, $type) {
