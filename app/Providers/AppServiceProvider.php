@@ -25,5 +25,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::component('breadcrumb-item', \App\View\Components\Dashboard\BreadcrumbItem::class);
+        Blade::component('card', \App\View\Components\Dashboard\Card::class);
     }
 }
