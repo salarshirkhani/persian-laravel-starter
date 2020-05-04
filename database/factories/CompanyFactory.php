@@ -19,8 +19,8 @@ $factory->define(Company::class, function (Faker $faker) {
         'mobile_number' => $faker->e164PhoneNumber,
         'fax_number' => $faker->e164PhoneNumber,
 
-        'longitude' => $faker->randomFloat(4, -180, 80),
         'latitude' => $faker->randomFloat(4, -90, 90),
+        'longitude' => $faker->randomFloat(4, -180, 80),
 
         'social_instagram' => '@' . $faker->word,
         'social_telegram' => '@' . $faker->word,

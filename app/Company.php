@@ -25,8 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $phone_number
  * @property string|null $mobile_number
  * @property string|null $fax_number
- * @property float $longitude
  * @property float $latitude
+ * @property float $longitude
  * @property string|null $website
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -81,8 +81,8 @@ class Company extends Model
         'mobile_number',
         'fax_number',
 
-        'longitude',
         'latitude',
+        'longitude',
 
         'social_instagram',
         'social_telegram',
