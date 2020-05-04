@@ -19,6 +19,7 @@ use Illuminate\Notifications\Notifiable;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string $last_name
  * @property string $type
+ * @property-read \App\Company|null $company
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User newModelQuery()
@@ -66,4 +67,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function company() {
+        return $this->hasOne('App\Company', 'creator_id');
+    }
 }
