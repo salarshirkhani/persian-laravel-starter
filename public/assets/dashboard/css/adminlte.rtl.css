@@ -1587,36 +1587,36 @@ caption {
 
 .was-validated .form-control:valid, .form-control.is-valid {
     padding-left: 2.25rem;
-    padding-right: 0;
+    padding-right: 0.75rem;
     background-position: center left calc(0.375em + 0.1875rem);
 }
 
 .was-validated textarea.form-control:valid, textarea.form-control.is-valid {
     padding-left: 2.25rem;
-    padding-right: 0;
+    padding-right: 0.75rem;
     background-position: top calc(0.375em + 0.1875rem) left calc(0.375em + 0.1875rem);
 }
 
 .was-validated .custom-select:valid, .custom-select.is-valid {
     padding-left: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
-    padding-right: 0;
+    padding-right: 0.75rem;
 }
 
 .was-validated .form-control:invalid, .form-control.is-invalid {
     padding-left: 2.25rem;
-    padding-right: 0;
+    padding-right: 0.75rem;
     background-position: center left calc(0.375em + 0.1875rem);
 }
 
 .was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {
     padding-left: 2.25rem;
-    padding-right: 0;
+    padding-right: 0.75rem;
     background-position: top calc(0.375em + 0.1875rem) left calc(0.375em + 0.1875rem);
 }
 
 .was-validated .custom-select:invalid, .custom-select.is-invalid {
     padding-left: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
-    padding-right: 0;
+    padding-right: 0.75rem;
 }
 
 .dropdown-toggle::after {
