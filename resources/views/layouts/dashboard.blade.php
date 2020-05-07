@@ -132,6 +132,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     crossorigin="anonymous"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/dashboard/js/adminlte.min.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    });
+</script>
 @yield('scripts', '')
 </body>
 </html>
