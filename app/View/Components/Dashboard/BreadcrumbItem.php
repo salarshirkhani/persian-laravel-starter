@@ -8,20 +8,20 @@ class BreadcrumbItem extends Component
 {
     public $title;
     public $route;
-    public $attributes;
+    public $routeParam;
 
     /**
      * Create a new component instance.
      *
      * @param $title
      * @param $route
-     * @param array $attributes
+     * @param $routeParam
      */
-    public function __construct($title, $route, array $attributes = [])
+    public function __construct($title, $route, $routeParam = [])
     {
         $this->title = $title;
         $this->route = $route;
-        $this->attributes = $attributes;
+        $this->routeParam = $routeParam;
     }
 
     /**
