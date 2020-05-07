@@ -1,6 +1,6 @@
 <li class="nav-item">
-    @if(isset($route))
-        <a href="{{ route($route) }}" class="nav-link @if(Route::current()->getName() == $route) active @endif">
+    @if(!empty($route))
+        <a href="{{ route($route, $routeParam) }}" class="nav-link @if(Route::current()->getName() == $route) active @endif">
     @else
         <span class="nav-link">
     @endif
@@ -8,7 +8,7 @@
         <p>
             {{ $title }}
         </p>
-    @if(isset($route))
+    @if(!empty($route))
         </a>
     @else
         </span>
