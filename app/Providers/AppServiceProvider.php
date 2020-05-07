@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('breadcrumb-item', \App\View\Components\Dashboard\BreadcrumbItem::class);
         Blade::component('card', \App\View\Components\Dashboard\Card::class);
         Blade::component('alert', \App\View\Components\Dashboard\Alert::class);
+        Blade::component('sidebar-item', \App\View\Components\Dashboard\SidebarItem::class);
 
         Blade::component('text-group', \App\View\Components\Form\TextGroup::class);
         Blade::component('select-group', \App\View\Components\Form\SelectGroup::class);

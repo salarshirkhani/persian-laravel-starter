@@ -1,5 +1,1 @@
-@include('dashboard.partials.nav-item', [
-    'title' => __('داشبورد'),
-    'icon' => 'tachometer-alt',
-    'route' => 'dashboard.admin.index',
-])
+<x-sidebar-item title="داشبورد" icon="fas fa-tachometer-alt" route="dashboard.admin.index" />
