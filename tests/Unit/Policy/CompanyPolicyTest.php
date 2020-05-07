@@ -69,6 +69,12 @@ class CompanyPolicyTest extends TestCase
         $this->assertTrue($user->can('create', Company::class));
     }
 
+    public function test_already_created_owners_cannot_create_company() {
+        $user = factory(User::class)->create(['type' => 'owner']);
+        factory(Company::class)->state('product')->create(['creator_id' => $user->getKey()]);
+        $this->assertFalse($user->can('create', Company::class));
+    }
+
     ///////////
 
     public function test_users_cannot_update_company() {

@@ -48,7 +48,7 @@ class CompanyPolicy
      */
     public function create(User $user)
     {
-        return $user->type == 'owner';
+        return $user->type == 'owner' && !$user->company()->exists();
     }
 
     /**
