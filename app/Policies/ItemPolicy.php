@@ -2,14 +2,15 @@
 
 namespace App\Policies;
 
-use App\Company;
 use App\Product;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ProductAndServicePolicy
+trait ItemPolicy
 {
     use HandlesAuthorization;
+
+    protected static abstract function getItemType(): string;
 
     public function before(User $user, $ability)
     {
@@ -49,7 +50,7 @@ class ProductAndServicePolicy
      */
     public function create(User $user)
     {
-        return $user->type == 'owner' && !empty($user->company);
+        return $user->type == 'owner' && !empty($user->company) && $user->company->type == static::getItemType();
     }
 
     /**
@@ -63,6 +64,7 @@ class ProductAndServicePolicy
     {
         $type = $item instanceof Product ? 'product' : 'service';
         return
+            $type == static::getItemType() &&
             $user->type == 'owner' &&
             !empty($item->company->creator) &&
             $item->company->creator->is($user) &&
@@ -81,6 +83,7 @@ class ProductAndServicePolicy
     {
         $type = $item instanceof Product ? 'product' : 'service';
         return
+            $type == static::getItemType() &&
             $user->type == 'owner' &&
             !empty($item->company->creator) &&
             $item->company->creator->is($user) &&

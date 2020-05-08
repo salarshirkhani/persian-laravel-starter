@@ -9,7 +9,7 @@ use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ProductAndServicePolicyTest extends TestCase
+class ItemPolicyTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -79,12 +79,23 @@ class ProductAndServicePolicyTest extends TestCase
         $this->assertFalse($user->can('create', Service::class));
     }
 
+    public function test_company_owner_cannot_create_incompatible_item() {
+        $user = factory(User::class)->create(['type' => 'owner']);
+
+        $company = factory(Company::class)->state('product')->create(['creator_id' => $user->getKey()]);
+        $this->assertFalse($user->can('create', Service::class));
+        $company->delete();
+
+        $user = factory(User::class)->create(['type' => 'owner']);
+        factory(Company::class)->state('service')->create(['creator_id' => $user->getKey()]);
+        $this->assertFalse($user->can('create', Product::class));
+    }
+
     public function test_owners_can_create_item_with_company() {
         $user = factory(User::class)->create(['type' => 'owner']);
         factory(Company::class)->state('product')->create(['creator_id' => $user->getKey()]);
 
         $this->assertTrue($user->can('create', Product::class));
-        $this->assertTrue($user->can('create', Service::class));
     }
 
     ///////////
