@@ -48,5 +48,7 @@ Route::prefix('dashboard')
             ->namespace('Owner')
             ->group(function() {
                 Route::get('', 'IndexController@get')->name('index');
+
+                Route::resource('companies', 'CompanyController')->except('index');
             });
     });
