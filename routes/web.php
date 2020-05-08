@@ -50,5 +50,7 @@ Route::prefix('dashboard')
                 Route::get('', 'IndexController@get')->name('index');
 
                 Route::resource('companies', 'CompanyController')->except('index');
+                Route::resource('products', 'ProductController')->except('index');
+                Route::resource('services', 'ServiceController')->except('index');
             });
     });
