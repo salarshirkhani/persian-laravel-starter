@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -61,10 +62,13 @@ class Keyword extends Model
         }
 
         $rows = [];
+        $now = Carbon::now();
         foreach ($new_keywords as $name) {
             $rows[] = [
                 'name' => $name,
-                'type' => $type
+                'type' => $type,
+                'created_at' => $now,
+                'updated_at' => $now,
             ];
         }
 
