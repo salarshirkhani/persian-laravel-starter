@@ -22,6 +22,7 @@ class CompanyController extends Controller
         $company = new Company($data = $request->validated());
         if ($request->hasFile('logo'))
             $company->logo = $request->file('logo')->store('logos', 'public');
+        $company->creator()->associate(\Auth::user());
         $company->save();
         $company->keywords()->sync(Keyword::syncKeywords($data['keywords'], 'product'));
         return redirect()->route('dashboard.owner.companies.show', ['company' => $company]);
