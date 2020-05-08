@@ -42,6 +42,8 @@ class CompanyStoreRequestTest extends TestCase
             'latitude' => ['required', 'numeric', 'min:-90', 'max:90'],
             'longitude' => ['required', 'numeric', 'min:-80', 'max:180'],
 
+            'keywords' => ['required', 'string', 'regex:/^[a-zA-Z0-9۰-۹آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیيئ,،. ]+$/'],
+
             'social_instagram' => ['nullable', 'string', 'regex:/^@?[a-zA-Z0-9_\-.]+$/'],
             'social_telegram' => ['nullable', 'string', 'regex:/^@?[a-zA-Z0-9_\-.]+$/'],
             'social_facebook' => ['nullable', 'string', 'regex:/^@?[a-zA-Z0-9_\-.]+$/'],

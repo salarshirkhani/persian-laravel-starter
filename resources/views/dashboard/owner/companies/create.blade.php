@@ -29,6 +29,8 @@
 
                 <x-select-group name="type" label="نوع شرکت" :options="['' => '', 'product' => 'تولیدی', 'service' => 'خدماتی']" required />
 
+                <x-text-group name="keywords" label="کلمات کلیدی" required />
+
                 <div class="form-row">
                     <x-text-group name="social_instagram" label="آیدی اینستاگرام" width="col-md-6" />
                     <x-text-group name="social_telegram" label="آیدی تلگرام" width="col-md-6" />
