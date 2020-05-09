@@ -13,3 +13,11 @@ $factory->define(Product::class, function (Faker $faker) {
         'price' => $faker->numberBetween(5, 5000) * 1000,
     ];
 });
+
+$factory->state(Product::class, 'withPhoto', function (Faker $faker) {
+    $photo = 'products/' . \Str::random(40) . '.jpg';
+    Storage::put("public/$photo", file_get_contents("https://loremflickr.com/800/800/shop,product/all"));
+    return [
+        'photo' => $photo
+    ];
+});

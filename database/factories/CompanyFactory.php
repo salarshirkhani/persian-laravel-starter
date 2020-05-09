@@ -38,3 +38,11 @@ $factory->state(Company::class, 'product', [
 $factory->state(Company::class, 'service', [
     'type' => 'service'
 ]);
+
+$factory->state(Company::class, 'withPhoto', function (Faker $faker) {
+    $logo = 'logos/' . \Str::random(40) . '.jpg';
+    Storage::put("public/$logo", file_get_contents("https://loremflickr.com/800/800/logo,business/all"));
+    return [
+        'logo' => $logo
+    ];
+});
