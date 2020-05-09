@@ -8,16 +8,16 @@ use Faker\Generator as Faker;
 $factory->define(Company::class, function (Faker $faker) {
     return [
         'name' => $faker->company,
-        'short_description' => $faker->paragraphs(2, true),
-        'description' => $faker->paragraphs(6, true),
+        'short_description' => $faker->realText(500),
+        'description' => $faker->realText(3000),
 
-        'province' => $faker->state,
-        'city' => $faker->city,
+        'province' => $faker->city,
+        'city' => $faker->cityName,
         'address' => $faker->address,
 
-        'phone_number' => $faker->e164PhoneNumber,
-        'mobile_number' => $faker->e164PhoneNumber,
-        'fax_number' => $faker->e164PhoneNumber,
+        'phone_number' => $faker->phoneNumber,
+        'mobile_number' => $faker->mobileNumber,
+        'fax_number' => $faker->phoneNumber,
 
         'latitude' => $faker->randomFloat(4, -90, 90),
         'longitude' => $faker->randomFloat(4, -180, 80),
