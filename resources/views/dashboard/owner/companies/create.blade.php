@@ -27,7 +27,11 @@
                     <x-text-group name="fax_number" label="شماره فکس" width="col-lg-4" />
                 </div>
 
-                <x-select-group name="type" label="نوع شرکت" :options="['' => '', 'product' => 'تولیدی', 'service' => 'خدماتی']" required />
+                <x-select-group name="type" label="نوع شرکت" required>
+                    <x-select-item/>
+                    <x-select-item value="product">تولیدی</x-select-item>
+                    <x-select-item value="service">خدماتی</x-select-item>
+                </x-select-group>
 
                 <x-text-group name="keywords" label="کلمات کلیدی" required />
 

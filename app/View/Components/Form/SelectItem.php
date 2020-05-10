@@ -2,11 +2,17 @@
 
 namespace App\View\Components\Form;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\View\Component;
 
-class SelectGroup extends Input
+class SelectItem extends Component
 {
+    public $value;
+
+    public function __construct($value = null)
+    {
+        $this->value = $value;
+    }
+
     /**
      * Get the view / contents that represent the component.
      *
@@ -14,6 +20,6 @@ class SelectGroup extends Input
      */
     public function render()
     {
-        return view('components.form.select-group');
+        return view('components.form.select-item');
     }
 }

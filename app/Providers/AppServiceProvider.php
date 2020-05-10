@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
 
         Blade::component('text-group', \App\View\Components\Form\TextGroup::class);
         Blade::component('select-group', \App\View\Components\Form\SelectGroup::class);
+        Blade::component('select-item', \App\View\Components\Form\SelectItem::class);
         Blade::component('textarea-group', \App\View\Components\Form\TextareaGroup::class);
         Blade::component('file-group', \App\View\Components\Form\FileGroup::class);
     }

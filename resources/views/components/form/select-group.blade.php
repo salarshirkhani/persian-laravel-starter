@@ -1,3 +1,6 @@
+<?php
+$slot = preg_replace("/<option(.*?) value=\"$value\"(.*?)>/", "<option $1 value=\"$value\" selected $2>", $slot);
+?>
 <div class="form-group {{ $width }}">
     <label for="input_{{ $name }}">{{ $label }}</label>
     <select {{ $attributes->merge([
@@ -5,9 +8,7 @@
         'name' => $name,
         'class' => 'form-control' . ($errors->has($name) ? ' is-invalid' : '')
     ]) }}>
-        @foreach($options as $optValue => $optLabel)
-            <option value="{{ $optValue }}" @if($optValue == $value) selected @endif>{{ $optLabel }}</option>
-        @endforeach
+        {!! $slot !!}
     </select>
     @error($name)
     <div class="invalid-feedback">
