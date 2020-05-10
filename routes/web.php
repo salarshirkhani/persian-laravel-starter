@@ -40,6 +40,7 @@ Route::prefix('dashboard')
             ->namespace('Customer')
             ->group(function() {
                 Route::get('', 'IndexController@get')->name('index');
+                Route::get('search', 'SearchController@search')->name('search');
             });
 
         Route::prefix('owner')
