@@ -3,7 +3,10 @@
 namespace App\Providers;
 
 use Blade;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,5 +37,17 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('select-item', \App\View\Components\Form\SelectItem::class);
         Blade::component('textarea-group', \App\View\Components\Form\TextareaGroup::class);
         Blade::component('file-group', \App\View\Components\Form\FileGroup::class);
+
+        Builder::macro('whereLike', function ($attributes, $searchTerm) {
+            /** @var Builder $this */
+            $this->where(function (Builder $query) use ($attributes, $searchTerm) {
+                foreach (Arr::wrap($attributes) as $attribute) {
+                    foreach (Arr::wrap($searchTerm) as $term)
+                        $query->orWhere($attribute, 'LIKE', "%{$term}%");
+                }
+            });
+
+            return $this;
+        });
     }
 }
