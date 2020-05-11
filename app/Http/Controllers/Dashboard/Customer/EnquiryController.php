@@ -10,7 +10,7 @@ use App\Http\Requests\Dashboard\Customer\EnquiryStoreRequest;
 class EnquiryController extends Controller
 {
     public function create() {
-        return view('dashboard.customer.enquiries.create', ['categories' => Category::all()]);
+        return view('dashboard.customer.enquiries.create', ['categories' => Category::where('type', 'company')->get()]);
     }
 
     public function store(EnquiryStoreRequest $request) {
