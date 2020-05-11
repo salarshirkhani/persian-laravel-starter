@@ -22,15 +22,15 @@ class DatabaseSeeder extends Seeder
         $categories['product'] = factory(Category::class, 3)->state('product')->create();
         $categories['service'] = factory(Category::class, 3)->state('service')->create();
 
-        $categories['company']->merge(factory(Category::class, 7)->state('company')->create()->each(function (Category $category) use ($categories) {
+        $categories['company'] = $categories['company']->merge(factory(Category::class, 7)->state('company')->create()->each(function (Category $category) use ($categories) {
             $category->parent()->associate($categories['company']->random());
             $category->save();
         }));
-        $categories['product']->merge(factory(Category::class, 10)->state('product')->create()->each(function (Category $category) use ($categories) {
+        $categories['product'] = $categories['product']->merge(factory(Category::class, 10)->state('product')->create()->each(function (Category $category) use ($categories) {
             $category->parent()->associate($categories['product']->random());
             $category->save();
         }));
-        $categories['service']->merge(factory(Category::class, 10)->state('service')->create()->each(function (Category $category) use ($categories) {
+        $categories['service'] = $categories['service']->merge(factory(Category::class, 10)->state('service')->create()->each(function (Category $category) use ($categories) {
             $category->parent()->associate($categories['service']->random());
             $category->save();
         }));
