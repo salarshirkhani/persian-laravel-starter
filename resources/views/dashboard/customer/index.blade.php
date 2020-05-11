@@ -7,6 +7,11 @@
 @endsection
 @section('content')
     <div class="container">
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
         <form action="{{ route('dashboard.customer.search') }}" method="GET">
             <x-card type="success">
                 <x-slot name="header"><div class="text-center">به دنبال چه چیزی می‌گردید؟</div></x-slot>

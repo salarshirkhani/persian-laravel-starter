@@ -41,6 +41,8 @@ Route::prefix('dashboard')
             ->group(function() {
                 Route::get('', 'IndexController@get')->name('index');
                 Route::get('search', 'SearchController@search')->name('search');
+
+                Route::resource('enquiries', 'EnquiryController')->only(['create', 'store']);
             });
 
         Route::prefix('owner')
