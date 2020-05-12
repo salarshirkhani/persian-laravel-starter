@@ -8,4 +8,5 @@
     @else
         <x-sidebar-item title="ثبت خدمت/سرویس جدید" icon="fas fa-plus" route="dashboard.owner.services.create" />
     @endif
+    <x-sidebar-item title="درخواست‌های خرید" icon="fas fa-question-circle" route="dashboard.owner.enquiries.index" />
 @endempty

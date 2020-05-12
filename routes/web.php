@@ -55,5 +55,6 @@ Route::prefix('dashboard')
                 Route::resource('companies', 'CompanyController')->except('index');
                 Route::resource('products', 'ProductController')->except('index');
                 Route::resource('services', 'ServiceController')->except('index');
+                Route::resource('enquiries', 'EnquiryController')->only(['index', 'show']);
             });
     });
