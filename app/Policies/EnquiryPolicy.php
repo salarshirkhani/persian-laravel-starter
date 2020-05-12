@@ -26,7 +26,7 @@ class EnquiryPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->type == 'customer';
+        return $user->type == 'customer' || $user->type == 'owner';
     }
 
     /**
@@ -38,7 +38,17 @@ class EnquiryPolicy
      */
     public function view(User $user, Enquiry $enquiry)
     {
-        return $user->type == 'customer' && $enquiry->creator->is($user);
+        return
+            (
+                $user->type == 'customer' &&
+                $enquiry->creator->is($user)
+            ) ||
+            (
+                $user->type == 'owner' &&
+                !empty($user->company) &&
+                ($enquiry->relationLoaded('relevantCompanies') && $enquiry->relevantCompanies->contains($user->company) ||
+                $enquiry->relevantCompanies()->where('companies.id', $user->company->id)->exists())
+            );
     }
 
     /**

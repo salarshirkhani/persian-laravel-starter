@@ -2,6 +2,8 @@
 
 namespace Tests\Unit\Policy;
 
+use App\Category;
+use App\Company;
 use App\Enquiry;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -29,9 +31,11 @@ class EnquiryPolicyTest extends TestCase
     public function test_users_cannot_view_enquiry_list() {
         $user = factory(User::class)->make();
         $this->assertFalse($user->can('viewAny', Enquiry::class));
+    }
 
+    public function test_owners_can_view_enquiry_list() {
         $user = factory(User::class)->make(['type' => 'owner']);
-        $this->assertFalse($user->can('viewAny', Enquiry::class));
+        $this->assertTrue($user->can('viewAny', Enquiry::class));
     }
 
     public function test_customers_can_view_enquiry_list() {
@@ -45,6 +49,26 @@ class EnquiryPolicyTest extends TestCase
         $user = factory(User::class)->make();
         $enquiry = factory(Enquiry::class)->make(['creator_id' => $user->getKey()]);
         $this->assertFalse($user->can('view', $enquiry));
+    }
+
+    public function test_owners_cannot_view_non_relevant_enquiry() {
+        $customer = factory(User::class)->create(['type' => 'customer']);
+        $owner = factory(User::class)->create(['type' => 'owner']);
+        $companyCategory = factory(Category::class)->state('product')->create();
+        $enquiryCategory = factory(Category::class)->state('product')->create();
+        factory(Company::class)->state('product')->create(['creator_id' => $owner->id, 'category_id' => $companyCategory->id]);
+        $enquiry = factory(Enquiry::class)->state('product')->create(['creator_id' => $customer->id, 'category_id' => $enquiryCategory->id]);
+        $this->assertFalse($owner->can('view', $enquiry));
+    }
+
+    public function test_owners_can_view_relevant_enquiry() {
+        $customer = factory(User::class)->create(['type' => 'customer']);
+        $owner = factory(User::class)->create(['type' => 'owner']);
+        $category = factory(Category::class)->state('product')->create();
+
+        factory(Company::class)->state('product')->create(['creator_id' => $owner->id, 'category_id' => $category->id]);
+        $enquiry = factory(Enquiry::class)->state('product')->create(['creator_id' => $customer->id, 'category_id' => $category->id]);
+        $this->assertTrue($owner->can('view', $enquiry));
     }
 
     public function test_customers_cannot_view_others_enquiry() {
