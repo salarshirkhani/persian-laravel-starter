@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
+use LaravelCustomRelation\HasCustomRelations;
 
 /**
  * App\Enquiry
@@ -17,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Category|null $category
  * @property-read \App\User $creator
+ * @method static whatever
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Enquiry newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Enquiry newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Enquiry query()
@@ -32,6 +35,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Enquiry extends Model
 {
+    use HasCustomRelations;
+
     protected $fillable = [
         'type',
         'title',
@@ -46,4 +51,45 @@ class Enquiry extends Model
     public function creator() {
         return $this->belongsTo('App\User', 'creator_id');
     }
+
+    public function relevantCompanies() {
+        return $this->custom(
+            Company::class,
+            function ($relation) {
+                $query = $relation->getQuery();
+                $query->where(function ($q) {
+                    if (!empty($this->category_id))
+                        $q->where('companies.category_id', $this->category_id);
+                    $q->where('companies.type', $this->type);
+                });
+            },
+            function ($relation, $models) {
+                $relation->getQuery()->orWhere(function ($q) use ($models) {
+                    $models = collect($models);
+                    if (!$models->contains('category_id', null))
+                        $q->whereIn('companies.category_id', $models->pluck('category_id'));
+                    $q->whereIn('companies.type', $models->pluck('type'));
+                });
+            },
+            function (array $models, Collection $results, $relation, $customRelation) {
+                $dictionary = [];
+
+                foreach ($results as $result) {
+                    $dictionary[$result->type][$result->category_id][] = $result;
+                }
+
+                foreach ($models as $model) {
+                    if (empty($model->category_id))
+                        $model->setRelation($relation, $results);
+                    if (isset($dictionary[$type = $model->type][$category_id = $model->category_id])) {
+                        $collection = collect($dictionary[$type][$category_id]);
+                        $model->setRelation($relation, $collection);
+                    }
+                }
+
+                return $models;
+            }
+        );
+    }
 }
+

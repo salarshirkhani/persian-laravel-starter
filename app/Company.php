@@ -3,6 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
+use LaravelCustomRelation\HasCustomRelations;
+use function foo\func;
 
 /**
  * App\Company
@@ -68,6 +71,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Company extends Model
 {
+    use HasCustomRelations;
+
     protected $fillable = [
         'name',
         'short_description',
@@ -125,5 +130,55 @@ class Company extends Model
             return asset('assets/images/unknown.jpg');
         else
             return \Storage::url($this->logo);
+    }
+
+    public function relevantEnquiries() {
+        return $this->custom(
+            Enquiry::class,
+            function ($relation) {
+                $query = $relation->getQuery();
+                $query->where(function($q) use ($relation) {
+                    $q->where(function ($q) use ($relation) {
+                        $q->whereNull('enquiries.category_id')
+                            ->orWhere('enquiries.category_id', $this->category_id);
+                    })
+                        ->where('enquiries.type', $this->type)
+                        ->orderBy('created_at', 'desc');
+                });
+            },
+            function ($relation, $models) {
+                $models = collect($models);
+                $relation->getQuery()
+                    ->orWhere(function ($query) use ($models) {
+                        $query->where(function ($q) use ($models) {
+                            $q->whereIn('enquiries.category_id', $models->pluck('category_id'))
+                                ->orWhereNull('enquiries.category_id');
+                        })->whereIn('enquiries.type', $models->pluck('type'));
+                    });
+            },
+            function (array $models, Collection $results, $relation, $customRelation) {
+                $dictionary = [];
+                $dictionary['global'] = [];
+                foreach ($results as $result) {
+                    if (empty($result->category_id))
+                        $dictionary['global'][] = $result;
+                    else
+                        $dictionary[$result->type][$result->category_id][] = $result;
+                }
+
+                foreach ($models as $model) {
+                    if (isset($dictionary[$type = $model->type][$category_id = $model->category_id])) {
+                        $model->setRelation(
+                            $relation,
+                            collect($dictionary[$type][$category_id])
+                                ->merge($dictionary['global'])
+                                ->sortByDesc('created_at')->values());
+                    } else
+                        $model->setRelation($relation, collect($dictionary['global']));
+                }
+
+                return $models;
+            }
+        );
     }
 }
