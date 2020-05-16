@@ -29,6 +29,9 @@ class AppServiceProvider extends ServiceProvider
     {
         Blade::component('breadcrumb-item', \App\View\Components\Dashboard\BreadcrumbItem::class);
         Blade::component('card', \App\View\Components\Dashboard\Card::class);
+        Blade::component('card-header', \App\View\Components\Dashboard\CardHeader::class);
+        Blade::component('card-body', \App\View\Components\Dashboard\CardBody::class);
+        Blade::component('card-footer', \App\View\Components\Dashboard\CardFooter::class);
         Blade::component('alert', \App\View\Components\Dashboard\Alert::class);
         Blade::component('sidebar-item', \App\View\Components\Dashboard\SidebarItem::class);
 

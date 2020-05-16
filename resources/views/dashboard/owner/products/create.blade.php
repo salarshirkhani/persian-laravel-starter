@@ -12,19 +12,21 @@
         <form action="{{ route('dashboard.owner.products.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <x-card>
-                <x-slot name="header">مشخصات محصول</x-slot>
+                <x-card-header>مشخصات محصول</x-card-header>
 
-                <div class="form-row">
-                    <x-text-group name="name" label="نام محصول" width="col-md-8" required />
-                    <x-text-group name="price" type="number" label="قیمت (تومان)" width="col-md-4" required/>
-                </div>
-                <x-file-group name="photo" label="تصویر" required accept=".jpg,.jpeg,.png"/>
-                <x-textarea-group name="short_description" label="خلاصه توضیحات" rows="3" required/>
-                <x-textarea-group name="description" label="توضیحات کامل" rows="7" required/>
+                <x-card-body>
+                    <div class="form-row">
+                        <x-text-group name="name" label="نام محصول" width="col-md-8" required />
+                        <x-text-group name="price" type="number" label="قیمت (تومان)" width="col-md-4" required/>
+                    </div>
+                    <x-file-group name="photo" label="تصویر" required accept=".jpg,.jpeg,.png"/>
+                    <x-textarea-group name="short_description" label="خلاصه توضیحات" rows="3" required/>
+                    <x-textarea-group name="description" label="توضیحات کامل" rows="7" required/>
+                </x-card-body>
 
-                <x-slot name="footer">
+                <x-card-footer>
                     <button type="submit" class="btn btn-success">ثبت</button>
-                </x-slot>
+                </x-card-footer>
             </x-card>
         </form>
     </div>

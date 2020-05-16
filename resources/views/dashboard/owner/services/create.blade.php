@@ -12,16 +12,18 @@
         <form action="{{ route('dashboard.owner.services.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <x-card>
-                <x-slot name="header">مشخصات سرویس</x-slot>
+                <x-card-header>مشخصات سرویس</x-card-header>
 
-                <x-text-group name="name" label="نام سرویس" required />
-                <x-file-group name="photo" label="تصویر" required accept=".jpg,.jpeg,.png"/>
-                <x-textarea-group name="short_description" label="خلاصه توضیحات" rows="3" required/>
-                <x-textarea-group name="description" label="توضیحات کامل" rows="7" required/>
+                <x-card-body>
+                    <x-text-group name="name" label="نام سرویس" required />
+                    <x-file-group name="photo" label="تصویر" required accept=".jpg,.jpeg,.png"/>
+                    <x-textarea-group name="short_description" label="خلاصه توضیحات" rows="3" required/>
+                    <x-textarea-group name="description" label="توضیحات کامل" rows="7" required/>
+                </x-card-body>
 
-                <x-slot name="footer">
+                <x-card-footer>
                     <button type="submit" class="btn btn-success">ثبت</button>
-                </x-slot>
+                </x-card-footer>
             </x-card>
         </form>
     </div>

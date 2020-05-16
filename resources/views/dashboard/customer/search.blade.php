@@ -9,34 +9,38 @@
 @section('content')
     <div class="container">
         <x-card type="info">
-            <x-slot name="header"><div class="text-center">نتایج جستجو</div></x-slot>
+            <x-card-header><div class="text-center">نتایج جستجو</div></x-card-header>
 
-            @if(!$items->count())
-                <p class="card-text">
-                    متاسفانه چیزی پیدا نشد. دوباره تلاش کنید.
-                </p>
-            @else
-                <div class="row">
-                    @foreach($items as $item)
-                        <div class="col-md-6 col-lg-4" style="padding: 10px">
-                            <x-card type="outline-primary">
-                                <x-slot name="top">
+            <x-card-body>
+                @if(!$items->count())
+                    <p class="card-text">
+                        متاسفانه چیزی پیدا نشد. دوباره تلاش کنید.
+                    </p>
+                @else
+                    <div class="row">
+                        @foreach($items as $item)
+                            <div class="col-md-6 col-lg-4" style="padding: 10px">
+                                <x-card type="outline-primary">
                                     <img class="card-img-top" src="{{ Storage::url($item->photo ?? $item->logo) }}" alt="{{ $item->name }}">
-                                </x-slot>
-                                <x-slot name="header">{{ $item->name }}</x-slot>
-                                <p class="card-text">
-                                    {{ $item->short_description }}
-                                </p>
-                                <a href="#{{-- TODO: route to actual page --}}">اطلاعات بیشتر</a>
-                            </x-card>
-                        </div>
-                    @endforeach
-                </div>
-            @endif
 
-            <x-slot name="footer">
+                                    <x-card-header>{{ $item->name }}</x-card-header>
+
+                                    <x-card-body>
+                                        <p class="card-text">
+                                            {{ $item->short_description }}
+                                        </p>
+                                        <a href="#{{-- TODO: route to actual page --}}">اطلاعات بیشتر</a>
+                                    </x-card-body>
+                                </x-card>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+            </x-card-body>
+
+            <x-card-footer>
                 <a href="{{ route('dashboard.customer.index') }}" class="btn btn-outline-primary">بازگشت</a>
-            </x-slot>
+            </x-card-footer>
         </x-card>
     </div>
 @endsection

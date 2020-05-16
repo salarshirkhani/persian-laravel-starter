@@ -9,15 +9,15 @@
 @section('content')
     <div class="container">
         <x-card type="info">
-            <x-slot name="header">شرکت {{ $company->name }}</x-slot>
+            <x-card-header>شرکت {{ $company->name }}</x-card-header>
 
-            <x-slot name="footer">
+            <x-card-footer>
                 @if($company->type == 'product')
                     <a href="{{ route('dashboard.owner.products.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> افزودن محصول</a>
                 @else
                     <a href="{{ route('dashboard.owner.services.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> افزودن سرویس</a>
                 @endif
-            </x-slot>
+            </x-card-footer>
         </x-card>
     </div>
 @endsection

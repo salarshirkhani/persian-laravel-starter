@@ -9,26 +9,28 @@
 @section('content')
     <div class="container">
         <x-card>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>عنوان</th>
-                    <th style="width: 15vw">عملیات</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($enquiries as $enquiry)
+            <x-card-body>
+                <table class="table">
+                    <thead>
                     <tr>
-                        <td>{{ $enquiry->title }}</td>
-                        <td>
-                            <a href="{{ route('dashboard.owner.enquiries.show', $enquiry) }}" class="btn btn-success">
-                                مشاهده
-                            </a>
-                        </td>
+                        <th>عنوان</th>
+                        <th style="width: 15vw">عملیات</th>
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    @foreach($enquiries as $enquiry)
+                        <tr>
+                            <td>{{ $enquiry->title }}</td>
+                            <td>
+                                <a href="{{ route('dashboard.owner.enquiries.show', $enquiry) }}" class="btn btn-success">
+                                    مشاهده
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </x-card-body>
         </x-card>
     </div>
 @endsection

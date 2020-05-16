@@ -10,9 +10,12 @@
 @section('content')
     <div class="container">
         <x-card>
-            <x-slot name="header">مشخصات درخواست</x-slot>
-            <p class="card-title" style="margin-bottom: 8px">{{ $enquiry->title }}</p>
-            {{ $enquiry->description }}
+            <x-card-header>مشخصات درخواست</x-card-header>
+
+            <x-card-body>
+                <p class="card-title" style="margin-bottom: 8px">{{ $enquiry->title }}</p>
+                {{ $enquiry->description }}
+            </x-card-body>
         </x-card>
     </div>
 @endsection
