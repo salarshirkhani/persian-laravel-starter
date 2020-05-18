@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Awobaz\Compoships\Compoships;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -20,6 +21,9 @@ use Illuminate\Notifications\Notifiable;
  * @property string $last_name
  * @property string $type
  * @property-read \App\Company|null $company
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Conversation[] $conversations
+ * @property-read int|null $conversations_count
+ * @property-read mixed $name
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User newModelQuery()
@@ -56,7 +60,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'created_at', 'updated_at', 'email', 'email_verified_at'
+    ];
+
+    protected $appends = [
+        'name'
     ];
 
     /**
@@ -68,7 +76,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getNameAttribute() {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
     public function company() {
         return $this->hasOne('App\Company', 'creator_id');
     }
+
+    public function conversations() {
+        return $this->belongsToMany('App\Conversation')
+            ->orderBy('created_at', 'desc');
+    }
+
 }
