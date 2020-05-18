@@ -16,7 +16,9 @@
         "laravel/telescope": "^3.3",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
-        "johnnyfreeman/laravel-custom-relation": "dev-master"
+        "johnnyfreeman/laravel-custom-relation": "dev-master",
+        "morilog/jalali": "^3.0",
+        "pusher/pusher-php-server": "^4.1"
     },
     "require-dev": {
         "andrey-helldar/laravel-lang-publisher": "^4.0",
