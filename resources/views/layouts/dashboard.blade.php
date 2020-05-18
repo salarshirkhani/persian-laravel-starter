@@ -16,11 +16,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
           integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
     <!-- Theme style -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/shabnam-font@v5.0.1/dist/font-face.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('assets/dashboard/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dashboard/css/adminlte.css') }}">
     @yield('styles', '')
-    <link rel="stylesheet" href="{{ asset('assets/dashboard/css/adminlte.rtl.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dashboard/css/adminlte.rtl.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!}
+        var module = { };
+    </script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">

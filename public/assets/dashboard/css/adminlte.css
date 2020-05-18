@@ -19218,7 +19218,7 @@ html.maximized-card {
 .direct-chat-messages {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
-    height: 250px;
+    height: 55vh;
     overflow: auto;
     padding: 10px;
 }
@@ -19236,6 +19236,10 @@ html.maximized-card {
     display: block;
     clear: both;
     content: "";
+}
+
+.direct-chat-msg.pending {
+    opacity: .5;
 }
 
 .direct-chat-messages,
@@ -19351,6 +19355,7 @@ html.maximized-card {
 .contacts-list {
     padding-left: 0;
     list-style: none;
+    min-height: 55vh;
 }
 
 .contacts-list > li {
@@ -19376,7 +19381,7 @@ html.maximized-card {
 }
 
 .contacts-list-info {
-    color: #ffffff;
+    color: #343a40;
     margin-left: 45px;
 }
 
@@ -19386,7 +19391,7 @@ html.maximized-card {
 }
 
 .contacts-list-name {
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .contacts-list-status {
@@ -19394,12 +19399,12 @@ html.maximized-card {
 }
 
 .contacts-list-date {
-    color: #ced4da;
+    color: #6f6f6f;
     font-weight: normal;
 }
 
 .contacts-list-msg {
-    color: #b1bbc4;
+    color: #7f7f7f;
 }
 
 .direct-chat-primary .right > .direct-chat-text {

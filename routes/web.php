@@ -26,6 +26,9 @@ Route::prefix('dashboard')
     ->group(function() {
         Route::get('', 'IndexController@get')->name('index');
 
+        Route::resource('conversations', 'ConversationController')->only(['index', 'show', 'store']);
+        Route::post('conversations/{conversation}/messages', 'ConversationController@sendMessage')->name('sendMessage');
+
         Route::prefix('admin')
             ->name('admin.')
             ->middleware('user_type:admin')

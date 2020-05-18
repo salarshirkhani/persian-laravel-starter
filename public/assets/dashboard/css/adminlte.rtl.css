@@ -3371,7 +3371,7 @@ textarea.form-control.is-warning {
 
 .direct-chat-text::after, .direct-chat-text::before {
     border-left-color: #d2d6de;
-    border-right-color: unset;
+    border-right-color: #0000;
     left: 100%;
     right: auto;
 }
@@ -3388,11 +3388,11 @@ textarea.form-control.is-warning {
     left: auto;
 }
 
-.direct-chat-img {
+.direct-chat-img, .direct-chat-name, .right .direct-chat-timestamp {
     float: right;
 }
 
-.right .direct-chat-img {
+.right .direct-chat-img, .right .direct-chat-name, .direct-chat-timestamp {
     float: left;
 }
 
