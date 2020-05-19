@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ca97b40ecb402f13786bca1f5961b3c7",
+    "content-hash": "dd58b087208a68c79d2aebdb7dcaa403",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -57,76 +57,6 @@
                 "stack"
             ],
             "time": "2019-12-24T22:41:47+00:00"
-        },
-        {
-            "name": "awobaz/compoships",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/topclaudy/compoships.git",
-                "reference": "e35a71e12069fabf3db72e486ebb8bbcdd39f18b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/topclaudy/compoships/zipball/e35a71e12069fabf3db72e486ebb8bbcdd39f18b",
-                "reference": "e35a71e12069fabf3db72e486ebb8bbcdd39f18b",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/cache": "~5.4|~6.0|~7.0",
-                "illuminate/console": "~5.4|~6.0|~7.0",
-                "illuminate/database": "~5.4|~6.0|~7.0",
-                "illuminate/support": "~5.4|~6.0|~7.0",
-                "php": ">=5.6.4"
-            },
-            "require-dev": {
-                "fzaninotto/faker": "^1.8",
-                "laravel/laravel": "~5.4|~6.0|~7.0",
-                "phpunit/phpunit": "5.*"
-            },
-            "suggest": {
-                "awobaz/blade-active": "Blade directives for the Laravel 'Active' package",
-                "awobaz/eloquent-auto-append": "Automatically append accessors to model serialization",
-                "awobaz/eloquent-mutators": "Reusable mutators (getters/setters) for Laravel 5's Eloquent",
-                "awobaz/syntactic": "Syntactic sugar for named and indexed parameters call."
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Awobaz\\Compoships\\ComposhipsServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Awobaz\\Compoships\\": "src"
-                },
-                "files": []
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Claudin J. Daniel",
-                    "email": "cdaniel@awobaz.com"
-                }
-            ],
-            "description": "Laravel relationships with support for composite/multiple keys",
-            "keywords": [
-                "laravel",
-                "laravel composite keys",
-                "laravel relationships"
-            ],
-            "funding": [
-                {
-                    "url": "https://paypal.me/awobaz",
-                    "type": "custom"
-                }
-            ],
-            "time": "2020-05-14T02:10:51+00:00"
         },
         {
             "name": "beberlei/assert",
@@ -1327,16 +1257,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.68",
+            "version": "1.0.69",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "3e4198372276ec99ac3409a21d7c9d1ced9026e4"
+                "reference": "7106f78428a344bc4f643c233a94e48795f10967"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/3e4198372276ec99ac3409a21d7c9d1ced9026e4",
-                "reference": "3e4198372276ec99ac3409a21d7c9d1ced9026e4",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/7106f78428a344bc4f643c233a94e48795f10967",
+                "reference": "7106f78428a344bc4f643c233a94e48795f10967",
                 "shasum": ""
             },
             "require": {
@@ -1413,7 +1343,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2020-05-12T20:33:44+00:00"
+            "time": "2020-05-18T15:13:39+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4331,16 +4261,16 @@
     "packages-dev": [
         {
             "name": "andrey-helldar/laravel-lang-publisher",
-            "version": "v4.1.0",
+            "version": "v4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andrey-helldar/laravel-lang-publisher.git",
-                "reference": "67ddf0df110f819cdbef09a52b7983af22fc1e20"
+                "reference": "a51bc9b4d97a4c14a6c536f20b29fb8e7cb24a8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andrey-helldar/laravel-lang-publisher/zipball/67ddf0df110f819cdbef09a52b7983af22fc1e20",
-                "reference": "67ddf0df110f819cdbef09a52b7983af22fc1e20",
+                "url": "https://api.github.com/repos/andrey-helldar/laravel-lang-publisher/zipball/a51bc9b4d97a4c14a6c536f20b29fb8e7cb24a8e",
+                "reference": "a51bc9b4d97a4c14a6c536f20b29fb8e7cb24a8e",
                 "shasum": ""
             },
             "require": {
@@ -4406,7 +4336,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-05-09T19:21:25+00:00"
+            "time": "2020-05-15T22:45:06+00:00"
         },
         {
             "name": "andrey-helldar/pretty-array",
@@ -5366,16 +5296,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.0.2",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "67f1677954ad33ca6b77f2c41cf43a58624f27fc"
+                "reference": "749fba7bf560fe2600ea55bf8734a7c9b8c30cfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/67f1677954ad33ca6b77f2c41cf43a58624f27fc",
-                "reference": "67f1677954ad33ca6b77f2c41cf43a58624f27fc",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/749fba7bf560fe2600ea55bf8734a7c9b8c30cfd",
+                "reference": "749fba7bf560fe2600ea55bf8734a7c9b8c30cfd",
                 "shasum": ""
             },
             "require": {
@@ -5384,7 +5314,7 @@
                 "facade/flare-client-php": "^1.0",
                 "facade/ignition-contracts": "^1.0",
                 "filp/whoops": "^2.4",
-                "illuminate/support": "^7.0",
+                "illuminate/support": "^7.0|^8.0",
                 "monolog/monolog": "^2.0",
                 "php": "^7.2.5",
                 "scrivo/highlight.php": "^9.15",
@@ -5433,7 +5363,7 @@
                 "laravel",
                 "page"
             ],
-            "time": "2020-03-18T19:20:44+00:00"
+            "time": "2020-05-18T15:20:13+00:00"
         },
         {
             "name": "facade/ignition-contracts",
