@@ -55,6 +55,7 @@ class ConversationController extends Controller
         $message = new Message($request->validated());
         $message->conversation()->associate($conversation);
         $message->from()->associate(Auth::user());
+        $message->type = 'text';
         $message->save();
         broadcast(new MessageSent($message));
 
