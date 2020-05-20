@@ -37,4 +37,21 @@ class CompanyTest extends TestCase
         $response->assertViewIs('dashboard.owner.companies.show');
     }
 
+    public function test_owner_can_create_company()
+    {
+        $response = $this->post(
+            route('dashboard.owner.companies.store', [], false),
+            array_merge(factory(Company::class)->raw(), [
+                'type' => 'product',
+                'keywords' => 'A,B,C'
+            ])
+        );
+        $response->assertSessionHasNoErrors();
+        $response->assertRedirect(route(
+            'dashboard.owner.companies.show',
+            Company::orderBy('created_at', 'desc')->first(),
+            false)
+        );
+    }
+
 }

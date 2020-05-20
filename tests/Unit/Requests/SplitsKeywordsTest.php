@@ -32,6 +32,21 @@ class SplitsKeywordsTest extends TestCase
         };
     }
 
+    public function test_error_on_no_keyword()
+    {
+        $emptySplitter = new class {
+            use SplitsKeywords;
+
+            public function validated()
+            {
+                $data = [];
+                return $this->addKeywordsToData($data);
+            }
+        };
+        $this->expectException(\RuntimeException::class);
+        $emptySplitter->validated();
+    }
+
     public function test_empty_keyword_string()
     {
         $this->keywordRaw = "";
