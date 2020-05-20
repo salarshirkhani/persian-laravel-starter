@@ -34,7 +34,7 @@ class ConversationController extends Controller
     public function store(StartConversationRequest $request) {
         $target = User::find($request->validated()['user_id']);
 
-        if ($target->type == Auth::user()->id)
+        if ($target->type == Auth::user()->type || $target->is(Auth::user()))
             abort(403);
 
         $existing = \DB::select("SELECT conversation_id FROM conversation_user WHERE user_id IN (?, ?)
