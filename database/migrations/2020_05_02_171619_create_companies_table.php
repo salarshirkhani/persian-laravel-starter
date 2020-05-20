@@ -21,7 +21,7 @@ class CreateCompaniesTable extends Migration
             $table->string('type');
 
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->unsignedBigInteger('creator_id')->nullable();
+            $table->unsignedBigInteger('creator_id')->nullable()->unique();
 
             $table->text('short_description');
             $table->text('description')->nullable();
@@ -39,8 +39,8 @@ class CreateCompaniesTable extends Migration
             $table->string('mobile_number')->nullable();
             $table->string('fax_number')->nullable();
 
-            $table->decimal('longitude', 10, 7);
             $table->decimal('latitude', 10, 7);
+            $table->decimal('longitude', 10, 7);
 
             $table->text('website')->nullable();
 

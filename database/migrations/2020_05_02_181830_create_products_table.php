@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
 
             $table->text('photo');
 
-            $table->decimal('price');
+            $table->decimal('price', 16, 2);
 
             $table->timestamps();
         });
