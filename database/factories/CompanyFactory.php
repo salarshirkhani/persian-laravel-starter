@@ -20,7 +20,7 @@ $factory->define(Company::class, function (Faker $faker) {
         'fax_number' => $faker->phoneNumber,
 
         'latitude' => $faker->randomFloat(4, -90, 90),
-        'longitude' => $faker->randomFloat(4, -180, 80),
+        'longitude' => $faker->randomFloat(4, -180, 180),
 
         'social_instagram' => '@' . $faker->word,
         'social_telegram' => '@' . $faker->word,

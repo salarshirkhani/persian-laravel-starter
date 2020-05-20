@@ -40,7 +40,7 @@ class CompanyStoreRequestTest extends TestCase
             'fax_number' => ['nullable', 'string', 'regex:/^((\+98|0)[0-9]+)|((\+۹۸|۰)[۰-۹]+)$/'],
 
             'latitude' => ['required', 'numeric', 'min:-90', 'max:90'],
-            'longitude' => ['required', 'numeric', 'min:-80', 'max:180'],
+            'longitude' => ['required', 'numeric', 'min:-180', 'max:180'],
 
             'keywords' => ['required', 'string', 'regex:/^[a-zA-Z0-9۰-۹آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیيئ,،. ]+$/'],
 
