@@ -10,13 +10,10 @@ class IndexController extends Controller
         switch (\Auth::user()->type) {
             case 'admin':
                 return redirect()->route('dashboard.admin.index');
-                break;
             case 'customer':
                 return redirect()->route('dashboard.customer.index');
-                break;
             case 'owner':
                 return redirect()->route('dashboard.owner.index');
-                break;
         }
         return redirect()->route('index');
     }
