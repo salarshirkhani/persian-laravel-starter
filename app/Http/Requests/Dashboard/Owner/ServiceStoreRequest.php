@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Dashboard\Owner;
 
 use App\Product;
+use App\Service;
 
 class ServiceStoreRequest extends ServiceRequest
 {
@@ -13,7 +14,7 @@ class ServiceStoreRequest extends ServiceRequest
      */
     public function authorize()
     {
-        return $this->user()->can('create', Product::class);
+        return $this->user()->can('create', Service::class);
     }
 
     /**
