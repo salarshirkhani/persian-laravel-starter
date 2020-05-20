@@ -33,6 +33,7 @@ class LoginTest extends TestCase
     {
         $user = factory(User::class)->create([
             'password' => bcrypt($password = 'test-password'),
+            'type' => 'customer'
         ]);
 
         $response = $this->post(route('login'), [
@@ -48,6 +49,7 @@ class LoginTest extends TestCase
     {
         $user = factory(User::class)->create([
             'password' => bcrypt('correct-password'),
+            'type' => 'customer'
         ]);
 
         $response = $this->from(route('login'))->post(route('login'), [
@@ -68,6 +70,7 @@ class LoginTest extends TestCase
         $user = factory(User::class)->create([
             'id' => random_int(1, 100),
             'password' => bcrypt($password = 'correct-password'),
+            'type' => 'customer'
         ]);
 
         $response = $this->post(route('login'), [

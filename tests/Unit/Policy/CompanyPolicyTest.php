@@ -130,56 +130,18 @@ class CompanyPolicyTest extends TestCase
     ///////////
 
     public function test_nobody_can_restore_company() {
-        $user = factory(User::class)->create();
-        $company = factory(Company::class)->state('product')->make();
+        $user = factory(User::class)->make(['type' => 'owner']);
+        $company = factory(Company::class)->state('product')->make(['creator_id' => $user->getKey()]);
 
-        $this->assertFalse($user->can('restore', $company));
-
-        $company->creator_id = $user->getKey();
-        $this->assertFalse($user->can('restore', $company));
-
-        $user->type = 'owner';
-        $company->creator_id = null;
-        $this->assertFalse($user->can('restore', $company));
-
-        $user->type = 'owner';
-        $company->creator_id = $user->getKey();
-        $this->assertFalse($user->can('restore', $company));
-
-        $user->type = 'customer';
-        $company->creator_id = null;
-        $this->assertFalse($user->can('restore', $company));
-
-        $user->type = 'customer';
-        $company->creator_id = $user->getKey();
         $this->assertFalse($user->can('restore', $company));
     }
 
     ///////////
 
     public function test_nobody_can_force_delete_company() {
-        $user = factory(User::class)->create();
-        $company = factory(Company::class)->state('product')->make();
+        $user = factory(User::class)->create(['type' => 'owner']);
+        $company = factory(Company::class)->state('product')->make(['creator_id' => $user->getKey()]);
 
-        $this->assertFalse($user->can('forceDelete', $company));
-
-        $company->creator_id = $user->getKey();
-        $this->assertFalse($user->can('forceDelete', $company));
-
-        $user->type = 'owner';
-        $company->creator_id = null;
-        $this->assertFalse($user->can('forceDelete', $company));
-
-        $user->type = 'owner';
-        $company->creator_id = $user->getKey();
-        $this->assertFalse($user->can('forceDelete', $company));
-
-        $user->type = 'customer';
-        $company->creator_id = null;
-        $this->assertFalse($user->can('forceDelete', $company));
-
-        $user->type = 'customer';
-        $company->creator_id = $user->getKey();
         $this->assertFalse($user->can('forceDelete', $company));
     }
 }
