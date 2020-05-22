@@ -12,14 +12,15 @@
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
+        "johnnyfreeman/laravel-custom-relation": "dev-master",
         "laravel/framework": "^7.0",
-        "rinvex/laravel-subscriptions": "^4.0",
         "laravel/telescope": "^3.3",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
-        "johnnyfreeman/laravel-custom-relation": "dev-master",
         "morilog/jalali": "^3.0",
-        "pusher/pusher-php-server": "^4.1"
+        "pusher/pusher-php-server": "^4.1",
+        "rinvex/laravel-subscriptions": "^4.0",
+        "shetabit/payment": "^2.4"
     },
     "require-dev": {
         "andrey-helldar/laravel-lang-publisher": "^4.0",
