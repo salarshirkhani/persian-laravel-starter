@@ -9,13 +9,13 @@ use Morilog\Jalali\Jalalian;
  * App\Message
  *
  * @property int $id
+ * @property string $uuid
  * @property int $conversation_id
  * @property int $from_id
  * @property string $type
  * @property string $text
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string $uuid
  * @property-read \App\Conversation $conversation
  * @property-read \App\User $from
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Message newModelQuery()

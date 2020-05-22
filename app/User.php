@@ -13,14 +13,14 @@ use Rinvex\Subscriptions\Traits\HasSubscriptions;
  *
  * @property int $id
  * @property string $first_name
+ * @property string $last_name
+ * @property string $type
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property string $password
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string $last_name
- * @property string $type
  * @property-read \App\Company|null $company
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Conversation[] $conversations
  * @property-read int|null $conversations_count

@@ -19,7 +19,6 @@ use LaravelCustomRelation\HasCustomRelations;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Category|null $category
  * @property-read \App\User $creator
- * @method static whatever
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Enquiry newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Enquiry newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Enquiry query()
