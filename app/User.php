@@ -6,6 +6,7 @@ use Awobaz\Compoships\Compoships;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Rinvex\Subscriptions\Traits\HasSubscriptions;
 
 /**
  * App\User
@@ -26,6 +27,8 @@ use Illuminate\Notifications\Notifiable;
  * @property-read mixed $name
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Rinvex\Subscriptions\Models\PlanSubscription[] $subscriptions
+ * @property-read int|null $subscriptions_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User query()
@@ -44,6 +47,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
+    use HasSubscriptions;
 
     /**
      * The attributes that are mass assignable.
