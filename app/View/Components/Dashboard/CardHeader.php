@@ -16,6 +16,7 @@ class CardHeader extends Component
         return <<<blade
 <div {{ \$attributes->merge(['class' => 'card-header']) }}>
     <h3 class="card-title">{{ \$slot }}</h3>
+    {{ \$down ?? '' }}
 </div>
 blade;
     }

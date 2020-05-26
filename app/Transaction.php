@@ -11,7 +11,7 @@ use Shetabit\Payment\Exceptions\InvalidPaymentException;
  * @property int $id
  * @property int|null $user_id
  * @property int|null $plan_id
- * @property float $amount
+ * @property int $amount
  * @property string|null $transaction_id
  * @property string|null $reference_id
  * @property \Illuminate\Support\Carbon|null $created_at

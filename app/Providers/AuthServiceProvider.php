@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        //
+        \Rinvex\Subscriptions\Models\Plan::class => 'App\Policies\PlanPolicy',
     ];
 
     /**

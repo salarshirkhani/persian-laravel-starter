@@ -11,3 +11,6 @@
     <x-sidebar-item title="درخواست‌های خرید" icon="fas fa-question-circle" route="dashboard.owner.enquiries.index" />
     <x-sidebar-item title="پیغام‌های شما" icon="fas fa-envelope" route="dashboard.conversations.index" />
 @endempty
+@can('viewAny', \Rinvex\Subscriptions\Models\Plan::class)
+    <x-sidebar-item title="پکیج‌ها" icon="fas fa-box" route="dashboard.plans.index" />
+@endcan

@@ -29,6 +29,10 @@ Route::prefix('dashboard')
         Route::resource('conversations', 'ConversationController')->only(['index', 'show', 'store']);
         Route::post('conversations/{conversation}/messages', 'ConversationController@sendMessage')->name('sendMessage');
 
+        Route::resource('plans', 'PlanController')->only(['index']);
+        Route::post('plans/{plan}/subscribe', 'PlanController@subscribe')->name('plans.subscribe');
+        Route::get('plans/callback/{transaction}', 'PlanController@callback')->name('plans.callback');
+
         Route::prefix('admin')
             ->name('admin.')
             ->middleware('user_type:admin')
