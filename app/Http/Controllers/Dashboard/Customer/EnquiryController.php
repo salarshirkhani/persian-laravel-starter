@@ -17,6 +17,6 @@ class EnquiryController extends Controller
         $enquiry = new Enquiry($data = $request->validated());
         $enquiry->creator()->associate(\Auth::user());
         $enquiry->save();
-        return redirect()->route('dashboard.customer.index')->with('status', 'درخواست شما با موفقیت ثبت شد!');
+        return redirect()->route('dashboard.customer.index')->with('success', 'درخواست شما با موفقیت ثبت شد!');
     }
 }

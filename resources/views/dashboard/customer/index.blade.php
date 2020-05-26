@@ -7,11 +7,7 @@
 @endsection
 @section('content')
     <div class="container">
-        @if (session('status'))
-            <div class="alert alert-success" role="alert">
-                {{ session('status') }}
-            </div>
-        @endif
+        <x-session-alerts></x-session-alerts>
         <form action="{{ route('dashboard.customer.search') }}" method="GET">
             <x-card type="success">
                 <x-card-header>
