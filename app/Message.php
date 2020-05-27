@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Events\MessageSent;
+use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Database\Eloquent\Model;
 use Morilog\Jalali\Jalalian;
 
@@ -52,5 +54,16 @@ class Message extends Model
     protected function serializeDate(\DateTimeInterface $date)
     {
         return Jalalian::fromDateTime($date)->format('%g/%m/%d %H:%M');
+    }
+
+    public static function sendMessage($conversation, $data) {
+        app(Gate::class)->authorize('update', $conversation);
+        $message = new Message($data);
+        $message->conversation()->associate($conversation);
+        $message->from()->associate(\Auth::user());
+        $message->type = 'text';
+        $message->save();
+        broadcast(new MessageSent($message));
+        return $message;
     }
 }

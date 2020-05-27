@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -57,5 +58,22 @@ class Conversation extends Model
             if (!$party->is($user))
                 return $party;
         throw new \RuntimeException("What the Fuck!? Both participants of this conversation are the same user!");
+    }
+
+    public static function startConversation(User $first, User $second) {
+        app(Gate::class)->authorize('create', self::class);
+
+        $existing = \DB::select("SELECT conversation_id FROM conversation_user WHERE user_id IN (?, ?)
+                                        GROUP BY conversation_id HAVING COUNT(*) >= 2", [
+            $first->id, $second->id
+        ]);
+        if (count($existing) > 0)
+            return [Conversation::find($existing[0]->conversation_id), false];
+
+        $conversation = Conversation::create(['type' => 'private']);
+        $conversation->parties()->save($first);
+        $conversation->parties()->save($second);
+
+        return [$conversation, true];
     }
 }
