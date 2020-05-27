@@ -32,6 +32,7 @@
                                         <a href="#" class="card-link" onclick="event.stopPropagation(); document.getElementById('form-conv-{{ $item->id }}').submit()">تماس با مالک</a>
                                         <a href="#{{-- TODO: route to actual page --}}" class="card-link">اطلاعات بیشتر</a>
                                         <form method="POST" id="form-conv-{{ $item->id }}" action="{{ route('dashboard.conversations.store') }}">
+                                            @csrf
                                             <input type="hidden" name="user_id" value="{{ $item->creator_id ?? $item->company->creator_id }}">
                                         </form>
                                     </x-card-body>

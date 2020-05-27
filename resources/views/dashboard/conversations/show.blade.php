@@ -54,6 +54,12 @@
     <script src="{{ asset('assets/dashboard/plugins/laravel-echo/echo.js') }}"></script>
     <script>
         (function ($) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
             const messageTemplate = `
         @include('dashboard.conversations.message', [
             'id' => '(id)',
