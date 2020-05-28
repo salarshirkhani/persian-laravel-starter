@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
+    {   Schema::defaultStringLength(191);
         Blade::component('breadcrumb-item', \App\View\Components\Dashboard\BreadcrumbItem::class);
         Blade::component('card', \App\View\Components\Dashboard\Card::class);
         Blade::component('card-header', \App\View\Components\Dashboard\CardHeader::class);
