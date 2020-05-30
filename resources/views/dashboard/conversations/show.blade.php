@@ -50,6 +50,24 @@
     </div>
 @endsection
 @section('scripts')
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">خطای اشتراک</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>متاسفانه تعداد ارسال درخواست‌های امروز توسط شما به حداکثر خود رسیده‌است. برای ارسال پیام های بیشتر، اشتراک خود را ارتقا دهید.</p>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <a href="{{ route('dashboard.plans.index') }}" class="btn btn-primary">ارتقای اشتراک</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="{{ asset('assets/dashboard/plugins/pusher-js/pusher.js') }}"></script>
     <script src="{{ asset('assets/dashboard/plugins/laravel-echo/echo.js') }}"></script>
     <script>
@@ -104,6 +122,12 @@
                     data: {
                         text: text,
                         uuid: uuid,
+                    },
+                    statusCode: {
+                        403: function () {
+                            $(`*[data-message-id=${uuid}]`).remove();
+                            $('#modal-default').modal('show');
+                        },
                     }
                 });
                 $("input[name=message]").val("");
