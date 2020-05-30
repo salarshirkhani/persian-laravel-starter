@@ -57,6 +57,21 @@ class Message extends Model
     }
 
     public static function sendMessage($conversation, $data) {
+        $from = \Auth::user();
+        $todayCount = Message
+            ::where('created_at', '>=', now()->startOfDay())
+            ->where('from_id', $from->id)
+            ->where('conversation_id', $conversation->id)
+            ->count();
+
+        $sub = $from->subscription($from->type);
+        if (!empty($sub)) {
+            if (!$sub->canUseFeature('conversations_per_day'))
+                abort(403);
+            $sub->recordFeatureUsage('conversations_per_day');
+        } else if ($todayCount >= 1)
+            abort(403);
+
         app(Gate::class)->authorize('update', $conversation);
         $message = new Message($data);
         $message->conversation()->associate($conversation);

@@ -36,6 +36,9 @@ class PlanSeeder extends Seeder
             'refund_guarantee' => [
                 'description' => 'تضمین بازگشت وجه',
             ],
+            'verified_customer_mark' => [
+                'description' => 'نشان خریدار معتبر',
+            ],
         ];
         $plans = [
             [
@@ -86,8 +89,8 @@ class PlanSeeder extends Seeder
                 'description' => 'پلن ۶ ماهه',
                 'price' => 679000,
                 'signup_fee' => 0,
-                'invoice_period' => 1,
-                'invoice_interval' => 'year',
+                'invoice_period' => 365,
+                'invoice_interval' => 'day',
                 'trial_period' => 0,
                 'trial_interval' => 'day',
                 'sort_order' => 1,
@@ -98,6 +101,60 @@ class PlanSeeder extends Seeder
                     'ladder' => 1,
                     'special_items' => 'Y',
                     'verified_seller_mark' => 'Y',
+                    'refund_guarantee' => 'Y',
+                ]
+            ],
+            [
+                'name' => 'اشتراک مشتری ماهانه',
+                'slug' => 'customer-monthly',
+                'description' => 'پلن ماهانه',
+                'price' => 189000,
+                'signup_fee' => 0,
+                'invoice_period' => 1,
+                'invoice_interval' => 'month',
+                'trial_period' => 0,
+                'trial_interval' => 'day',
+                'sort_order' => 1,
+                'currency' => 'IRT',
+                'features' => [
+                    'conversation_per_day' => 5,
+                    'verified_customer_mark' => 'N',
+                    'refund_guarantee' => 'N',
+                ]
+            ],
+            [
+                'name' => 'اشتراک مشتری ۶ ماهه',
+                'slug' => 'customer-six-months',
+                'description' => 'پلن ۶ ماهه',
+                'price' => 649000,
+                'signup_fee' => 0,
+                'invoice_period' => 6,
+                'invoice_interval' => 'month',
+                'trial_period' => 0,
+                'trial_interval' => 'day',
+                'sort_order' => 1,
+                'currency' => 'IRT',
+                'features' => [
+                    'conversation_per_day' => 10,
+                    'verified_customer_mark' => 'N',
+                    'refund_guarantee' => 'N',
+                ]
+            ],
+            [
+                'name' => 'اشتراک مشتری ویژه سالانه',
+                'slug' => 'customer-yearly',
+                'description' => 'پلن ۶ ماهه',
+                'price' => 679000,
+                'signup_fee' => 0,
+                'invoice_period' => 365,
+                'invoice_interval' => 'day',
+                'trial_period' => 0,
+                'trial_interval' => 'day',
+                'sort_order' => 1,
+                'currency' => 'IRT',
+                'features' => [
+                    'conversation_per_day' => 15,
+                    'verified_customer_mark' => 'Y',
                     'refund_guarantee' => 'Y',
                 ]
             ],

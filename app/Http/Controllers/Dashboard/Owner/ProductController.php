@@ -22,6 +22,8 @@ class ProductController extends Controller
         $product->photo = $request->file('photo')->store('products', 'public');
         $product->company()->associate(\Auth::user()->company);
         $product->save();
+        if (!empty($sub = \Auth::user()->subscription(\Auth::user()->type)))
+            $sub->recordFeatureUsage('max_items');
         return redirect()->route('dashboard.owner.companies.show', ['company' => $product->company]);
     }
 }
