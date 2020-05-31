@@ -19,7 +19,7 @@ class SearchRequest extends FormRequest
      */
     public function authorize()
     {
-        return $this->user()->type == 'customer';
+        return \Gate::allows('search-database', $this->user());
     }
 
     /**

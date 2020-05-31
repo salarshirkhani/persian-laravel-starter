@@ -5,6 +5,8 @@ namespace Tests\Unit\Requests\Dashboard\Customer;
 use App\Http\Controllers\Dashboard\Customer\SearchController;
 use App\Http\Requests\Dashboard\Customer\SearchRequest;
 use App\Http\Requests\SplitsKeywords;
+use App\User;
+use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -15,8 +17,7 @@ use Tests\TestCase;
 class SearchRequestTest extends TestCase
 {
     use AdditionalAssertions;
-
-    private $request;
+    use RefreshDatabase;
 
     public function test_search_controller_using_correct_request()
     {
@@ -25,6 +26,15 @@ class SearchRequestTest extends TestCase
             'search',
             SearchRequest::class
         );
+    }
+
+    public function test_request_using_correct_gate()
+    {
+        $request = new SearchRequest();
+
+        \Gate::shouldReceive('allows')->twice()->andReturnValues([true, false]);
+        $this->assertTrue($request->authorize());
+        $this->assertFalse($request->authorize());
     }
 
     public function test_rules_are_correct()
