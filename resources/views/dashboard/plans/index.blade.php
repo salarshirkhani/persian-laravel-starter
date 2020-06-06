@@ -30,7 +30,7 @@
                                             {{ $feature->description }}
                                             @if(in_array($feature->value, ['Y', 'N']))
                                                 <span class="float-right">
-                                                    <i class="fas fa-{{ $feature->value == 'Y' ? 'check' : 'times' }}"></i>
+                                                    <i class="fas fa-{{ $feature->value == 'true' ? 'check' : 'times' }}"></i>
                                                 </span>
                                             @else
                                                 <span class="float-right">{{ $feature->value }}</span>

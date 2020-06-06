@@ -57,9 +57,9 @@ class PlanSeeder extends Seeder
                     'conversation_per_day' => 5,
                     'max_items' => 1,
                     'ladder' => 0,
-                    'special_items' => 'N',
-                    'verified_seller_mark' => 'N',
-                    'refund_guarantee' => 'N',
+                    'special_items' => 'false',
+                    'verified_seller_mark' => 'false',
+                    'refund_guarantee' => 'false',
                 ]
             ],
             [
@@ -78,9 +78,9 @@ class PlanSeeder extends Seeder
                     'conversation_per_day' => 10,
                     'max_items' => 3,
                     'ladder' => 1,
-                    'special_items' => 'Y',
-                    'verified_seller_mark' => 'N',
-                    'refund_guarantee' => 'N',
+                    'special_items' => 'true',
+                    'verified_seller_mark' => 'false',
+                    'refund_guarantee' => 'false',
                 ]
             ],
             [
@@ -99,9 +99,9 @@ class PlanSeeder extends Seeder
                     'conversation_per_day' => 15,
                     'max_items' => 10,
                     'ladder' => 1,
-                    'special_items' => 'Y',
-                    'verified_seller_mark' => 'Y',
-                    'refund_guarantee' => 'Y',
+                    'special_items' => 'true',
+                    'verified_seller_mark' => 'true',
+                    'refund_guarantee' => 'true',
                 ]
             ],
             [
@@ -118,8 +118,8 @@ class PlanSeeder extends Seeder
                 'currency' => 'IRT',
                 'features' => [
                     'conversation_per_day' => 5,
-                    'verified_customer_mark' => 'N',
-                    'refund_guarantee' => 'N',
+                    'verified_customer_mark' => 'false',
+                    'refund_guarantee' => 'false',
                 ]
             ],
             [
@@ -136,8 +136,8 @@ class PlanSeeder extends Seeder
                 'currency' => 'IRT',
                 'features' => [
                     'conversation_per_day' => 10,
-                    'verified_customer_mark' => 'N',
-                    'refund_guarantee' => 'N',
+                    'verified_customer_mark' => 'false',
+                    'refund_guarantee' => 'false',
                 ]
             ],
             [
@@ -154,8 +154,8 @@ class PlanSeeder extends Seeder
                 'currency' => 'IRT',
                 'features' => [
                     'conversation_per_day' => 15,
-                    'verified_customer_mark' => 'Y',
-                    'refund_guarantee' => 'Y',
+                    'verified_customer_mark' => 'true',
+                    'refund_guarantee' => 'true',
                 ]
             ],
         ];
