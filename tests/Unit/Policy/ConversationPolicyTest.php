@@ -46,11 +46,6 @@ class ConversationPolicyTest extends TestCase
 
     ///////////
 
-    public function test_users_cannot_create_convo() {
-        $user = factory(User::class)->make();
-        $this->assertFalse($user->can('create', Conversation::class));
-    }
-
     public function test_owners_can_create_convo_list() {
         $user = factory(User::class)->make(['type' => 'owner']);
         $this->assertTrue($user->can('create', Conversation::class));

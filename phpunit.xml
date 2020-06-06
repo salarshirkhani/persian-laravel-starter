@@ -21,6 +21,7 @@
         <server name="APP_ENV" value="testing"/>
         <server name="APP_KEY" value="base64:7PnRYeZJ2bXKcgZk0wKcKRNZ4pkTa6eNV6XCsHCxFPQ="/>
         <server name="BCRYPT_ROUNDS" value="4"/>
+        <server name="BROADCAST_DRIVER" value="log"/>
         <server name="CACHE_DRIVER" value="array"/>
         <server name="MAIL_MAILER" value="array"/>
         <server name="QUEUE_CONNECTION" value="sync"/>

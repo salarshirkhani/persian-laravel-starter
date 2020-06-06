@@ -42,6 +42,8 @@ Route::prefix('dashboard')
             ->namespace('Admin')
             ->group(function() {
                 Route::get('', 'IndexController@get')->name('index');
+
+                Route::resource('slider-items', 'SliderItemController')->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
             });
 
         Route::prefix('customer')
