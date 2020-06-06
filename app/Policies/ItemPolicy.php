@@ -70,12 +70,11 @@ trait ItemPolicy
     {
         $type = $item instanceof Product ? 'product' : 'service';
         return
+            $this->create($user) &&
             $type == static::getItemType() &&
-            $user->type == 'owner' &&
             !empty($item->company->creator) &&
             $item->company->creator->is($user) &&
-            $item->company->is($user->company) &&
-            $user->company->type == $type;
+            $item->company->is($user->company);
     }
 
     /**
@@ -87,14 +86,7 @@ trait ItemPolicy
      */
     public function delete(User $user, $item)
     {
-        $type = $item instanceof Product ? 'product' : 'service';
-        return
-            $type == static::getItemType() &&
-            $user->type == 'owner' &&
-            !empty($item->company->creator) &&
-            $item->company->creator->is($user) &&
-            $item->company->is($user->company) &&
-            $user->company->type == $type;
+        return $this->update($user, $item);
     }
 
     /**
