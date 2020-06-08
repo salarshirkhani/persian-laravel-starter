@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{asset('css/product.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/product.css')}}"/>
 @endsection
 @section('content')
     <div data-v-71c0874a="">

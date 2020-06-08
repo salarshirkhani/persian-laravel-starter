@@ -12,21 +12,21 @@
     <script src="{{asset('assets/js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
     <script src="{{asset('assets/js/ResizeSensor.js')}}"></script>
-    <link type="text/css" rel="stylesheet" href="{{asset('css/boot.css')}}">
-    <link type="text/css" rel="stylesheet" href="{{asset('css/setting.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/css/boot.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/css/setting.css')}}">
 
-    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
-    <link rel="stylesheet" href="css/ideal-image-slider.css">
-    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/ideal-image-slider.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/default.css')}}">
     <style media="screen">
         #slider {
             max-width: 900px;
             margin: 55px auto;
         }
     </style>
-    <script src="{{asset('assets/cdn/axios.js')}}"></script>
-    <script src="{{asset('index/js/jquery.magnific-popup.min.js')}}"></script>
-    <script src="{{asset('index/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('assets/js/axios.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
     <script>
         $(document).ready(function(){
             $(".owl-carousel").owlCarousel({
@@ -44,7 +44,7 @@
 
     <script type="text/javascript" charset="utf-8" async="" src="chunks/4.d99bf6a81ee71527e610.js"></script><script type="text/javascript" charset="utf-8" async="" src="chunks/0.81175e5b16538a8e3d69.js"></script><meta name="description" content="مرجع تخصصی خرید و فروش عمده و قیمت محصولات کشاورزی ایران | صادرات محصولات کشاورزی" data-vue-meta="true"><meta name="author" content="باسکول" data-vue-meta="true"><meta property="og:description" content="مرجع تخصصی خرید و فروش عمده و قیمت محصولات کشاورزی ایران | صادرات محصولات کشاورزی" data-vue-meta="true"><meta property="og:site_name" content="باسکول بازارآنلاین خرید و فروش عمده محصولات کشاورزی ایران" data-vue-meta="true"><meta property="og:title" content=" باسکول | بازار خرید و فروش عمده محصولات کشاورزی " data-vue-meta="true">
 
-    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" />
+    <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}" />
     <!-- mega menu -->
     <link rel="stylesheet" type="text/css" href="https://packprinting.ir/css/mega-menu/mega_menu.css" />
 
@@ -191,7 +191,7 @@
     <div class="side-content-info">
         <div class="menu-toggle-hamburger menu-close"><span class="ti-close"> </span></div>
         <div class="side-logo">
-            <img class="img-fluid mb-3" src="{{ asset('images/logo-dark.png') }}" alt="ماهنامه صنایع چاپ و بسته بندی">
+            <img class="img-fluid mb-3" src="{{ asset('assets/images/logo-dark.png') }}" alt="ماهنامه صنایع چاپ و بسته بندی">
             <p style="text-align: right;">
 
                 امروزه ترسیم مرزهای مشخص مابین صنایع چاپ و بسته بندی کار بسیار مشکلی می باشد کاملا مشخص است کسانی که بسته بندی فیزیکی مانند کارتن – بطری – قوطی های فلزی را می سازند بخشی از صنعت بسته بندی هستند ولی در بسیاری از موارد شرکتهای که بسته بندی را انجام می دهند روی بسته نیز عملیات چاپ و تکمیلی انجام داده ، بخشی از صنعت چاپ و تمامی دست اندرکاران این صنعت می توانند در صنعت بسته بندی به حساب آورده شوند . درحال حاضر با رشد روز افزون صنایع چاپ و بسته بندی درک و فهم پل های ارتباطی میان دو تکنیک بسیار مشکل و پیچیده شده و با رشد تکنولوژی و علم ، مرزهای موجود در حال از بین رفتن بوده و تلفیق ماشین آلات و تکنیک های مختلف تولید از چاپ و تبدیل به صورت یک محصول بسته بندی به صورت یک خط کامل تبدیل شده و تعداد بسیار زیادی از ماشین آلات چاپ و نرم افزارهای کامپیوتری صرفا برای چاپ بر روی بسته بندی محصولات طراحی و ساخته شده اند .
@@ -370,8 +370,8 @@
 <script src="https://www.gstatic.com/firebasejs/7.13.0/firebase-messaging.js"></script>
 
 
-<script src="js/app.js"></script>
-<script src="assets/js/idleTimer.js"></script>
+<script src="{{asset('assets/js/app.js')}}"></script>
+<script src="{{asset('assets/js/idleTimer.js')}}"></script>
 
 <script>
     $(document).ready(function () {
@@ -390,7 +390,7 @@
     }
 </script>
 
-<script src="js/ideal-image-slider.js"></script>
+<script src="{{asset('js/ideal-image-slider.js')}}"></script>
 <script>
     var slider = new IdealImageSlider.Slider('#slider1');
     slider.start();
@@ -401,7 +401,6 @@
 </script>
 <script type="7e5f9cd5b16100e74e97c153-text/javascript"
         src="https://packprinting.ir/js/mega-menu/mega_menu.js"></script>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script src="https://packprinting.ir/assets1/js/jquery-3.2.1.min.js"
         type="7e5f9cd5b16100e74e97c153-text/javascript"></script>
 <script src="https://packprinting.ir/assets1/js/jquery-migrate.js"

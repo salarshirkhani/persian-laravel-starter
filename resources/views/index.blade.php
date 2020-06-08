@@ -84,12 +84,12 @@
                             <div data-v-6e6ad759="" class="row hidden-xs">
                                 <ul data-v-6e6ad759="" class="list-unstyled">
                                     <div id="slider1" style="height:448px;">
-                                        <img data-src="img/1.jpg" data-src-2x="img/1@2x.jpg" src="" alt="Slide 1"/>
-                                        <img data-src="img/2.jpg" data-src-2x="img/2@2x.jpg" src="" alt="Slide 2"/>
-                                        <a href="http://www.20script.ir"><img data-src="img/3.jpg"
-                                                                              data-src-2x="img/3@2x.jpg" src=""
+                                        <img data-src="{{asset('assets/images/1.jpg')}}" data-src-2x="{{asset('assets/images/1@2x.jpg')}}" src="" alt="Slide 1"/>
+                                        <img data-src="{{asset('assets/images/2.jpg')}}" data-src-2x="{{asset('assets/images/2@2x.jpg')}}" src="" alt="Slide 2"/>
+                                        <a href="http://www.20script.ir"><img data-src="{{asset('assets/images/3.jpg')}}"
+                                                                              data-src-2x="{{asset('assets/images/3@2x.jpg')}}" src=""
                                                                               alt="Slide 3"/></a>
-                                        <img data-src="img/4.jpg" data-src-2x="img/4@2x.jpg" src="" alt="Slide 4"/>
+                                        <img data-src="{{asset('assets/images/4.jpg')}}" data-src-2x="{{asset('assets/images/4@2x.jpg')}}" src="" alt="Slide 4"/>
                                     </div>
                                 </ul>
                             </div>
@@ -132,11 +132,11 @@
                 <div data-v-6e6ad759="" class="col-xs-12 mobile-requests-contents">
                     <div data-v-6e6ad759="">
                         <div id="slider2" class="col-xs-12 mobile-requests-contents">
-                            <img data-src="img/1.jpg" data-src-2x="img/1@2x.jpg" src="" alt="Slide 1"/>
-                            <img data-src="img/2.jpg" data-src-2x="img/2@2x.jpg" src="" alt="Slide 2"/>
-                            <a href="http://www.20script.ir"><img data-src="img/3.jpg" data-src-2x="img/3@2x.jpg" src=""
+                            <img data-src="{{asset('assets/images/1.jpg')}}" data-src-2x="{{asset('assets/images/1@2x.jpg')}}" src="" alt="Slide 1"/>
+                            <img data-src="{{asset('assets/images/2.jpg')}}" data-src-2x="{{asset('assets/images/2@2x.jpg')}}" src="" alt="Slide 2"/>
+                            <a href="http://www.20script.ir"><img data-src="{{asset('assets/images/3.jpg')}}" data-src-2x="{{asset('assets/images/3@2x.jpg')}}" src=""
                                                                   alt="Slide 3"/></a>
-                            <img data-src="img/4.jpg" data-src-2x="img/4@2x.jpg" src="" alt="Slide 4"/>
+                            <img data-src="{{asset('assets/images/4.jpg')}}" data-src-2x="{{asset('assets/images/4@2x.jpg')}}" src="" alt="Slide 4"/>
                         </div><!---->
                     </div>
                 </div>
