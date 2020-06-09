@@ -34,7 +34,7 @@
             <div data-v-6e6ad759="" class="container">
                 <nav data-v-6e6ad759="" class="row">
                     <ul data-v-6e6ad759="" class="menu-wrapper list-inline">
-                     
+
                         <li data-v-6e6ad759="" id="menu1" class="nav-item"><h2 data-v-6e6ad759=""><a data-v-6e6ad759=""
                                                                                                      href="#"
                                                                                                      class="category-item"><i
@@ -45,7 +45,7 @@
                                                                                                      href="#"
                                                                                                      class="category-item"><i
                                         data-v-6e6ad759="" class="fa fa-angle-down"></i>
-                                    محصولات 
+                                    محصولات
                                 </a></h2>
                             <ul data-v-6e6ad759="" data-index="2" class="sub-categories-wrapper list-inline col-xs-12">
                                 <li data-v-6e6ad759="" class="col-xs-4 col-sm-3 col-md-4 pull-right"><a
@@ -163,224 +163,28 @@
                                     <div class="owl-stage-outer">
                                         <div class="owl-stage"
                                              style="transform: translate3d(1170px, 0px, 0px); transition: all 0.25s ease 0s; width: 2663px; padding-left: 15px; padding-right: 15px;">
+                                            @foreach($items as $item)
                                             <div class="owl-item" style="width: 262.5px; margin-left: 30px;">
                                                 <article data-v-774e55fb="" data-v-6e6ad759=""
                                                          class="carousel-item box-content">
                                                     <a data-v-774e55fb=""
-                                                       href="/product-view/خرید-عمده-سیب-زمینی/صیفی/2337"
+                                                       href=""
                                                        class="carousel-img">
                                                         <div data-v-774e55fb="" style="">
                                                             <img data-v-774e55fb=""
-                                                                 src="https://www.buskool.com/storage/thumbnails/products/Tlb4YCbZHYvvPBSL1DoOoHBGoZzu7UD8ODKiBwlj.jpeg"
+                                                                 src="{{ Storage::url($item->photo) }}"
                                                                  class="main-image">
                                                         </div>
                                                         <div data-v-774e55fb="" class="lds-ring" style="display: none;">
                                                         </div>
                                                     </a>
                                                     <a data-v-774e55fb=""
-                                                       href="/product-view/خرید-عمده-سیب-زمینی/صیفی/2337"
-                                                       class="carousel-title"><h4 data-v-774e55fb="">سیب زمینی نو، و
-                                                            ...</h4></a> <a data-v-774e55fb=""
-                                                                            href="/product-view/خرید-عمده-سیب-زمینی/صیفی/2337"
-                                                                            class="stock-wrapper"><span
-                                                            data-v-774e55fb="">موجودی</span> <span data-v-774e55fb="">400000</span>
-                                                        <span data-v-774e55fb="">کیلوگرم</span></a>
+                                                       href=""
+                                                       class="carousel-title"><h4 data-v-774e55fb="">{{ $item->name }}</h4></a>
                                                     <div data-v-774e55fb="" class="inquiry-button-wrapper"><!----></div>
                                                 </article>
                                             </div>
-                                            <div class="owl-item" style="width: 262.5px; margin-left: 30px;">
-                                                <article data-v-774e55fb="" data-v-6e6ad759=""
-                                                         class="carousel-item box-content"><a data-v-774e55fb=""
-                                                                                              href="/product-view/خرید-عمده-خرما/میوه/2338"
-                                                                                              class="carousel-img">
-                                                        <div data-v-774e55fb="" style=""><img data-v-774e55fb=""
-                                                                                              src="https://www.buskool.com/storage/thumbnails/products/JJXkRJjYhRSNdXmaGR87nYEf3tN3HRnXgeIxSBPZ.jpeg"
-                                                                                              class="main-image"></div>
-                                                        <div data-v-774e55fb="" class="lds-ring" style="display: none;">
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                        </div>
-                                                    </a> <a data-v-774e55fb=""
-                                                            href="/product-view/خرید-عمده-خرما/میوه/2338"
-                                                            class="carousel-title"><h4 data-v-774e55fb="">خرمای ربی</h4>
-                                                    </a> <a data-v-774e55fb=""
-                                                            href="/product-view/خرید-عمده-خرما/میوه/2338"
-                                                            class="stock-wrapper"><span data-v-774e55fb="">موجودی</span>
-                                                        <span data-v-774e55fb="">800000</span> <span data-v-774e55fb="">کیلوگرم</span></a>
-                                                    <div data-v-774e55fb="" class="inquiry-button-wrapper"><!----></div>
-                                                </article>
-                                            </div>
-                                            <div class="owl-item" style="width: 262.5px; margin-left: 30px;">
-                                                <article data-v-774e55fb="" data-v-6e6ad759=""
-                                                         class="carousel-item box-content"><a data-v-774e55fb=""
-                                                                                              href="/product-view/خرید-عمده-پسته/میوه/2340"
-                                                                                              class="carousel-img">
-                                                        <div data-v-774e55fb="" style=""><img data-v-774e55fb=""
-                                                                                              src="https://www.buskool.com/storage/thumbnails/products/L8XTHkhutf7cbTN9ahx9qLyn8Kj0AWAzq1cPFIV7.jpeg"
-                                                                                              class="main-image"></div>
-                                                        <div data-v-774e55fb="" class="lds-ring" style="display: none;">
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                        </div>
-                                                    </a> <a data-v-774e55fb=""
-                                                            href="/product-view/خرید-عمده-پسته/میوه/2340"
-                                                            class="carousel-title"><h4 data-v-774e55fb="">پسته</h4></a>
-                                                    <a data-v-774e55fb="" href="/product-view/خرید-عمده-پسته/میوه/2340"
-                                                       class="stock-wrapper"><span data-v-774e55fb="">موجودی</span>
-                                                        <span data-v-774e55fb="">2000</span> <span data-v-774e55fb="">کیلوگرم</span></a>
-                                                    <div data-v-774e55fb="" class="inquiry-button-wrapper"><!----></div>
-                                                </article>
-                                            </div>
-                                            <div class="owl-item" style="width: 262.5px; margin-left: 30px;">
-                                                <article data-v-774e55fb="" data-v-6e6ad759=""
-                                                         class="carousel-item box-content"><a data-v-774e55fb=""
-                                                                                              href="/product-view/خرید-عمده-هندوانه/صیفی/2328"
-                                                                                              class="carousel-img">
-                                                        <div data-v-774e55fb="" style=""><img data-v-774e55fb=""
-                                                                                              src="https://www.buskool.com/storage/thumbnails/products/qZ5vawIKoJva7IZopZiniFpGabNjYpygrJOUIkhS.jpeg"
-                                                                                              class="main-image"></div>
-                                                        <div data-v-774e55fb="" class="lds-ring" style="display: none;">
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                        </div>
-                                                    </a> <a data-v-774e55fb=""
-                                                            href="/product-view/خرید-عمده-هندوانه/صیفی/2328"
-                                                            class="carousel-title"><h4 data-v-774e55fb="">هندوانه</h4>
-                                                    </a> <a data-v-774e55fb=""
-                                                            href="/product-view/خرید-عمده-هندوانه/صیفی/2328"
-                                                            class="stock-wrapper"><span data-v-774e55fb="">موجودی</span>
-                                                        <span data-v-774e55fb="">10000</span> <span data-v-774e55fb="">کیلوگرم</span></a>
-                                                    <div data-v-774e55fb="" class="inquiry-button-wrapper"><!----></div>
-                                                </article>
-                                            </div>
-                                            <div class="owl-item active" style="width: 262.5px; margin-left: 30px;">
-                                                <article data-v-774e55fb="" data-v-6e6ad759=""
-                                                         class="carousel-item box-content"><a data-v-774e55fb=""
-                                                                                              href="/product-view/خرید-عمده-فلفل-دلمه ای/صیفی/2330"
-                                                                                              class="carousel-img">
-                                                        <div data-v-774e55fb="" style=""><img data-v-774e55fb=""
-                                                                                              src="https://www.buskool.com/storage/thumbnails/products/CWSceFX6T1O7eVGTsb8BiKILw4ukK4DgVMRbgZOe.jpeg"
-                                                                                              class="main-image"></div>
-                                                        <div data-v-774e55fb="" class="lds-ring" style="display: none;">
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                        </div>
-                                                    </a> <a data-v-774e55fb=""
-                                                            href="/product-view/خرید-عمده-فلفل-دلمه ای/صیفی/2330"
-                                                            class="carousel-title"><h4 data-v-774e55fb="">فلفل دلمه ایی
-                                                            س ...</h4></a> <a data-v-774e55fb=""
-                                                                              href="/product-view/خرید-عمده-فلفل-دلمه ای/صیفی/2330"
-                                                                              class="stock-wrapper"><span
-                                                            data-v-774e55fb="">موجودی</span> <span data-v-774e55fb="">100000</span>
-                                                        <span data-v-774e55fb="">کیلوگرم</span></a>
-                                                    <div data-v-774e55fb="" class="inquiry-button-wrapper"><!----></div>
-                                                </article>
-                                            </div>
-                                            <div class="owl-item active" style="width: 262.5px; margin-left: 30px;">
-                                                <article data-v-774e55fb="" data-v-6e6ad759=""
-                                                         class="carousel-item box-content"><a data-v-774e55fb=""
-                                                                                              href="/product-view/خرید-عمده-خرما/میوه/2331"
-                                                                                              class="carousel-img">
-                                                        <div data-v-774e55fb="" style=""><img data-v-774e55fb=""
-                                                                                              src="https://www.buskool.com/storage/thumbnails/products/CBloPz57J6wMEE0lM4dPglV5LPFNuYRqOQGcdZqb.jpeg"
-                                                                                              class="main-image"></div>
-                                                        <div data-v-774e55fb="" class="lds-ring" style="display: none;">
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                        </div>
-                                                    </a> <a data-v-774e55fb=""
-                                                            href="/product-view/خرید-عمده-خرما/میوه/2331"
-                                                            class="carousel-title"><h4 data-v-774e55fb="">رطب
-                                                            مضافتی</h4></a> <a data-v-774e55fb=""
-                                                                               href="/product-view/خرید-عمده-خرما/میوه/2331"
-                                                                               class="stock-wrapper"><span
-                                                            data-v-774e55fb="">موجودی</span> <span data-v-774e55fb="">1000</span>
-                                                        <span data-v-774e55fb="">کیلوگرم</span></a>
-                                                    <div data-v-774e55fb="" class="inquiry-button-wrapper"><!----></div>
-                                                </article>
-                                            </div>
-                                            <div class="owl-item active" style="width: 262.5px; margin-left: 30px;">
-                                                <article data-v-774e55fb="" data-v-6e6ad759=""
-                                                         class="carousel-item box-content"><a data-v-774e55fb=""
-                                                                                              href="/product-view/خرید-عمده-سیب/میوه/2333"
-                                                                                              class="carousel-img">
-                                                        <div data-v-774e55fb="" style=""><img data-v-774e55fb=""
-                                                                                              src="https://www.buskool.com/storage/thumbnails/products/uuelJ90LHXAbc9CrevYMJnw3PRlGiaDibBblH6Qg.jpeg"
-                                                                                              class="main-image"></div>
-                                                        <div data-v-774e55fb="" class="lds-ring" style="display: none;">
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                        </div>
-                                                    </a> <a data-v-774e55fb=""
-                                                            href="/product-view/خرید-عمده-سیب/میوه/2333"
-                                                            class="carousel-title"><h4 data-v-774e55fb="">سیب ترش</h4>
-                                                    </a> <a data-v-774e55fb=""
-                                                            href="/product-view/خرید-عمده-سیب/میوه/2333"
-                                                            class="stock-wrapper"><span data-v-774e55fb="">موجودی</span>
-                                                        <span data-v-774e55fb="">3000</span> <span data-v-774e55fb="">کیلوگرم</span></a>
-                                                    <div data-v-774e55fb="" class="inquiry-button-wrapper"><!----></div>
-                                                </article>
-                                            </div>
-                                            <div class="owl-item active" style="width: 262.5px; margin-left: 30px;">
-                                                <article data-v-774e55fb="" data-v-6e6ad759=""
-                                                         class="carousel-item box-content"><a data-v-774e55fb=""
-                                                                                              href="/product-view/خرید-عمده-لیمو-ترش/میوه/2341"
-                                                                                              class="carousel-img">
-                                                        <div data-v-774e55fb="" style=""><img data-v-774e55fb=""
-                                                                                              src="https://www.buskool.com/storage/thumbnails/products/Rlr6k9CQ82Bi4bAGAiIIllRC09UXNlJezH2F8XoR.jpeg"
-                                                                                              class="main-image"></div>
-                                                        <div data-v-774e55fb="" class="lds-ring" style="display: none;">
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                        </div>
-                                                    </a> <a data-v-774e55fb=""
-                                                            href="/product-view/خرید-عمده-لیمو-ترش/میوه/2341"
-                                                            class="carousel-title"><h4 data-v-774e55fb="">لیموترش</h4>
-                                                    </a> <a data-v-774e55fb=""
-                                                            href="/product-view/خرید-عمده-لیمو-ترش/میوه/2341"
-                                                            class="stock-wrapper"><span data-v-774e55fb="">موجودی</span>
-                                                        <span data-v-774e55fb="">1000</span> <span data-v-774e55fb="">کیلوگرم</span></a>
-                                                    <div data-v-774e55fb="" class="inquiry-button-wrapper"><!----></div>
-                                                </article>
-                                            </div>
-                                            <div class="owl-item" style="width: 262.5px; margin-left: 30px;">
-                                                <article data-v-774e55fb="" data-v-6e6ad759=""
-                                                         class="carousel-item box-content"><a data-v-774e55fb=""
-                                                                                              href="/product-view/خرید-عمده-کیوی/میوه/2332"
-                                                                                              class="carousel-img">
-                                                        <div data-v-774e55fb="" style=""><img data-v-774e55fb=""
-                                                                                              src="https://www.buskool.com/storage/thumbnails/products/YUQDmGwm3NclslqGMiNWWcXdl4euk9E07TiwLYey.jpeg"
-                                                                                              class="main-image"></div>
-                                                        <div data-v-774e55fb="" class="lds-ring" style="display: none;">
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                            <div data-v-774e55fb=""></div>
-                                                        </div>
-                                                    </a> <a data-v-774e55fb=""
-                                                            href="/product-view/خرید-عمده-کیوی/میوه/2332"
-                                                            class="carousel-title"><h4 data-v-774e55fb="">هایوارد</h4>
-                                                    </a> <a data-v-774e55fb=""
-                                                            href="/product-view/خرید-عمده-کیوی/میوه/2332"
-                                                            class="stock-wrapper"><span data-v-774e55fb="">موجودی</span>
-                                                        <span data-v-774e55fb="">100000</span> <span data-v-774e55fb="">کیلوگرم</span></a>
-                                                    <div data-v-774e55fb="" class="inquiry-button-wrapper"><!----></div>
-                                                </article>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                     <div class="owl-nav">
