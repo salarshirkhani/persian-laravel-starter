@@ -42,8 +42,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-    <script type="text/javascript" charset="utf-8" async="" src="chunks/4.d99bf6a81ee71527e610.js"></script><script type="text/javascript" charset="utf-8" async="" src="chunks/0.81175e5b16538a8e3d69.js"></script><meta name="description" content="مرجع تخصصی خرید و فروش عمده و قیمت محصولات کشاورزی ایران | صادرات محصولات کشاورزی" data-vue-meta="true"><meta name="author" content="باسکول" data-vue-meta="true"><meta property="og:description" content="مرجع تخصصی خرید و فروش عمده و قیمت محصولات کشاورزی ایران | صادرات محصولات کشاورزی" data-vue-meta="true"><meta property="og:site_name" content="باسکول بازارآنلاین خرید و فروش عمده محصولات کشاورزی ایران" data-vue-meta="true"><meta property="og:title" content=" باسکول | بازار خرید و فروش عمده محصولات کشاورزی " data-vue-meta="true">
-
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}" />
     <!-- mega menu -->
     <link rel="stylesheet" type="text/css" href="https://packprinting.ir/css/mega-menu/mega_menu.css" />
@@ -54,27 +52,10 @@
     <!-- Themify icons -->
     <link rel="stylesheet" type="text/css" href="https://packprinting.ir/css/themify-icons.css" />
 
-    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
-
-    <!-- revolution -->
-    <link rel="stylesheet" type="text/css" href="https://packprinting.ir/revolution/css/settings.css" />
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161252305-1"></script>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-T5JS76F');</script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-161252305-1', { 'optimize_id': 'GTM-P7X4PKF'});
-    </script>
     @yield('styles', '')
 </head>
 <body>
@@ -366,11 +347,7 @@
     </div>
 </div>
 
-<script src="https://www.gstatic.com/firebasejs/7.13.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.13.0/firebase-messaging.js"></script>
 
-
-<script src="{{asset('assets/js/app.js')}}"></script>
 <script src="{{asset('assets/js/idleTimer.js')}}"></script>
 
 <script>
@@ -428,9 +405,6 @@
 <script src="https://packprinting.ir/assets1/js/scrollUp.min.js"
         type="7e5f9cd5b16100e74e97c153-text/javascript"></script>
 
-<script src="https://packprinting.ir/assets1/js/plugin.js" type="7e5f9cd5b16100e74e97c153-text/javascript"></script>
-<script src="https://packprinting.ir/assets1/js/script.js" type="7e5f9cd5b16100e74e97c153-text/javascript"></script>
-
 
 <!--=================================
 back to top -->
@@ -450,30 +424,6 @@ back to top -->
 <script type="7e5f9cd5b16100e74e97c153-text/javascript"
         src="https://packprinting.ir/js/owl-carousel/owl.carousel.min.js"></script>
 
-<!-- revolution -->
-<script type="7e5f9cd5b16100e74e97c153-text/javascript"
-        src="https://packprinting.ir/revolution/js/jquery.themepunch.tools.min.js"></script>
-<script type="7e5f9cd5b16100e74e97c153-text/javascript"
-        src="https://packprinting.ir/revolution/js/jquery.themepunch.revolution.min.js"></script>
 
-<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
-<script type="7e5f9cd5b16100e74e97c153-text/javascript"
-        src="https://packprinting.ir/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-<script type="7e5f9cd5b16100e74e97c153-text/javascript"
-        src="https://packprinting.ir/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-<script type="7e5f9cd5b16100e74e97c153-text/javascript"
-        src="https://packprinting.ir/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-<script type="7e5f9cd5b16100e74e97c153-text/javascript"
-        src="https://packprinting.ir/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-<script type="7e5f9cd5b16100e74e97c153-text/javascript"
-        src="https://packprinting.ir/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-<script type="7e5f9cd5b16100e74e97c153-text/javascript"
-        src="https://packprinting.ir/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-<script type="7e5f9cd5b16100e74e97c153-text/javascript"
-        src="https://packprinting.ir/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-<script type="7e5f9cd5b16100e74e97c153-text/javascript"
-        src="https://packprinting.ir/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-<script type="7e5f9cd5b16100e74e97c153-text/javascript"
-        src="https://packprinting.ir/revolution/js/extensions/revolution.extension.video.min.js"></script>
 </body>
 </html>

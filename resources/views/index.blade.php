@@ -34,23 +34,18 @@
             <div data-v-6e6ad759="" class="container">
                 <nav data-v-6e6ad759="" class="row">
                     <ul data-v-6e6ad759="" class="menu-wrapper list-inline">
-                        <li data-v-6e6ad759="" id="menu0" class="nav-item"><h2 data-v-6e6ad759=""><a data-v-6e6ad759=""
-                                                                                                     href="#"
-                                                                                                     class="category-item"><i
-                                        data-v-6e6ad759="" class="fa fa-angle-down"></i>
-                                    میوه
-                                </a></h2></li>
+                     
                         <li data-v-6e6ad759="" id="menu1" class="nav-item"><h2 data-v-6e6ad759=""><a data-v-6e6ad759=""
                                                                                                      href="#"
                                                                                                      class="category-item"><i
                                         data-v-6e6ad759="" class="fa fa-angle-down"></i>
-                                    صیفی
+                                    خدمات
                                 </a></h2></li>
                         <li data-v-6e6ad759="" id="menu2" class="nav-item"><h2 data-v-6e6ad759=""><a data-v-6e6ad759=""
                                                                                                      href="#"
                                                                                                      class="category-item"><i
                                         data-v-6e6ad759="" class="fa fa-angle-down"></i>
-                                    غلات
+                                    محصولات 
                                 </a></h2>
                             <ul data-v-6e6ad759="" data-index="2" class="sub-categories-wrapper list-inline col-xs-12">
                                 <li data-v-6e6ad759="" class="col-xs-4 col-sm-3 col-md-4 pull-right"><a
