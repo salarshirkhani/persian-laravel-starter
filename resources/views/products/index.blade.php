@@ -115,13 +115,13 @@
                             </section>
                             <section data-v-516c4d6e="" class="main-content col-xs-12">
                                 <div data-v-516c4d6e="" class="row" id="article-list">
-
+                                    @foreach($items as $item)
                                     <div data-v-516c4d6e="" class="col-xs-12">
                                         <article data-v-600ff58e="" data-v-516c4d6e="" class="main-content-item"><!---->
                                             <div data-v-e34355cc="" data-v-600ff58e=""
                                                  class="user-information-wrapper row">
                                                 <div data-v-e34355cc="" class="user-information-contents">
-                                                    <a data-v-e34355cc="" href="/profile/h7wi36c2"
+                                                    <a data-v-e34355cc="" href="#"
                                                        class="user-information-link">
                                                         <div data-v-e34355cc="" class="user-information-content-image">
                                                             <div data-v-e34355cc="" class="user-image">
@@ -131,15 +131,11 @@
                                                             </div>
                                                         </div>
                                                         <div data-v-e34355cc="" class="user-information-content">
-                                                            <a data-v-e34355cc="" href="/profile/h7wi36c2"
-                                                               class="user-name-link">محمدصالح ملایی</a>
-                                                            <p data-v-e34355cc="" class="response-rate">
-                                                                احتمال پاسخ گویی
-                                                                <span data-v-e34355cc="">%100</span>
-                                                            </p>
+                                                            <a data-v-e34355cc="" href="#"
+                                                               class="user-name-link">{{ $item->company->name }}</a>
                                                         </div>
                                                     </a>
-                                                    <a data-v-e34355cc="" href="/profile/h7wi36c2"
+                                                    <a data-v-e34355cc="" href="#"
                                                        class="user-action-link green-text">مشاهده پروفایل</a>
                                                 </div>
                                                 <div data-v-e34355cc="" class="article-action-buttons">
@@ -155,10 +151,10 @@
                                                     <div data-v-8f532698="" data-v-345499b0=""
                                                          class="main-article-image">
                                                         <a data-v-8f532698=""
-                                                           href="/product-view/خرید-عمده-برنج/غلات/2425" class=""
+                                                           href="#" class=""
                                                            style="">
                                                             <img data-v-8f532698=""
-                                                                 src="https://www.buskool.com/storage/thumbnails/products/95UV7VYbIWYIuLDTCrcne5T5VstxFUJucTBu0yDH.jpeg"
+                                                                 src="{{ Storage::url($item->photo) }}"
                                                                  alt="فروش عمده ی برنج برنج  کهنوج - كرمان">
                                                         </a>
                                                         <div data-v-8f532698="" class="lds-ring"
@@ -172,10 +168,9 @@
                                                 <div data-v-345499b0="" class="main-article-contents"><!---->
                                                     <div data-v-345499b0="">
                                                         <h3 data-v-345499b0="" class="article-title">
-                                                            <a data-v-345499b0=""
-                                                               href="/product-view/خرید-عمده-برنج/غلات/2425" class="">غلات
-                                                                | برنج
-                                                                <span style="color: #777">برنج</span>
+                                                            <a data-v-345499b0="" href="#" class="">
+                                                                {{ $item->name }}
+                                                                <span style="color: #777">{{ $item->category->name }}</span>
                                                             </a>
                                                         </h3>
                                                         <p data-v-345499b0="">
@@ -185,16 +180,10 @@
                                                         <p data-v-345499b0="" class="product-description">
                                                             توضیحات
                                                             <a data-v-345499b0=""
-                                                               href="/product-view/خرید-عمده-برنج/غلات/2425" class="">انواع
-                                                                برنج ایرانی با کیفیت وخوش عطر باقیمت مناسب همراه با
-                                                                تخفیف .ارسال به تمام نقاط کشور در کوتاه تر</a>
-                                                        </p>
-                                                        <p data-v-345499b0="">
-                                                            مقدار موجودی:
-                                                            <span data-v-345499b0="">100000000 کیلوگرم</span>
+                                                               href="#" class="">{{ $item->short_description }}</a>
                                                         </p>
                                                     </div>
-                                                    <a data-v-345499b0="" href="/product-list#"
+                                                    <a data-v-345499b0="" href="#"
                                                        class="share-link hidden">
                                                         <i data-v-345499b0="" class="fa fa-share"></i>
                                                         <span data-v-345499b0="">اشتراک گذاری</span>
@@ -213,507 +202,9 @@
                                             <script data-v-600ff58e="" type="application/ld+json"></script>
                                         </article>
                                     </div>
-                                    <div data-v-516c4d6e="" class="col-xs-12">
-                                        <article data-v-600ff58e="" data-v-516c4d6e="" class="main-content-item"><!---->
-                                            <div data-v-e34355cc="" data-v-600ff58e=""
-                                                 class="user-information-wrapper row">
-                                                <div data-v-e34355cc="" class="user-information-contents">
-                                                    <a data-v-e34355cc="" href="/profile/h7wi36c2"
-                                                       class="user-information-link">
-                                                        <div data-v-e34355cc="" class="user-information-content-image">
-                                                            <div data-v-e34355cc="" class="user-image">
-                                                                <img data-v-e34355cc=""
-                                                                     src="https://www.buskool.com/assets/img/user-defult.png"
-                                                                     class="image_defult">
-                                                            </div>
-                                                        </div>
-                                                        <div data-v-e34355cc="" class="user-information-content">
-                                                            <a data-v-e34355cc="" href="/profile/h7wi36c2"
-                                                               class="user-name-link">محمدصالح ملایی</a>
-                                                            <p data-v-e34355cc="" class="response-rate">
-                                                                احتمال پاسخ گویی
-                                                                <span data-v-e34355cc="">%100</span>
-                                                            </p>
-                                                        </div>
-                                                    </a>
-                                                    <a data-v-e34355cc="" href="/profile/h7wi36c2"
-                                                       class="user-action-link green-text">مشاهده پروفایل</a>
-                                                </div>
-                                                <div data-v-e34355cc="" class="article-action-buttons">
-                                                    <button data-v-e34355cc="" class="green-button">
-                                                        <i data-v-e34355cc="" class="fa fa-envelope"></i>
-                                                        استعلام قیمت
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div data-v-345499b0="" data-v-600ff58e=""
-                                                 class="main-article-contents-wrapper pointer-class is-user-valid-content">
-                                                <div data-v-345499b0="" class="main-article-contents-image-wrapper">
-                                                    <div data-v-8f532698="" data-v-345499b0=""
-                                                         class="main-article-image">
-                                                        <a data-v-8f532698=""
-                                                           href="/product-view/خرید-عمده-برنج/غلات/2425" class=""
-                                                           style="">
-                                                            <img data-v-8f532698=""
-                                                                 src="https://www.buskool.com/storage/thumbnails/products/95UV7VYbIWYIuLDTCrcne5T5VstxFUJucTBu0yDH.jpeg"
-                                                                 alt="فروش عمده ی برنج برنج  کهنوج - كرمان">
-                                                        </a>
-                                                        <div data-v-8f532698="" class="lds-ring"
-                                                             style="display: none;"></div>
-                                                        <div data-v-8f532698="" class="image-count-item">
-                                                            <i data-v-8f532698="" class="fas fa-images"></i>
-                                                            <span data-v-8f532698="">4</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div data-v-345499b0="" class="main-article-contents"><!---->
-                                                    <div data-v-345499b0="">
-                                                        <h3 data-v-345499b0="" class="article-title">
-                                                            <a data-v-345499b0=""
-                                                               href="/product-view/خرید-عمده-برنج/غلات/2425" class="">غلات
-                                                                | برنج
-                                                                <span style="color: #777">برنج</span>
-                                                            </a>
-                                                        </h3>
-                                                        <p data-v-345499b0="">
-                                                            استان / شهر:
-                                                            <span data-v-345499b0="">كرمان -  کهنوج</span>
-                                                        </p>
-                                                        <p data-v-345499b0="" class="product-description">
-                                                            توضیحات
-                                                            <a data-v-345499b0=""
-                                                               href="/product-view/خرید-عمده-برنج/غلات/2425" class="">انواع
-                                                                برنج ایرانی با کیفیت وخوش عطر باقیمت مناسب همراه با
-                                                                تخفیف .ارسال به تمام نقاط کشور در کوتاه تر</a>
-                                                        </p>
-                                                        <p data-v-345499b0="">
-                                                            مقدار موجودی:
-                                                            <span data-v-345499b0="">100000000 کیلوگرم</span>
-                                                        </p>
-                                                    </div>
-                                                    <a data-v-345499b0="" href="/product-list#"
-                                                       class="share-link hidden">
-                                                        <i data-v-345499b0="" class="fa fa-share"></i>
-                                                        <span data-v-345499b0="">اشتراک گذاری</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div data-v-600ff58e="" class="footer-article"><!---->
-                                                <div data-v-600ff58e=""
-                                                     class="article-action-buttons pull-right full-width-button">
-                                                    <button data-v-600ff58e="" class="green-button">
-                                                        <i data-v-600ff58e="" class="fa fa-envelope"></i>
-                                                        استعلام قیمت
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <script data-v-600ff58e="" type="application/ld+json"></script>
-                                        </article>
-                                    </div>
-                                    <div data-v-516c4d6e="" class="col-xs-12">
-                                        <article data-v-600ff58e="" data-v-516c4d6e="" class="main-content-item"><!---->
-                                            <div data-v-e34355cc="" data-v-600ff58e=""
-                                                 class="user-information-wrapper row">
-                                                <div data-v-e34355cc="" class="user-information-contents">
-                                                    <a data-v-e34355cc="" href="/profile/h7wi36c2"
-                                                       class="user-information-link">
-                                                        <div data-v-e34355cc="" class="user-information-content-image">
-                                                            <div data-v-e34355cc="" class="user-image">
-                                                                <img data-v-e34355cc=""
-                                                                     src="https://www.buskool.com/assets/img/user-defult.png"
-                                                                     class="image_defult">
-                                                            </div>
-                                                        </div>
-                                                        <div data-v-e34355cc="" class="user-information-content">
-                                                            <a data-v-e34355cc="" href="/profile/h7wi36c2"
-                                                               class="user-name-link">محمدصالح ملایی</a>
-                                                            <p data-v-e34355cc="" class="response-rate">
-                                                                احتمال پاسخ گویی
-                                                                <span data-v-e34355cc="">%100</span>
-                                                            </p>
-                                                        </div>
-                                                    </a>
-                                                    <a data-v-e34355cc="" href="/profile/h7wi36c2"
-                                                       class="user-action-link green-text">مشاهده پروفایل</a>
-                                                </div>
-                                                <div data-v-e34355cc="" class="article-action-buttons">
-                                                    <button data-v-e34355cc="" class="green-button">
-                                                        <i data-v-e34355cc="" class="fa fa-envelope"></i>
-                                                        استعلام قیمت
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div data-v-345499b0="" data-v-600ff58e=""
-                                                 class="main-article-contents-wrapper pointer-class is-user-valid-content">
-                                                <div data-v-345499b0="" class="main-article-contents-image-wrapper">
-                                                    <div data-v-8f532698="" data-v-345499b0=""
-                                                         class="main-article-image">
-                                                        <a data-v-8f532698=""
-                                                           href="/product-view/خرید-عمده-برنج/غلات/2425" class=""
-                                                           style="">
-                                                            <img data-v-8f532698=""
-                                                                 src="https://www.buskool.com/storage/thumbnails/products/95UV7VYbIWYIuLDTCrcne5T5VstxFUJucTBu0yDH.jpeg"
-                                                                 alt="فروش عمده ی برنج برنج  کهنوج - كرمان">
-                                                        </a>
-                                                        <div data-v-8f532698="" class="lds-ring"
-                                                             style="display: none;"></div>
-                                                        <div data-v-8f532698="" class="image-count-item">
-                                                            <i data-v-8f532698="" class="fas fa-images"></i>
-                                                            <span data-v-8f532698="">4</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div data-v-345499b0="" class="main-article-contents"><!---->
-                                                    <div data-v-345499b0="">
-                                                        <h3 data-v-345499b0="" class="article-title">
-                                                            <a data-v-345499b0=""
-                                                               href="/product-view/خرید-عمده-برنج/غلات/2425" class="">غلات
-                                                                | برنج
-                                                                <span style="color: #777">برنج</span>
-                                                            </a>
-                                                        </h3>
-                                                        <p data-v-345499b0="">
-                                                            استان / شهر:
-                                                            <span data-v-345499b0="">كرمان -  کهنوج</span>
-                                                        </p>
-                                                        <p data-v-345499b0="" class="product-description">
-                                                            توضیحات
-                                                            <a data-v-345499b0=""
-                                                               href="/product-view/خرید-عمده-برنج/غلات/2425" class="">انواع
-                                                                برنج ایرانی با کیفیت وخوش عطر باقیمت مناسب همراه با
-                                                                تخفیف .ارسال به تمام نقاط کشور در کوتاه تر</a>
-                                                        </p>
-                                                        <p data-v-345499b0="">
-                                                            مقدار موجودی:
-                                                            <span data-v-345499b0="">100000000 کیلوگرم</span>
-                                                        </p>
-                                                    </div>
-                                                    <a data-v-345499b0="" href="/product-list#"
-                                                       class="share-link hidden">
-                                                        <i data-v-345499b0="" class="fa fa-share"></i>
-                                                        <span data-v-345499b0="">اشتراک گذاری</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div data-v-600ff58e="" class="footer-article"><!---->
-                                                <div data-v-600ff58e=""
-                                                     class="article-action-buttons pull-right full-width-button">
-                                                    <button data-v-600ff58e="" class="green-button">
-                                                        <i data-v-600ff58e="" class="fa fa-envelope"></i>
-                                                        استعلام قیمت
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <script data-v-600ff58e="" type="application/ld+json"></script>
-                                        </article>
-                                    </div>
-                                    <div data-v-516c4d6e="" class="col-xs-12">
-                                        <article data-v-600ff58e="" data-v-516c4d6e="" class="main-content-item"><!---->
-                                            <div data-v-e34355cc="" data-v-600ff58e=""
-                                                 class="user-information-wrapper row">
-                                                <div data-v-e34355cc="" class="user-information-contents">
-                                                    <a data-v-e34355cc="" href="/profile/h7wi36c2"
-                                                       class="user-information-link">
-                                                        <div data-v-e34355cc="" class="user-information-content-image">
-                                                            <div data-v-e34355cc="" class="user-image">
-                                                                <img data-v-e34355cc=""
-                                                                     src="https://www.buskool.com/assets/img/user-defult.png"
-                                                                     class="image_defult">
-                                                            </div>
-                                                        </div>
-                                                        <div data-v-e34355cc="" class="user-information-content">
-                                                            <a data-v-e34355cc="" href="/profile/h7wi36c2"
-                                                               class="user-name-link">محمدصالح ملایی</a>
-                                                            <p data-v-e34355cc="" class="response-rate">
-                                                                احتمال پاسخ گویی
-                                                                <span data-v-e34355cc="">%100</span>
-                                                            </p>
-                                                        </div>
-                                                    </a>
-                                                    <a data-v-e34355cc="" href="/profile/h7wi36c2"
-                                                       class="user-action-link green-text">مشاهده پروفایل</a>
-                                                </div>
-                                                <div data-v-e34355cc="" class="article-action-buttons">
-                                                    <button data-v-e34355cc="" class="green-button">
-                                                        <i data-v-e34355cc="" class="fa fa-envelope"></i>
-                                                        استعلام قیمت
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div data-v-345499b0="" data-v-600ff58e=""
-                                                 class="main-article-contents-wrapper pointer-class is-user-valid-content">
-                                                <div data-v-345499b0="" class="main-article-contents-image-wrapper">
-                                                    <div data-v-8f532698="" data-v-345499b0=""
-                                                         class="main-article-image">
-                                                        <a data-v-8f532698=""
-                                                           href="/product-view/خرید-عمده-برنج/غلات/2425" class=""
-                                                           style="">
-                                                            <img data-v-8f532698=""
-                                                                 src="https://www.buskool.com/storage/thumbnails/products/95UV7VYbIWYIuLDTCrcne5T5VstxFUJucTBu0yDH.jpeg"
-                                                                 alt="فروش عمده ی برنج برنج  کهنوج - كرمان">
-                                                        </a>
-                                                        <div data-v-8f532698="" class="lds-ring"
-                                                             style="display: none;"></div>
-                                                        <div data-v-8f532698="" class="image-count-item">
-                                                            <i data-v-8f532698="" class="fas fa-images"></i>
-                                                            <span data-v-8f532698="">4</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div data-v-345499b0="" class="main-article-contents"><!---->
-                                                    <div data-v-345499b0="">
-                                                        <h3 data-v-345499b0="" class="article-title">
-                                                            <a data-v-345499b0=""
-                                                               href="/product-view/خرید-عمده-برنج/غلات/2425" class="">غلات
-                                                                | برنج
-                                                                <span style="color: #777">برنج</span>
-                                                            </a>
-                                                        </h3>
-                                                        <p data-v-345499b0="">
-                                                            استان / شهر:
-                                                            <span data-v-345499b0="">كرمان -  کهنوج</span>
-                                                        </p>
-                                                        <p data-v-345499b0="" class="product-description">
-                                                            توضیحات
-                                                            <a data-v-345499b0=""
-                                                               href="/product-view/خرید-عمده-برنج/غلات/2425" class="">انواع
-                                                                برنج ایرانی با کیفیت وخوش عطر باقیمت مناسب همراه با
-                                                                تخفیف .ارسال به تمام نقاط کشور در کوتاه تر</a>
-                                                        </p>
-                                                        <p data-v-345499b0="">
-                                                            مقدار موجودی:
-                                                            <span data-v-345499b0="">100000000 کیلوگرم</span>
-                                                        </p>
-                                                    </div>
-                                                    <a data-v-345499b0="" href="/product-list#"
-                                                       class="share-link hidden">
-                                                        <i data-v-345499b0="" class="fa fa-share"></i>
-                                                        <span data-v-345499b0="">اشتراک گذاری</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div data-v-600ff58e="" class="footer-article"><!---->
-                                                <div data-v-600ff58e=""
-                                                     class="article-action-buttons pull-right full-width-button">
-                                                    <button data-v-600ff58e="" class="green-button">
-                                                        <i data-v-600ff58e="" class="fa fa-envelope"></i>
-                                                        استعلام قیمت
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <script data-v-600ff58e="" type="application/ld+json"></script>
-                                        </article>
-                                    </div>
-                                    <div data-v-516c4d6e="" class="col-xs-12">
-                                        <article data-v-600ff58e="" data-v-516c4d6e="" class="main-content-item"><!---->
-                                            <div data-v-e34355cc="" data-v-600ff58e=""
-                                                 class="user-information-wrapper row">
-                                                <div data-v-e34355cc="" class="user-information-contents">
-                                                    <a data-v-e34355cc="" href="/profile/h7wi36c2"
-                                                       class="user-information-link">
-                                                        <div data-v-e34355cc="" class="user-information-content-image">
-                                                            <div data-v-e34355cc="" class="user-image">
-                                                                <img data-v-e34355cc=""
-                                                                     src="https://www.buskool.com/assets/img/user-defult.png"
-                                                                     class="image_defult">
-                                                            </div>
-                                                        </div>
-                                                        <div data-v-e34355cc="" class="user-information-content">
-                                                            <a data-v-e34355cc="" href="/profile/h7wi36c2"
-                                                               class="user-name-link">محمدصالح ملایی</a>
-                                                            <p data-v-e34355cc="" class="response-rate">
-                                                                احتمال پاسخ گویی
-                                                                <span data-v-e34355cc="">%100</span>
-                                                            </p>
-                                                        </div>
-                                                    </a>
-                                                    <a data-v-e34355cc="" href="/profile/h7wi36c2"
-                                                       class="user-action-link green-text">مشاهده پروفایل</a>
-                                                </div>
-                                                <div data-v-e34355cc="" class="article-action-buttons">
-                                                    <button data-v-e34355cc="" class="green-button">
-                                                        <i data-v-e34355cc="" class="fa fa-envelope"></i>
-                                                        استعلام قیمت
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div data-v-345499b0="" data-v-600ff58e=""
-                                                 class="main-article-contents-wrapper pointer-class is-user-valid-content">
-                                                <div data-v-345499b0="" class="main-article-contents-image-wrapper">
-                                                    <div data-v-8f532698="" data-v-345499b0=""
-                                                         class="main-article-image">
-                                                        <a data-v-8f532698=""
-                                                           href="/product-view/خرید-عمده-برنج/غلات/2425" class=""
-                                                           style="">
-                                                            <img data-v-8f532698=""
-                                                                 src="https://www.buskool.com/storage/thumbnails/products/95UV7VYbIWYIuLDTCrcne5T5VstxFUJucTBu0yDH.jpeg"
-                                                                 alt="فروش عمده ی برنج برنج  کهنوج - كرمان">
-                                                        </a>
-                                                        <div data-v-8f532698="" class="lds-ring"
-                                                             style="display: none;"></div>
-                                                        <div data-v-8f532698="" class="image-count-item">
-                                                            <i data-v-8f532698="" class="fas fa-images"></i>
-                                                            <span data-v-8f532698="">4</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div data-v-345499b0="" class="main-article-contents"><!---->
-                                                    <div data-v-345499b0="">
-                                                        <h3 data-v-345499b0="" class="article-title">
-                                                            <a data-v-345499b0=""
-                                                               href="/product-view/خرید-عمده-برنج/غلات/2425" class="">غلات
-                                                                | برنج
-                                                                <span style="color: #777">برنج</span>
-                                                            </a>
-                                                        </h3>
-                                                        <p data-v-345499b0="">
-                                                            استان / شهر:
-                                                            <span data-v-345499b0="">كرمان -  کهنوج</span>
-                                                        </p>
-                                                        <p data-v-345499b0="" class="product-description">
-                                                            توضیحات
-                                                            <a data-v-345499b0=""
-                                                               href="/product-view/خرید-عمده-برنج/غلات/2425" class="">انواع
-                                                                برنج ایرانی با کیفیت وخوش عطر باقیمت مناسب همراه با
-                                                                تخفیف .ارسال به تمام نقاط کشور در کوتاه تر</a>
-                                                        </p>
-                                                        <p data-v-345499b0="">
-                                                            مقدار موجودی:
-                                                            <span data-v-345499b0="">100000000 کیلوگرم</span>
-                                                        </p>
-                                                    </div>
-                                                    <a data-v-345499b0="" href="/product-list#"
-                                                       class="share-link hidden">
-                                                        <i data-v-345499b0="" class="fa fa-share"></i>
-                                                        <span data-v-345499b0="">اشتراک گذاری</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div data-v-600ff58e="" class="footer-article"><!---->
-                                                <div data-v-600ff58e=""
-                                                     class="article-action-buttons pull-right full-width-button">
-                                                    <button data-v-600ff58e="" class="green-button">
-                                                        <i data-v-600ff58e="" class="fa fa-envelope"></i>
-                                                        استعلام قیمت
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <script data-v-600ff58e="" type="application/ld+json"></script>
-                                        </article>
-                                    </div>
-                                    <div data-v-516c4d6e="" class="col-xs-12">
-                                        <article data-v-600ff58e="" data-v-516c4d6e="" class="main-content-item"><!---->
-                                            <div data-v-e34355cc="" data-v-600ff58e=""
-                                                 class="user-information-wrapper row">
-                                                <div data-v-e34355cc="" class="user-information-contents">
-                                                    <a data-v-e34355cc="" href="/profile/h7wi36c2"
-                                                       class="user-information-link">
-                                                        <div data-v-e34355cc="" class="user-information-content-image">
-                                                            <div data-v-e34355cc="" class="user-image">
-                                                                <img data-v-e34355cc=""
-                                                                     src="https://www.buskool.com/assets/img/user-defult.png"
-                                                                     class="image_defult">
-                                                            </div>
-                                                        </div>
-                                                        <div data-v-e34355cc="" class="user-information-content">
-                                                            <a data-v-e34355cc="" href="/profile/h7wi36c2"
-                                                               class="user-name-link">محمدصالح ملایی</a>
-                                                            <p data-v-e34355cc="" class="response-rate">
-                                                                احتمال پاسخ گویی
-                                                                <span data-v-e34355cc="">%100</span>
-                                                            </p>
-                                                        </div>
-                                                    </a>
-                                                    <a data-v-e34355cc="" href="/profile/h7wi36c2"
-                                                       class="user-action-link green-text">مشاهده پروفایل</a>
-                                                </div>
-                                                <div data-v-e34355cc="" class="article-action-buttons">
-                                                    <button data-v-e34355cc="" class="green-button">
-                                                        <i data-v-e34355cc="" class="fa fa-envelope"></i>
-                                                        استعلام قیمت
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div data-v-345499b0="" data-v-600ff58e=""
-                                                 class="main-article-contents-wrapper pointer-class is-user-valid-content">
-                                                <div data-v-345499b0="" class="main-article-contents-image-wrapper">
-                                                    <div data-v-8f532698="" data-v-345499b0=""
-                                                         class="main-article-image">
-                                                        <a data-v-8f532698=""
-                                                           href="/product-view/خرید-عمده-برنج/غلات/2425" class=""
-                                                           style="">
-                                                            <img data-v-8f532698=""
-                                                                 src="https://www.buskool.com/storage/thumbnails/products/95UV7VYbIWYIuLDTCrcne5T5VstxFUJucTBu0yDH.jpeg"
-                                                                 alt="فروش عمده ی برنج برنج  کهنوج - كرمان">
-                                                        </a>
-                                                        <div data-v-8f532698="" class="lds-ring"
-                                                             style="display: none;"></div>
-                                                        <div data-v-8f532698="" class="image-count-item">
-                                                            <i data-v-8f532698="" class="fas fa-images"></i>
-                                                            <span data-v-8f532698="">4</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div data-v-345499b0="" class="main-article-contents"><!---->
-                                                    <div data-v-345499b0="">
-                                                        <h3 data-v-345499b0="" class="article-title">
-                                                            <a data-v-345499b0=""
-                                                               href="/product-view/خرید-عمده-برنج/غلات/2425" class="">غلات
-                                                                | برنج
-                                                                <span style="color: #777">برنج</span>
-                                                            </a>
-                                                        </h3>
-                                                        <p data-v-345499b0="">
-                                                            استان / شهر:
-                                                            <span data-v-345499b0="">كرمان -  کهنوج</span>
-                                                        </p>
-                                                        <p data-v-345499b0="" class="product-description">
-                                                            توضیحات
-                                                            <a data-v-345499b0=""
-                                                               href="/product-view/خرید-عمده-برنج/غلات/2425" class="">انواع
-                                                                برنج ایرانی با کیفیت وخوش عطر باقیمت مناسب همراه با
-                                                                تخفیف .ارسال به تمام نقاط کشور در کوتاه تر</a>
-                                                        </p>
-                                                        <p data-v-345499b0="">
-                                                            مقدار موجودی:
-                                                            <span data-v-345499b0="">100000000 کیلوگرم</span>
-                                                        </p>
-                                                    </div>
-                                                    <a data-v-345499b0="" href="/product-list#"
-                                                       class="share-link hidden">
-                                                        <i data-v-345499b0="" class="fa fa-share"></i>
-                                                        <span data-v-345499b0="">اشتراک گذاری</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div data-v-600ff58e="" class="footer-article"><!---->
-                                                <div data-v-600ff58e=""
-                                                     class="article-action-buttons pull-right full-width-button">
-                                                    <button data-v-600ff58e="" class="green-button">
-                                                        <i data-v-600ff58e="" class="fa fa-envelope"></i>
-                                                        استعلام قیمت
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <script data-v-600ff58e="" type="application/ld+json"></script>
-                                        </article>
-                                    </div>
-
+                                    @endforeach
                                     <div data-v-516c4d6e="" class="load-more-button col-xs-12">
-                                        <button data-v-516c4d6e="" class="btn btn-loader">
-                                            <div data-v-516c4d6e="" class="btn-content"><span data-v-516c4d6e=""
-                                                                                              class="hidden-xs text-rtl">
-                    مشاهده محصولات بیشتر
-                    <i data-v-516c4d6e="" class="fa fa-plus"></i></span> <span data-v-516c4d6e=""
-                                                                               class="hidden-sm hidden-md hidden-lg text-rtl">
-                    محصولات بیشتر
-                    <i data-v-516c4d6e="" class="fa fa-plus"></i></span>
-                                                <div data-v-516c4d6e="" class="btn-loader-active-wrapper"
-                                                     style="display: none;"><img data-v-516c4d6e=""
-                                                                                 src="https://www.buskool.com/assets/img/gif/loading.gif">
-                                                </div>
-                                            </div>
-                                        </button>
+                                        {{ $items->links() }}
                                     </div>
                                 </div>
                             </section>
