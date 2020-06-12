@@ -367,7 +367,7 @@
     }
 </script>
 
-<script src="{{asset('js/ideal-image-slider.js')}}"></script>
+<script src="{{asset('assets/js/ideal-image-slider.js')}}"></script>
 <script>
     var slider = new IdealImageSlider.Slider('#slider1');
     slider.start();
