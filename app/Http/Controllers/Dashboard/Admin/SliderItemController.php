@@ -26,7 +26,7 @@ class SliderItemController extends Controller
 
     public function store(SliderItemStoreRequest $request) {
         $item = SliderItem::create($request->validated());
-        $item->image = $request->file('image')->storePublicly('sliders');
+        $item->image = $request->file('image')->storePublicly('sliders', 'public');
         $item->save();
         return redirect()->route('dashboard.admin.slider-items.index')
             ->with('success', 'اسلایدر با موفقیت ساخته شد!');
@@ -39,7 +39,7 @@ class SliderItemController extends Controller
     public function update(SliderItemUpdateRequest $request, SliderItem $sliderItem) {
         $sliderItem->update($request->validated());
         if ($request->hasFile('image') && $request->file('image')->isValid())
-            $sliderItem->image = $request->file('image')->storePublicly('sliders');
+            $sliderItem->image = $request->file('image')->storePublicly('sliders', 'public');
         $sliderItem->save();
 
         return redirect()->route('dashboard.admin.slider-items.index')
