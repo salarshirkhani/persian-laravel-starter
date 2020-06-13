@@ -91,21 +91,13 @@
                             <section data-v-516c4d6e="" class="hidden-xs col-xs-12">
                                 <div data-v-516c4d6e="" class="rate-filter-desktop-wrapper">
                                     <ul data-v-516c4d6e="" class="list-unstiled list-inline">
+                                        @foreach($sorts as $label => $data)
                                         <li data-v-516c4d6e="">
-                                            <button data-v-516c4d6e="" class="">
-                                                احتمال پاسخگویی
-                                            </button>
+                                            <a href="{{ route('products.index', array_merge(request()->input(), $data)) }}" data-v-516c4d6e="" class="{{ array_intersect(request()->input(), $data) == $data ? 'active' : '' }}">
+                                                {{ $label }}
+                                            </a>
                                         </li>
-                                        <li data-v-516c4d6e="">
-                                            <button data-v-516c4d6e="" class="">
-                                                سرعت پاسخگویی
-                                            </button>
-                                        </li>
-                                        <li data-v-516c4d6e="">
-                                            <button data-v-516c4d6e="" class="">
-                                                جدیدترین ها
-                                            </button>
-                                        </li>
+                                        @endforeach
                                     </ul>
                                     <button data-v-516c4d6e="" data-toggle="modal" data-target="#searchFilter"
                                             class="btn-filter hidden-lg">
@@ -219,280 +211,43 @@
                                 <div data-v-516c4d6e="">
                                     <div data-v-6cad7a0b="" class="content-sidebar">
                                         <div data-v-6cad7a0b="" class="title-widget">
-                                            <div data-v-6cad7a0b="">دسته بندی محصولات</div>
+                                            <div data-v-6cad7a0b="">دسته‌بندی‌ها</div>
                                             <hr data-v-6cad7a0b="">
                                         </div>
                                         <div data-v-6cad7a0b="" class="category-products-widget">
                                             <ul data-v-6cad7a0b="">
-                                                <li data-v-6cad7a0b="" class="collapse-category-1"><h2
-                                                        data-v-6cad7a0b=""><a data-v-6cad7a0b="" href="#"
-                                                                              class="collapse-button-1"><i
-                                                                data-v-6cad7a0b="" class="fa fa-angle-left"></i> <span
-                                                                data-v-6cad7a0b="">میوه</span></a></h2>
-                                                    <ul data-v-6cad7a0b="" class="sub-category-product little">
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/سیب"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">سیب</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/انار"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">انار</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/خرما"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">خرما</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/انگور-"
-                                                                                      class="" data-dismiss="modal">انگور </a>
-                                                            </h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/آلبالو"
-                                                                                      class="" data-dismiss="modal">آلبالو</a>
-                                                            </h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/گلابی"
-                                                                                      class="" data-dismiss="modal">گلابی</a>
-                                                            </h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/گیلاس"
-                                                                                      class="" data-dismiss="modal">گیلاس</a>
-                                                            </h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/پرتقال"
-                                                                                      class="" data-dismiss="modal">پرتقال</a>
-                                                            </h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/به"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">به</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/توت-فرنگی"
-                                                                                      class="" data-dismiss="modal">توت
-                                                                    فرنگی</a></h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/نارنگی"
-                                                                                      class="" data-dismiss="modal">نارنگی</a>
-                                                            </h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/هلو"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">هلو</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/لیمو-شیرین"
-                                                                                      class="" data-dismiss="modal">لیمو
-                                                                    شیرین</a></h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/لیمو-ترش"
-                                                                                      class="" data-dismiss="modal">لیمو
-                                                                    ترش</a></h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/زردآلو"
-                                                                                      class="" data-dismiss="modal">زردآلو</a>
-                                                            </h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/کیوی"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">کیوی</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/گریپ-فروت"
-                                                                                      class="" data-dismiss="modal">گریپ
-                                                                    فروت</a></h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/شلیل"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">شلیل</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/سایر"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">سایر</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/انجیر"
-                                                                                      class="" data-dismiss="modal">انجیر</a>
-                                                            </h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/پسته"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">پسته</a></h4>
-                                                        </li>
-                                                    </ul>
-                                                    <div data-v-6cad7a0b="" class="button-wrapper">
-                                                        <button data-v-6cad7a0b="" class="green-button button-toggle">
-                                                            <span data-v-6cad7a0b="">مشاهده بیشتر </span> <i
-                                                                data-v-6cad7a0b="" class="fa fa-angle-down"></i>
-                                                        </button>
-                                                    </div>
+                                                <li data-v-6cad7a0b="" class="collapse-category-1">
+                                                    <h2 data-v-6cad7a0b="">
+                                                        <a data-v-6cad7a0b="" href="{{ route('products.index', collect(request()->input())->forget('category')->all()) }}" class="collapse-button-1">
+                                                            <i data-v-6cad7a0b="" class="fa fa-angle-left"></i>
+                                                            <span data-v-6cad7a0b="" style="@if(!request()->has('category'))text-decoration: underline;@endif">تمام محصولات و خدمات</span>
+                                                        </a>
+                                                    </h2>
                                                 </li>
-                                                <li data-v-6cad7a0b="" class="collapse-category-2"><h2
-                                                        data-v-6cad7a0b=""><a data-v-6cad7a0b="" href="#"
-                                                                              class="collapse-button-2"><i
-                                                                data-v-6cad7a0b="" class="fa fa-angle-left"></i> <span
-                                                                data-v-6cad7a0b="">صیفی</span></a></h2>
+                                                @foreach($categoryTypes as $type => $label)
+                                                <li data-v-6cad7a0b="" class="collapse-category-1">
+                                                    <h2 data-v-6cad7a0b="">
+                                                        <a data-v-6cad7a0b="" href="#" class="collapse-button-1">
+                                                            <i data-v-6cad7a0b="" class="fa fa-angle-left"></i>
+                                                            <span data-v-6cad7a0b="">{{ $label }}</span>
+                                                        </a>
+                                                    </h2>
                                                     <ul data-v-6cad7a0b="" class="sub-category-product little">
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/گوجه"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">گوجه</a></h4>
+                                                        @foreach($categories->where('type', $type) as $category)
+                                                        <li data-v-6cad7a0b="" class="sub-category-item">
+                                                            <h4 data-v-6cad7a0b="">
+                                                                <a data-v-6cad7a0b=""
+                                                                   href="{{ route('products.index', array_merge(request()->input(), ['category' => $category])) }}"
+                                                                   data-dismiss="modal"
+                                                                   style="@if(request()->input('category', null) == $category->id)text-decoration: underline;@endif">
+                                                                    {{ $category->name }}
+                                                                </a>
+                                                            </h4>
                                                         </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/سیب-زمینی"
-                                                                                      class="" data-dismiss="modal">سیب
-                                                                    زمینی</a></h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/کلم"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">کلم</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/پیاز"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">پیاز</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/فلفل-دلمه-ای"
-                                                                                      class="" data-dismiss="modal">فلفل
-                                                                    دلمه ای</a></h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/کرفس"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">کرفس</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/شوید"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">شوید</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/سیر"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">سیر</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/شلغم"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">شلغم</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/خیار"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">خیار</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/لوبیا-سبز"
-                                                                                      class="" data-dismiss="modal">لوبیا
-                                                                    سبز</a></h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/هویج"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">هویج</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/ملون"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">ملون</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/خربزه"
-                                                                                      class="" data-dismiss="modal">خربزه</a>
-                                                            </h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/کدو"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">کدو</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/هندوانه"
-                                                                                      class="" data-dismiss="modal">هندوانه</a>
-                                                            </h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/فلفل"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">فلفل</a></h4>
-                                                        </li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/طالبی"
-                                                                                      class="" data-dismiss="modal">طالبی</a>
-                                                            </h4></li>
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/سایر"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">سایر</a></h4>
-                                                        </li>
+                                                        @endforeach
                                                     </ul>
-                                                    <div data-v-6cad7a0b="" class="button-wrapper">
-                                                        <button data-v-6cad7a0b="" class="green-button button-toggle">
-                                                            <span data-v-6cad7a0b="">مشاهده بیشتر </span> <i
-                                                                data-v-6cad7a0b="" class="fa fa-angle-down"></i>
-                                                        </button>
-                                                    </div>
                                                 </li>
-                                                <li data-v-6cad7a0b="" class="collapse-category-42"><h2
-                                                        data-v-6cad7a0b=""><a data-v-6cad7a0b="" href="#"
-                                                                              class="collapse-button-42"><i
-                                                                data-v-6cad7a0b="" class="fa fa-angle-left"></i> <span
-                                                                data-v-6cad7a0b="">غلات</span></a></h2>
-                                                    <ul data-v-6cad7a0b="" class="sub-category-product little">
-                                                        <li data-v-6cad7a0b="" class="sub-category-item"><h4
-                                                                data-v-6cad7a0b=""><a data-v-6cad7a0b=""
-                                                                                      href="/product-list/category/برنج"
-                                                                                      class=""
-                                                                                      data-dismiss="modal">برنج</a></h4>
-                                                        </li>
-                                                    </ul>
-                                                    <div data-v-6cad7a0b="" class="button-wrapper">
-                                                        <button data-v-6cad7a0b="" class="green-button button-toggle"
-                                                                style="display: none;"><span data-v-6cad7a0b="">مشاهده بیشتر </span>
-                                                            <i data-v-6cad7a0b="" class="fa fa-angle-down"></i></button>
-                                                    </div>
-                                                </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>

@@ -63,6 +63,13 @@ body,p,a,span,button {
     font-weight: bold;
     border: none;
 }
+.list-inline a {
+    padding: 8px;
+}
+.list-inline a.active {
+    border: 1px solid #1d212a;
+    border-radius: 3px;
+}
 .green-button:hover {
 background: #fff;
 color: #ff0a0a;
