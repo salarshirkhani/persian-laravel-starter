@@ -93,7 +93,7 @@
                                     <ul data-v-516c4d6e="" class="list-unstiled list-inline">
                                         @foreach($sorts as $label => $data)
                                         <li data-v-516c4d6e="">
-                                            <a href="{{ route('products.index', array_merge(request()->input(), $data)) }}" data-v-516c4d6e="" class="{{ array_intersect(request()->input(), $data) == $data ? 'active' : '' }}">
+                                            <a href="{{ route('items.index', array_merge(request()->input(), $data)) }}" data-v-516c4d6e="" class="{{ array_intersect(request()->input(), $data) == $data ? 'active' : '' }}">
                                                 {{ $label }}
                                             </a>
                                         </li>
@@ -218,7 +218,7 @@
                                             <ul data-v-6cad7a0b="">
                                                 <li data-v-6cad7a0b="" class="collapse-category-1">
                                                     <h2 data-v-6cad7a0b="">
-                                                        <a data-v-6cad7a0b="" href="{{ route('products.index', collect(request()->input())->forget('category')->all()) }}" class="collapse-button-1">
+                                                        <a data-v-6cad7a0b="" href="{{ route('items.index', collect(request()->input())->forget('category')->all()) }}" class="collapse-button-1">
                                                             <i data-v-6cad7a0b="" class="fa fa-angle-left"></i>
                                                             <span data-v-6cad7a0b="" style="@if(!request()->has('category'))text-decoration: underline;@endif">تمام محصولات و خدمات</span>
                                                         </a>
@@ -237,7 +237,7 @@
                                                         <li data-v-6cad7a0b="" class="sub-category-item">
                                                             <h4 data-v-6cad7a0b="">
                                                                 <a data-v-6cad7a0b=""
-                                                                   href="{{ route('products.index', array_merge(request()->input(), ['category' => $category])) }}"
+                                                                   href="{{ route('items.index', array_merge(request()->input(), ['category' => $category])) }}"
                                                                    data-dismiss="modal"
                                                                    style="@if(request()->input('category', null) == $category->id)text-decoration: underline;@endif">
                                                                     {{ $category->name }}

@@ -20,7 +20,7 @@ class FrontController extends Controller
         ]);
     }
 
-    public function products(Request $request) {
+    public function items(Request $request) {
         $data = $request->validate([
             'category' => 'sometimes|exists:categories,id',
             'sort' => 'sometimes|in:created_at',
@@ -39,7 +39,7 @@ class FrontController extends Controller
             ->paginate(5)
             ->appends($data);
         $categories = Category::whereIn('type', ['product', 'service'])->get();
-        return view('products.index', [
+        return view('items.index', [
             'items' => $items,
             'categories' => $categories,
             'categoryTypes' => [
