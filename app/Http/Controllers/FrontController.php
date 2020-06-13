@@ -58,4 +58,14 @@ class FrontController extends Controller
             ],
         ]);
     }
+
+    public function showItem($type, $item) {
+        if (!in_array($type, ['product', 'service'])) abort(404);
+        /** @var Product|Service $cls */
+        $cls = ($type == 'product' ? Product::class : Service::class);
+        $item = $cls::findOrFail($item);
+        return view('items.show', [
+            'item' => $item,
+        ]);
+    }
 }

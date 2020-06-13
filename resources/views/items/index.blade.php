@@ -113,7 +113,7 @@
                                             <div data-v-e34355cc="" data-v-600ff58e=""
                                                  class="user-information-wrapper row">
                                                 <div data-v-e34355cc="" class="user-information-contents">
-                                                    <a data-v-e34355cc="" href="#"
+                                                    <a data-v-e34355cc="" href="{{ route('items.show', ['type' => (is_subclass_of($item, \App\Product::class) ? 'product' : 'service'), 'item' => $item->id]) }}"
                                                        class="user-information-link">
                                                         <div data-v-e34355cc="" class="user-information-content-image">
                                                             <div data-v-e34355cc="" class="user-image">
@@ -143,7 +143,7 @@
                                                     <div data-v-8f532698="" data-v-345499b0=""
                                                          class="main-article-image">
                                                         <a data-v-8f532698=""
-                                                           href="#" class=""
+                                                           href="{{ route('items.show', ['type' => (is_subclass_of($item, \App\Product::class) ? 'product' : 'service'), 'item' => $item->id]) }}" class=""
                                                            style="">
                                                             <img data-v-8f532698=""
                                                                  src="{{ Storage::url($item->photo) }}"
@@ -160,7 +160,7 @@
                                                 <div data-v-345499b0="" class="main-article-contents"><!---->
                                                     <div data-v-345499b0="">
                                                         <h3 data-v-345499b0="" class="article-title">
-                                                            <a data-v-345499b0="" href="#" class="">
+                                                            <a data-v-345499b0="" href="{{ route('items.show', ['type' => (is_subclass_of($item, \App\Product::class) ? 'product' : 'service'), 'item' => $item->id]) }}" class="">
                                                                 {{ $item->name }}
                                                                 <span style="color: #777">{{ $item->category->name }}</span>
                                                             </a>
@@ -172,7 +172,7 @@
                                                         <p data-v-345499b0="" class="product-description">
                                                             توضیحات
                                                             <a data-v-345499b0=""
-                                                               href="#" class="">{{ $item->short_description }}</a>
+                                                               href="{{ route('items.show', ['type' => (is_subclass_of($item, \App\Product::class) ? 'product' : 'service'), 'item' => $item->id]) }}" class="">{{ $item->short_description }}</a>
                                                         </p>
                                                     </div>
                                                     <a data-v-345499b0="" href="#"
