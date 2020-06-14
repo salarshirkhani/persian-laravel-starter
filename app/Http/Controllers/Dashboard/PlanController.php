@@ -12,7 +12,7 @@ class PlanController extends Controller
 {
     public function __construct()
     {
-        $this->authorizeResource(Plan::class);
+//        $this->authorizeResource(Plan::class);
     }
 
     public function index() {

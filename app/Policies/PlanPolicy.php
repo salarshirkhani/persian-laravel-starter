@@ -17,7 +17,8 @@ class PlanPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->type != 'owner' || !empty($user->company);
+//        return $user->type != 'owner' || !empty($user->company);
+        return true;
     }
 
     /**
