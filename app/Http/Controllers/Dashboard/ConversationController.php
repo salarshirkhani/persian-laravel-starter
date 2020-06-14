@@ -12,11 +12,8 @@ use Auth;
 
 class ConversationController extends Controller
 {
-    public function __construct() {
-        $this->authorizeResource(Conversation::class);
-    }
-
     public function index() {
+        $this->authorize('viewAny', Conversation::class);
         Auth::user()->load('conversations.lastMessage');
         return view('dashboard.conversations.index', [
             'conversations' => Auth::user()->conversations->sortByDesc('lastMessage.created_at')
@@ -24,6 +21,7 @@ class ConversationController extends Controller
     }
 
     public function show(Conversation $conversation) {
+        $this->authorize('view', $conversation);
         $conversation->load('messages.from');
         return view('dashboard.conversations.show', [
             'conversation' => $conversation
@@ -31,6 +29,9 @@ class ConversationController extends Controller
     }
 
     public function store(StartConversationRequest $request) {
+        if (!Auth::user()->can('create', Conversation::class))
+            return redirect()->back()
+                ->with('error', 'شما به محدودیت ارسال پیام رسیده‌اید! لطفا اشتراک خود را ارتقا دهید.');
         $target = User::find($request->validated()['user_id']);
 
         if ($target->type == Auth::user()->type || $target->is(Auth::user()))
