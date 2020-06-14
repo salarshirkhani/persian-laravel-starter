@@ -31,7 +31,7 @@ use Rinvex\Subscriptions\Traits\HasSubscriptions;
  * @property-read int|null $messages_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Rinvex\Subscriptions\Models\PlanSubscription[] $subscriptions
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\PlanSubscription[] $subscriptions
  * @property-read int|null $subscriptions_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User newQuery()
@@ -103,6 +103,14 @@ class User extends Authenticatable
 
     public function enquiries() {
         return $this->hasMany('App\Enquiry', 'creator_id');
+    }
+
+    public function defaultSubscription() {
+        return $this->subscription("{$this->type}-{$this->id}");
+    }
+
+    public function newDefaultSubscription($plan) {
+        return $this->newSubscription("{$this->type}-{$this->id}", $plan);
     }
 
 }

@@ -22,8 +22,8 @@ return [
 
         'plan' => \Rinvex\Subscriptions\Models\Plan::class,
         'plan_feature' => \Rinvex\Subscriptions\Models\PlanFeature::class,
-        'plan_subscription' => \Rinvex\Subscriptions\Models\PlanSubscription::class,
-        'plan_subscription_usage' => \Rinvex\Subscriptions\Models\PlanSubscriptionUsage::class,
+        'plan_subscription' => \App\PlanSubscription::class,
+        'plan_subscription_usage' => \App\PlanSubscriptionUsage::class,
 
     ],
 

@@ -43,17 +43,13 @@ class ConversationPolicy
      */
     public function create(User $user)
     {
-        $todayCount = Message
-            ::where('created_at', '>=', now()->startOfDay())
-            ->where('from_id', $user->id)
-            ->groupBy('conversation_id')
-            ->count();
-        $sub = $user->subscription($user->type);
         return
+            !empty($sub = $user->defaultSubscription()) &&
+            $sub->canUseFeature('conversations_per_day') &&
             (
-                (empty($sub) && $todayCount < 1) ||
-                (!empty($sub) && $sub->canUseFeature('conversations_per_day'))
-            ) && $user->type == 'customer' || $user->type == 'owner';
+                $user->type == 'customer' ||
+                $user->type == 'owner'
+            );
     }
 
     /**

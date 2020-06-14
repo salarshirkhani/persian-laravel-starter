@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Rinvex\Subscriptions\Models\Plan;
-use Rinvex\Subscriptions\Models\PlanFeature;
 
 class PlanSeeder extends Seeder
 {
@@ -13,8 +11,8 @@ class PlanSeeder extends Seeder
      */
     public function run()
     {
-        Plan::whereRaw('1=1')->delete();
-        PlanFeature::whereRaw('1=1')->delete();
+        app('rinvex.subscriptions.plan')::whereRaw('1=1')->delete();
+        app('rinvex.subscriptions.plan_feature')::whereRaw('1=1')->delete();
         $featureTypes = [
             'conversation_per_day' => [
                 'description' => 'سقف پاسخ به درخواست روزانه',
@@ -170,7 +168,7 @@ class PlanSeeder extends Seeder
         foreach ($plans as $planData) {
             $featuresRaw = $planData['features'];
             unset($planData['features']);
-            $plan = Plan::create($planData);
+            $plan = app('rinvex.subscriptions.plan')->create($planData);
             $featureItems = [];
             foreach ($featuresRaw as $name => $value) {
                 $featureItems[] = array_merge(['name' => $name, 'value' => $value], $featureTypes[$name]);

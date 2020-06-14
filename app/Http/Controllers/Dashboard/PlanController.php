@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Transaction;
 use App\User;
-use Rinvex\Subscriptions\Models\Plan;
 use Shetabit\Payment\Invoice;
 
 class PlanController extends Controller
@@ -17,11 +16,15 @@ class PlanController extends Controller
 
     public function index() {
         return view('dashboard.plans.index', [
-            'plans' => Plan::whereRaw("slug LIKE ?", [\Auth::user()->type . '-%'])->get()
+            'plans' => app('rinvex.subscriptions.plan')
+                ::whereRaw("slug LIKE ?", [\Auth::user()->type . '-%'])
+                ->where('price', '!=', '0')
+                ->get()
         ]);
     }
 
-    public function subscribe(Plan $plan) {
+    public function subscribe($plan) {
+        $plan = app('rinvex.subscriptions.plan')->findOrFail($plan);
         $this->authorize('subscribe', $plan);
         /** @var \App\User $user */
         $user = \Auth::user();
@@ -50,7 +53,7 @@ class PlanController extends Controller
         /** @var User $user */
         $user = \Auth::user();
         if (($message = $transaction->verify($user)) === true) {
-            $user->newSubscription($user->type, $transaction->plan);
+            $user->newDefaultSubscription($transaction->plan);
             return redirect()
                 ->route("dashboard.$user->type.index")
                 ->with('success', 'اشتراک شما با موفقیت فعال شد!');

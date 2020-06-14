@@ -50,13 +50,14 @@ trait ItemPolicy
      */
     public function create(User $user)
     {
-        if (empty($user->company) || $user->type != 'owner' || $user->company->type != static::getItemType())
-            return false;
-        $itemCount = $user->company->products_count + $user->company->services_count;
+        $sub = $user->defaultSubscription();
         return (
-                (empty($sub = $user->subscription($user->type)) && $itemCount < 1) ||
-                (!empty($sub) && $sub->canUseFeature('max_items'))
-            );
+            !empty($user->company) &&
+            $user->type == 'owner' &&
+            $user->company->type == static::getItemType() &&
+            !empty($sub) &&
+            $sub->canUseFeature('max_items')
+        );
     }
 
     /**

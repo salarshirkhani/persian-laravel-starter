@@ -90,7 +90,7 @@
                                     <div data-v-8eb0bc3c="" class="user-information-content">
                                         <p data-v-8eb0bc3c="" class="user-position">فروشنده</p>
                                         <p data-v-8eb0bc3c="">{{ $item->company->name }}</p>
-                                        @if(($sub = $item->company->creator->subscription('owner')) && $sub->canUseFeature('verified_seller_mark'))
+                                        @if(($sub = $item->company->creator->defaultSubscription()) && $sub->canUseFeature('verified_seller_mark'))
                                             <p data-v-8eb0bc3c="" class="user-valid-text">کاربر تایید شده</p>
                                         @endif
                                     </div>

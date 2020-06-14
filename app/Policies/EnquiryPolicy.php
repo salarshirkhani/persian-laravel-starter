@@ -62,7 +62,7 @@ class EnquiryPolicy
         return
             $user->type == 'customer' &&
             (
-                !empty($sub = $user->subscription($user->type)) &&
+                !empty($sub = $user->defaultSubscription()) &&
                 $sub->canUseFeature('enquiries_per_day')
             );
     }
