@@ -8,7 +8,6 @@ use App\Http\Requests\SplitsKeywords;
 use App\User;
 use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Database\Query\Builder;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Validation\Rule;
 use JMac\Testing\Traits\AdditionalAssertions;
@@ -17,8 +16,6 @@ use Tests\TestCase;
 class SearchRequestTest extends TestCase
 {
     use AdditionalAssertions;
-    use RefreshDatabase;
-
     public function test_search_controller_using_correct_request()
     {
         $this->assertActionUsesFormRequest(
@@ -44,7 +41,7 @@ class SearchRequestTest extends TestCase
             'category' => ['required', Rule::exists('categories', 'id')->where(function (Builder $query) {
                 $query->where('type', $this->get('type', null));
             })],
-            'keywords' => ['required', 'string', 'regex:/^[a-zA-Z0-9۰-۹آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیيئ,،. ]+$/'],
+            'keywords' => ['nullable', 'string', 'regex:/^[a-zA-Z0-9۰-۹آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیيئ,،. ]+$/'],
         ],
             (new SearchRequest())->rules()
         );
