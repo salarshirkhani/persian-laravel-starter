@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Events\MessageSent;
+use App\Notifications\NewMessage;
 use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Database\Eloquent\Model;
 use Morilog\Jalali\Jalalian;
@@ -63,6 +64,7 @@ class Message extends Model
         $message->from()->associate(\Auth::user());
         $message->type = 'text';
         $message->save();
+        $conversation->otherParty(\Auth::user())->notify(new NewMessage(Auth::user(), $message));
         broadcast(new MessageSent($message));
         return $message;
     }
