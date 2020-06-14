@@ -8,6 +8,7 @@
 @endsection
 @section('content')
     <div class="container">
+        <x-session-alerts></x-session-alerts>
         <form action="{{ route('dashboard.owner.companies.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <x-card type="info">

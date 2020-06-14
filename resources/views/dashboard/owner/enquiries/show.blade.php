@@ -9,6 +9,7 @@
 @endsection
 @section('content')
     <div class="container">
+        <x-session-alerts></x-session-alerts>
         <x-card>
             <x-card-header>مشخصات درخواست</x-card-header>
 

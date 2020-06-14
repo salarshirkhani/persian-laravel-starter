@@ -8,6 +8,7 @@
 @endsection
 @section('content')
     <div class="container">
+        <x-session-alerts></x-session-alerts>
         <x-card type="info">
             <x-card-header><div class="text-center">نتایج جستجو</div></x-card-header>
 

@@ -8,6 +8,7 @@
 @endsection
 @section('content')
     <div class="container">
+        <x-session-alerts></x-session-alerts>
         <x-card type="info">
             <x-card-header>شرکت {{ $company->name }}</x-card-header>
 
