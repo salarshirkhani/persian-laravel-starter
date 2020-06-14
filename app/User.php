@@ -24,7 +24,11 @@ use Rinvex\Subscriptions\Traits\HasSubscriptions;
  * @property-read \App\Company|null $company
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Conversation[] $conversations
  * @property-read int|null $conversations_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Enquiry[] $enquiries
+ * @property-read int|null $enquiries_count
  * @property-read mixed $name
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Message[] $messages
+ * @property-read int|null $messages_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Rinvex\Subscriptions\Models\PlanSubscription[] $subscriptions
@@ -91,6 +95,14 @@ class User extends Authenticatable
     public function conversations() {
         return $this->belongsToMany('App\Conversation')
             ->orderBy('created_at', 'desc');
+    }
+
+    public function messages() {
+        return $this->hasMany('App\Message', 'from_id');
+    }
+
+    public function enquiries() {
+        return $this->hasMany('App\Enquiry', 'creator_id');
     }
 
 }
