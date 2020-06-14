@@ -167,7 +167,7 @@
                                                 <article data-v-774e55fb="" data-v-6e6ad759=""
                                                          class="carousel-item box-content">
                                                     <a data-v-774e55fb=""
-                                                       href="{{ route('items.show', ['type' => (is_subclass_of($item, \App\Product::class) ? 'product' : 'service'), 'item' => $item->id]) }}"
+                                                       href="{{ route('items.show', ['type' => (($item instanceof \App\Product) ? 'product' : 'service'), 'item' => $item->id]) }}"
                                                        class="carousel-img">
                                                         <div data-v-774e55fb="" style="">
                                                             <img data-v-774e55fb=""
@@ -178,7 +178,7 @@
                                                         </div>
                                                     </a>
                                                     <a data-v-774e55fb=""
-                                                       href="{{ route('items.show', ['type' => (is_subclass_of($item, \App\Product::class) ? 'product' : 'service'), 'item' => $item->id]) }}"
+                                                       href="{{ route('items.show', ['type' => (($item instanceof \App\Product) ? 'product' : 'service'), 'item' => $item->id]) }}"
                                                        class="carousel-title"><h4 data-v-774e55fb="">{{ $item->name }}</h4></a>
                                                     <div data-v-774e55fb="" class="inquiry-button-wrapper"><!----></div>
                                                 </article>
