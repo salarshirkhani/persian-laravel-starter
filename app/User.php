@@ -21,6 +21,7 @@ use Rinvex\Subscriptions\Traits\HasSubscriptions;
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $mobile
  * @property-read \App\Company|null $company
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Conversation[] $conversations
  * @property-read int|null $conversations_count
@@ -42,6 +43,7 @@ use Rinvex\Subscriptions\Traits\HasSubscriptions;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereFirstName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereLastName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereMobile($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereType($value)
@@ -59,7 +61,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password', 'type'
+        'first_name', 'last_name', 'email', 'password', 'type', 'mobile'
     ];
 
     /**
@@ -122,4 +124,7 @@ class User extends Authenticatable
         return $this->newSubscription("{$this->type}-{$this->id}", $plan);
     }
 
+    public function routeNotificationForSms() {
+        return $this->mobile;
+    }
 }

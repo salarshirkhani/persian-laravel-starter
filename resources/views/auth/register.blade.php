@@ -38,6 +38,15 @@
 						</span>
         </div>
 
+        <div class="wrap-input100 validate-input" data-validate="موبایل صحیح نیست!">
+            <input type="tel" name="mobile" class=" input100" placeholder="موبایل" required=""
+                   id="id_mobile" value="{{ old('mobile') ?? '' }}">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100">
+							<i class="fa fa-phone" aria-hidden="true"></i>
+						</span>
+        </div>
+
         <div class="wrap-input100 validate-input" data-validate="ایمیل صحیح نیست!">
             <input type="email" name="email" class=" input100" placeholder="ایمیل" required=""
                    id="id_email" value="{{ old('email') ?? '' }}">
