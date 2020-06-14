@@ -44,7 +44,7 @@
                                                     <ul data-v-59bcc1bb="" class="product-info-list">
                                                         <li data-v-59bcc1bb="">
                                                             <span data-v-59bcc1bb="" class="gray-text">دسته بندی</span>
-                                                            <span data-v-59bcc1bb="">{{ $item->category->name }}</span>
+                                                            <span data-v-59bcc1bb="">{{ !empty($item->category) ? $item->category->name : 'دسته‌بندی نشده' }}</span>
                                                         </li>
                                                         <li data-v-59bcc1bb="">
                                                             <span data-v-59bcc1bb=""
@@ -55,7 +55,7 @@
 
                                                         <li data-v-59bcc1bb="">
                                                             <span data-v-59bcc1bb="" class="gray-text">قیمت</span>
-                                                            <span data-v-59bcc1bb="">استعلام بگیرید</span>
+                                                            <span data-v-59bcc1bb="">{{ $item->price ?? 'استعلام بگیرید' }}</span>
                                                         </li>
                                                     </ul>
                                                     <div data-v-59bcc1bb="" class="product-description">
