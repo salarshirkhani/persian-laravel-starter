@@ -34,7 +34,7 @@ class SearchRequest extends FormRequest
             'category' => ['required', Rule::exists('categories', 'id')->where(function (Builder $query) {
                 $query->where('type', $this->get('type', null));
             })],
-            'keywords' => ['required', 'string', 'regex:/^[a-zA-Z0-9۰-۹آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیيئ,،. ]+$/'],
+            'keywords' => ['nullable', 'string', 'regex:/^[a-zA-Z0-9۰-۹آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیيئ,،. ]+$/'],
         ];
     }
 

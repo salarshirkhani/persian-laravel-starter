@@ -28,11 +28,13 @@ class SearchController extends Controller
             default:
                 throw new \RuntimeException("This query type is not supported ({$userQuery['type']})");
         }
-        $keywords = Keyword::whereLike('name', $userQuery['keywords']);
-        $items = $class::where('category_id', $userQuery['category'])
-            ->whereHas('keywords', function (Builder $query) use ($keywords) {
+        $items = $class::where('category_id', $userQuery['category']);
+        if (!empty($userQuery['keywords'])) {
+            $keywords = Keyword::whereLike('name', $userQuery['keywords']);
+            $items = $items->whereHas('keywords', function (Builder $query) use ($keywords) {
                 $query->whereIn('keywords.id', $keywords->pluck('id'));
-            })->get();
-        return view('dashboard.customer.search', ['items' => $items]);
+            });
+        }
+        return view('dashboard.customer.search', ['items' => $items->get()]);
     }
 }
