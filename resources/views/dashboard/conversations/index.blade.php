@@ -18,6 +18,12 @@
                 <div class="text-center">پیغام‌های شما</div>
             </x-card-header>
 
+            @if(!$conversations->count())
+                <h6 style="text-align:center;margin-top:24px;">
+                    شما هنوز با هیچکس ارتباط برقرار نکرده‌اید.
+                </h6>
+            @endempty
+
             <ul class="contacts-list list-group list-group-flush">
                 @foreach($conversations as $conversation)
                     <li>
@@ -42,11 +48,6 @@
                     </li>
                 @endforeach
             </ul>
-            @if(!$conversations->count())
-                <p class="card-text">
-    شما هنوز با هیچکس ارتباط برقرار نکرده‌اید.
-                </p>
-            @endempty
         </x-card>
     </div>
 @endsection
