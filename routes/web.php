@@ -17,6 +17,9 @@ Route::get('/', 'FrontController@index')->name('index');
 Route::get('items', 'FrontController@items')->name('items.index');
 Route::get('items/{type}/{item}', 'FrontController@showItem')->name('items.show');
 
+Route::get('profile', 'FrontController@profile')->name('profile');
+
+
 Auth::routes();
 
 Route::prefix('dashboard')

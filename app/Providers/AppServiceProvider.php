@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('select-item', \App\View\Components\Form\SelectItem::class);
         Blade::component('textarea-group', \App\View\Components\Form\TextareaGroup::class);
         Blade::component('file-group', \App\View\Components\Form\FileGroup::class);
-
+        
         Builder::macro('whereLike', function ($attributes, $searchTerm) {
             /** @var Builder $this */
             $this->where(function (Builder $query) use ($attributes, $searchTerm) {

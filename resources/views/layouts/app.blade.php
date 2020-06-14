@@ -376,6 +376,7 @@
     var slider = new IdealImageSlider.Slider('#slider2');
     slider.start();
 </script>
+
 <script type="7e5f9cd5b16100e74e97c153-text/javascript"
         src="https://packprinting.ir/js/mega-menu/mega_menu.js"></script>
 <script src="https://packprinting.ir/assets1/js/jquery-3.2.1.min.js"

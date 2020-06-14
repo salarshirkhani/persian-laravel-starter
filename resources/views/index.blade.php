@@ -127,7 +127,7 @@
                     <div data-v-6e6ad759="">
                         <div id="slider2" class="col-xs-12 mobile-requests-contents">
                             @foreach($sliderItems as $item)
-                            <a href="http://www.20script.ir">
+                            <a href="\\">
                                 <img data-src="{{ Storage::url($item->image) }}" alt="{{ $item->title }}" />
                             </a>
                             @endforeach

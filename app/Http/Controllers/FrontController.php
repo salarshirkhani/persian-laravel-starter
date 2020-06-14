@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
+
     public function index() {
         $items = Product::orderBy('created_at', 'desc')->limit(5)->get()
             ->merge(Service::orderBy('created_at', 'desc')->limit(5)->get())
@@ -68,4 +69,9 @@ class FrontController extends Controller
             'item' => $item,
         ]);
     }
+    public function profile() {
+
+        return view('items.profile');
+    }
+
 }
