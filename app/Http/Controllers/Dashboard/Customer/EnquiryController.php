@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Dashboard\Customer;
 
 use App\Category;
+use App\Company;
 use App\Enquiry;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Customer\EnquiryStoreRequest;
+use App\Notifications\NewEnquiry;
 
 class EnquiryController extends Controller
 {
@@ -20,6 +22,12 @@ class EnquiryController extends Controller
         $enquiry = new Enquiry($data = $request->validated());
         $enquiry->creator()->associate(\Auth::user());
         $enquiry->save();
+
+        $enquiry->load('relevantCompanies.creator');
+        $enquiry->relevantCompanies->each(function (Company $company, $key) use ($enquiry) {
+            $company->creator->notify(new NewEnquiry($company->creator, $enquiry));
+        });
+
         return redirect()->route('dashboard.customer.index')->with('success', 'درخواست شما با موفقیت ثبت شد!');
     }
 }
