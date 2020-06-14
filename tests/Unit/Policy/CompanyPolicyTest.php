@@ -4,13 +4,10 @@ namespace Tests\Unit\Policy;
 
 use App\Company;
 use App\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class CompanyPolicyTest extends TestCase
 {
-    use RefreshDatabase;
-
     public function test_admins_full_access() {
         $user = factory(User::class)->make(['type' => 'admin']);
         $company = factory(Company::class)->state('product')->make();

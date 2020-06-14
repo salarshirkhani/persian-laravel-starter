@@ -2,14 +2,12 @@
 
 namespace Tests\Feature\Dashboard\Owner;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\Feature\Dashboard\CreateUser;
 use Tests\TestCase;
 
 class IndexTest extends TestCase
 {
-    use RefreshDatabase;
     use CreateUser;
 
     protected function getUserType()

@@ -4,13 +4,10 @@ namespace Tests\Unit\Policy;
 
 use App\Transaction;
 use App\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class TransactionPolicyTest extends TestCase
 {
-    use RefreshDatabase;
-
     public function test_user_can_verify_transaction() {
         $user = factory(User::class)->create(['type' => 'customer']);
         $transaction = factory(Transaction::class)->create(['user_id' => $user->id]);

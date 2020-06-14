@@ -4,7 +4,7 @@ namespace Tests\Unit\Requests\Dashboard;
 
 use App\Http\Controllers\Dashboard\ConversationController;
 use App\Http\Requests\Dashboard\StartConversationRequest;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+
 use Illuminate\Foundation\Testing\WithFaker;
 use JMac\Testing\Traits\AdditionalAssertions;
 use Tests\TestCase;

@@ -4,7 +4,6 @@ namespace Tests\Unit\Requests\Dashboard\Owner;
 
 use App\Http\Controllers\Dashboard\Owner\ServiceController;
 use App\Http\Requests\Dashboard\Owner\ServiceStoreRequest;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use JMac\Testing\Traits\AdditionalAssertions;
 use Tests\TestCase;

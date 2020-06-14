@@ -4,13 +4,10 @@ namespace Tests\Unit\View;
 
 use App\User;
 use App\View\Components\Form\Input;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class InputTest extends TestCase
 {
-    use RefreshDatabase;
-
     private $input;
     private $model;
 

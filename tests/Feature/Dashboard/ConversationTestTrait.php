@@ -4,7 +4,6 @@ namespace Tests\Feature\Dashboard;
 
 use App\Conversation;
 use App\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
@@ -13,7 +12,6 @@ use Tests\TestCase;
  */
 trait ConversationTestTrait
 {
-    use RefreshDatabase;
     use CreateUser;
 
     public function test_user_can_create_convo_and_gets_redirected()
@@ -26,7 +24,7 @@ trait ConversationTestTrait
         $response->assertRedirect(
             route(
                 'dashboard.conversations.show',
-                Conversation::orderBy('id', 'desc')->first(),
+                Conversation::orderBy('id', 'desc')->first() ?? 0,
                 false
             )
         );

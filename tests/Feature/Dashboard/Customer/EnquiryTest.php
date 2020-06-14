@@ -3,14 +3,12 @@
 namespace Tests\Feature\Dashboard\Customer;
 
 use App\Category;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\Feature\Dashboard\CreateUser;
 use Tests\TestCase;
 
 class EnquiryTest extends TestCase
 {
-    use RefreshDatabase;
     use CreateUser;
 
     protected function getUserType()

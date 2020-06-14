@@ -4,7 +4,6 @@ namespace Tests\Feature\Dashboard\Owner;
 
 use App\Company;
 use App\Service;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
 use Tests\Feature\Dashboard\CreateUser;
@@ -12,7 +11,6 @@ use Tests\TestCase;
 
 class ServiceTest extends TestCase
 {
-    use RefreshDatabase;
     use CreateUser;
 
     protected function getUserType()

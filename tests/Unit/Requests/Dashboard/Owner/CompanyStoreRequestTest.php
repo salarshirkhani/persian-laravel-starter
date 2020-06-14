@@ -4,7 +4,6 @@ namespace Tests\Unit\Requests\Dashboard\Owner;
 
 use App\Http\Controllers\Dashboard\Owner\CompanyController;
 use App\Http\Requests\Dashboard\Owner\CompanyStoreRequest;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use JMac\Testing\Traits\AdditionalAssertions;
 use Tests\TestCase;

@@ -6,13 +6,10 @@ use App\Company;
 use App\Product;
 use App\Service;
 use App\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ItemPolicyTest extends TestCase
 {
-    use RefreshDatabase;
-
     public function test_admins_full_access() {
         $user = factory(User::class)->make(['type' => 'admin']);
         $product = factory(Product::class)->make();

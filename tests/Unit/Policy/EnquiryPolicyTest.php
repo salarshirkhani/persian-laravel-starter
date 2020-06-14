@@ -6,13 +6,10 @@ use App\Category;
 use App\Company;
 use App\Enquiry;
 use App\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class EnquiryPolicyTest extends TestCase
 {
-    use RefreshDatabase;
-
     public function test_admins_full_access() {
         $user = factory(User::class)->make(['type' => 'admin']);
         $enquiry = factory(Enquiry::class)->state('product')->make();
@@ -87,12 +84,12 @@ class EnquiryPolicyTest extends TestCase
     ///////////
 
     public function test_users_cannot_create_enquiry() {
-        $user = factory(User::class)->make(['type' => 'owner']);
+        $user = factory(User::class)->create(['type' => 'owner']);
         $this->assertFalse($user->can('create', Enquiry::class));
     }
 
     public function test_customers_can_create_enquiry() {
-        $user = factory(User::class)->make(['type' => 'customer']);
+        $user = factory(User::class)->create(['type' => 'customer']);
         $this->assertTrue($user->can('create', Enquiry::class));
     }
 

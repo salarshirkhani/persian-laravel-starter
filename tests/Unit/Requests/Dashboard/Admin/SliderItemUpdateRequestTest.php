@@ -4,7 +4,6 @@ namespace Tests\Unit\Requests\Dashboard\Admin;
 
 use App\Http\Controllers\Dashboard\Admin\SliderItemController;
 use App\Http\Requests\Dashboard\Admin\SliderItemUpdateRequest;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use JMac\Testing\Traits\AdditionalAssertions;
 use Tests\TestCase;

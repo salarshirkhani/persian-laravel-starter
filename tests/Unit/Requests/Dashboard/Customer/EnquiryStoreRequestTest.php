@@ -5,7 +5,6 @@ namespace Tests\Unit\Requests\Dashboard\Customer;
 use App\Http\Controllers\Dashboard\Customer\EnquiryController;
 use App\Http\Requests\Dashboard\Customer\EnquiryStoreRequest;
 use Illuminate\Database\Query\Builder;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Validation\Rule;
 use JMac\Testing\Traits\AdditionalAssertions;

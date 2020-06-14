@@ -5,13 +5,10 @@ namespace Tests\Unit\Policy;
 use App\Company;
 use App\Conversation;
 use App\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ConversationPolicyTest extends TestCase
 {
-    use RefreshDatabase;
-
     public function test_users_cannot_view_convo_list() {
         $user = factory(User::class)->make();
         $this->assertFalse($user->can('viewAny', Conversation::class));
@@ -47,26 +44,26 @@ class ConversationPolicyTest extends TestCase
     ///////////
 
     public function test_owners_can_create_convo_list() {
-        $user = factory(User::class)->make(['type' => 'owner']);
+        $user = factory(User::class)->create(['type' => 'owner']);
         $this->assertTrue($user->can('create', Conversation::class));
     }
 
     public function test_customers_can_create_convo_list() {
-        $user = factory(User::class)->make(['type' => 'customer']);
+        $user = factory(User::class)->create(['type' => 'customer']);
         $this->assertTrue($user->can('create', Conversation::class));
     }
 
     ///////////
 
     public function test_users_cannot_update_convo() {
-        $user = factory(User::class)->make(['type' => 'customer']);
+        $user = factory(User::class)->create(['type' => 'customer']);
         $convo = factory(Conversation::class)->create();
         $this->assertFalse($user->can('update', $convo));
     }
 
     public function test_participants_can_update_convo() {
-        $user = factory(User::class)->make(['type' => 'customer']);
-        $other = factory(User::class)->make(['type' => 'owner']);
+        $user = factory(User::class)->create(['type' => 'customer']);
+        $other = factory(User::class)->create(['type' => 'owner']);
         $convo = factory(Conversation::class)->create();
         $convo->parties()->saveMany([$user, $other]);
         $this->assertTrue($user->can('update', $convo));

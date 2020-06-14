@@ -3,7 +3,6 @@
 namespace Tests\Feature\Dashboard\Owner;
 
 use App\Company;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use JMac\Testing\Traits\AdditionalAssertions;
 use Tests\Feature\Dashboard\CreateUser;
@@ -11,7 +10,6 @@ use Tests\TestCase;
 
 class CompanyTest extends TestCase
 {
-    use RefreshDatabase;
     use CreateUser;
     use AdditionalAssertions;
 

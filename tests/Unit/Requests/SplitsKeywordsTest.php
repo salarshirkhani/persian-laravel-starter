@@ -3,7 +3,6 @@
 namespace Tests\Unit\Requests;
 
 use App\Http\Requests\SplitsKeywords;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 

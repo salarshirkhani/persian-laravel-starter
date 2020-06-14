@@ -4,14 +4,11 @@ namespace Tests\Feature\Auth;
 
 use App\Providers\RouteServiceProvider;
 use App\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class LoginTest extends TestCase
 {
-    use RefreshDatabase;
-
     public function test_user_can_view_a_login_form()
     {
         $response = $this->get(route('login'));

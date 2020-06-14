@@ -3,14 +3,11 @@
 namespace Tests\Feature\Dashboard;
 
 use App\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class RedirectTest extends TestCase
 {
-    use RefreshDatabase;
-
     protected function getUserType()
     {
         return 'owner';
