@@ -21,6 +21,11 @@ class PlanSeeder extends Seeder
                 'resettable_period' => 1,
                 'resettable_interval' => 'day',
             ],
+            'enquiries_per_day' => [
+                'description' => 'سقف ارسال درخواست روزانه',
+                'resettable_period' => 1,
+                'resettable_interval' => 'day',
+            ],
             'max_items' => [
                 'description' => 'سقف تعداد محصول/خدمات',
             ],
@@ -118,6 +123,7 @@ class PlanSeeder extends Seeder
                 'currency' => 'IRT',
                 'features' => [
                     'conversation_per_day' => 5,
+                    'enquiries_per_day' => 2,
                     'verified_customer_mark' => 'false',
                     'refund_guarantee' => 'false',
                 ]
@@ -136,6 +142,7 @@ class PlanSeeder extends Seeder
                 'currency' => 'IRT',
                 'features' => [
                     'conversation_per_day' => 10,
+                    'enquiries_per_day' => 5,
                     'verified_customer_mark' => 'false',
                     'refund_guarantee' => 'false',
                 ]
@@ -154,6 +161,7 @@ class PlanSeeder extends Seeder
                 'currency' => 'IRT',
                 'features' => [
                     'conversation_per_day' => 15,
+                    'enquiries_per_day' => 8,
                     'verified_customer_mark' => 'true',
                     'refund_guarantee' => 'true',
                 ]

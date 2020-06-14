@@ -59,7 +59,12 @@ class EnquiryPolicy
      */
     public function create(User $user)
     {
-        return $user->type == 'customer';
+        return
+            $user->type == 'customer' &&
+            (
+                !empty($sub = $user->subscription($user->type)) &&
+                $sub->canUseFeature('enquiries_per_day')
+            );
     }
 
     /**

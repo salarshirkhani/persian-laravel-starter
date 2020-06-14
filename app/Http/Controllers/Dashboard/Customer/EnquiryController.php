@@ -10,6 +10,9 @@ use App\Http\Requests\Dashboard\Customer\EnquiryStoreRequest;
 class EnquiryController extends Controller
 {
     public function create() {
+        if (!\Auth::user()->can('create', Enquiry::class))
+            return redirect()->back()
+                ->with('error', 'متاسفانه شما به محدودیت خود در ارسال درخواست‌های روزانه رسیده‌اید! لطفا اشتراک خود را ارتقا دهید.');
         return view('dashboard.customer.enquiries.create', ['categories' => Category::where('type', 'company')->get()]);
     }
 
