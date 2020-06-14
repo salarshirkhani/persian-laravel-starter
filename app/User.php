@@ -84,6 +84,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+        static::created(function(User $model) {
+            if (in_array($model->type, ['customer', 'owner']))
+                $model->newDefaultSubscription(app('rinvex.subscriptions.plan')->where('slug', "{$model->type}-default")->first());
+        });
+    }
+
     public function getNameAttribute() {
         return $this->first_name . ' ' . $this->last_name;
     }

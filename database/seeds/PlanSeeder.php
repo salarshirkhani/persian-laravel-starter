@@ -45,6 +45,27 @@ class PlanSeeder extends Seeder
         ];
         $plans = [
             [
+                'name' => 'اشتراک عادی',
+                'slug' => 'owner-default',
+                'description' => 'پلن پیش‌فرض',
+                'price' => 0,
+                'signup_fee' => 0,
+                'invoice_period' => 1200,
+                'invoice_interval' => 'month',
+                'trial_period' => 0,
+                'trial_interval' => 'day',
+                'sort_order' => 0,
+                'currency' => 'IRT',
+                'features' => [
+                    'conversation_per_day' => 3,
+                    'max_items' => 1,
+                    'ladder' => 0,
+                    'special_items' => 'false',
+                    'verified_seller_mark' => 'false',
+                    'refund_guarantee' => 'false',
+                ]
+            ],
+            [
                 'name' => 'اشتراک ماهانه',
                 'slug' => 'owner-monthly',
                 'description' => 'پلن ماهانه',
@@ -105,6 +126,25 @@ class PlanSeeder extends Seeder
                     'special_items' => 'true',
                     'verified_seller_mark' => 'true',
                     'refund_guarantee' => 'true',
+                ]
+            ],
+            [
+                'name' => 'اشتراک مشتری عادی',
+                'slug' => 'customer-default',
+                'description' => 'پلن پیش‌فرض',
+                'price' => 0,
+                'signup_fee' => 0,
+                'invoice_period' => 1200,
+                'invoice_interval' => 'month',
+                'trial_period' => 0,
+                'trial_interval' => 'day',
+                'sort_order' => 0,
+                'currency' => 'IRT',
+                'features' => [
+                    'conversation_per_day' => 3,
+                    'enquiries_per_day' => 1,
+                    'verified_customer_mark' => 'false',
+                    'refund_guarantee' => 'false',
                 ]
             ],
             [
