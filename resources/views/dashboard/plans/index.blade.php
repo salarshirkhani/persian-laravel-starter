@@ -12,6 +12,9 @@
         <x-card>
             <x-card-header>بسته‌ها</x-card-header>
             <x-card-body>
+                <div class="alert alert-info">
+                    <p>پکیج فعلی شما: {{ Auth::user()->defaultSubscription()->plan->name }}</p>
+                </div>
                 <div class="row">
                     @foreach($plans as $plan)
                         <div class="col-md-6 col-lg-4">
