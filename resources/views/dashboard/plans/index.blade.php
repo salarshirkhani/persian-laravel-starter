@@ -28,7 +28,7 @@
                                     @foreach($plan->features as $feature)
                                         <li class="list-group-item">
                                             {{ $feature->description }}
-                                            @if(in_array($feature->value, ['Y', 'N']))
+                                            @if(in_array($feature->value, ['true', 'false']))
                                                 <span class="float-right">
                                                     <i class="fas fa-{{ $feature->value == 'true' ? 'check' : 'times' }}"></i>
                                                 </span>
