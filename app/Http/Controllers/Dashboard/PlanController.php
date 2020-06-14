@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Notifications\SubscribedToPlan;
 use App\Transaction;
 use App\User;
 use Shetabit\Payment\Invoice;
@@ -54,6 +55,7 @@ class PlanController extends Controller
         $user = \Auth::user();
         if (($message = $transaction->verify($user)) === true) {
             $user->newDefaultSubscription($transaction->plan);
+            $user->notify(new SubscribedToPlan($user, $transaction->plan));
             return redirect()
                 ->route("dashboard.$user->type.index")
                 ->with('success', 'اشتراک شما با موفقیت فعال شد!');
