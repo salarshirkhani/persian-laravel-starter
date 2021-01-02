@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'FrontController@index')->name('index');
-Route::get('items', 'FrontController@items')->name('items.index');
-Route::get('items/{type}/{item}', 'FrontController@showItem')->name('items.show');
 
 Route::get('profile', 'FrontController@profile')->name('profile');
 
@@ -48,7 +45,7 @@ Route::prefix('dashboard')
 
         Route::prefix('customer')
             ->name('customer.')
-            ->middleware('user_type:customer')
+            ->middleware('user_type:buyer')
             ->namespace('Customer')
             ->group(function() {
                 Route::get('', 'IndexController@get')->name('index');
@@ -59,7 +56,7 @@ Route::prefix('dashboard')
 
         Route::prefix('owner')
             ->name('owner.')
-            ->middleware('user_type:owner')
+            ->middleware('user_type:seller')
             ->namespace('Owner')
             ->group(function() {
                 Route::get('', 'IndexController@get')->name('index');

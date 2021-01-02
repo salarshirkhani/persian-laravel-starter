@@ -14,28 +14,26 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
-
-            $table->string('name');
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->unsignedBigInteger('company_id');
-
-            $table->text('short_description');
-            $table->text('description');
-
-            $table->text('photo');
-
-            $table->decimal('price', 16, 2);
-
+            $table->id()->index();
+            $table->BigInteger('category_id')->unsigned()->index();
+            $table->BigInteger('company_id')->unsigned()->index();
+            $table->string('name', 191);
+            $table->text('explain');
+            $table->text('content');
+            $table->string('pic', 191);
+            $table->boolean('kurdish')->nullable()->default(false);
+            $table->string('kurdname', 191);
+            $table->string('kurd_explain', 191);
+            $table->string('kurd_content', 191);
             $table->timestamps();
         });
-
         Schema::table('products', function (Blueprint $table) {
             $table->foreign('category_id')
                 ->on('categories')
                 ->references('id')
                 ->onUpdate('cascade')
-                ->onDelete('set null');
+                ->onDelete('cascade')
+                ;
 
             $table->foreign('company_id')
                 ->on('companies')

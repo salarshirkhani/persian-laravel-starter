@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>{{ config('app.name') }} | @yield('title', __('داشبورد'))</title>
+    <title>کوردیش اسپیس | @yield('title', __('داشبورد'))</title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
@@ -114,10 +114,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <footer class="main-footer">
         <!-- To the right -->
         <div class="float-right d-none d-sm-inline">
-            ClapOnline
+            kurdish space
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2020 <a href="https://linkedin.com/in/najafimh">NajafiMH</a> & <a href="#">Salar Shirkhani</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2020 <a href="https://webitofa.ir">webito</a> & <a href="#">Salar Shirkhani</a>.</strong> All rights reserved.
     </footer>
 </div>
 <!-- ./wrapper -->

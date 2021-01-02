@@ -76,10 +76,10 @@
         </div>
 
         <div class="container-login100-form-btn">
-            <button class="login100-form-btn" name="type" value="owner">
+            <button class="login100-form-btn" name="type" value="seller">
                 ثبت‌نام به عنوان فروشنده
             </button>
-            <button class="login100-form-btn" name="type" value="customer" style="margin-top: 8px">
+            <button class="login100-form-btn" name="type" value="buyer" style="margin-top: 8px">
                 ثبت‌نام به عنوان خریدار
             </button>
         </div>
@@ -99,7 +99,7 @@
                 <i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
             </a>
             <br>
-            <a class="txt2" href="{{ route('index') }}">
+            <a class="txt2" href="">
                 بازگشت
                 <i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
             </a>

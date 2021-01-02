@@ -57,7 +57,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'mobile' => ['required', 'regex:/^(09[0-9]{9})|(۰۹[۰-۹]{9})$/', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'type' => ['required', 'in:customer,owner'],
+            'type' => ['required', 'in:buyer,seller'],
         ]);
     }
 

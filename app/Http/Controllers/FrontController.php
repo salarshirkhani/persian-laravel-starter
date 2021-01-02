@@ -21,57 +21,5 @@ class FrontController extends Controller
         ]);
     }
 
-    public function items(Request $request) {
-        $data = $request->validate([
-            'category' => 'sometimes|exists:categories,id',
-            'sort' => 'sometimes|in:created_at',
-            'order' => 'required_with:sort|in:asc,desc',
-        ]);
-        $category = Category::find($data['category'] ?? null);
-        $products = Product::with('category');
-        $services = Service::with('category');
-        if ($category != null) {
-            $products = $products->where('category_id', $category->id);
-            $services = $services->where('category_id', $category->id);
-        }
-        $items = $products->get()
-            ->merge($services->get())
-            ->sortBy($data['sort'] ?? 'created_at', SORT_REGULAR, ($data['order'] ?? 'desc') == 'desc')
-            ->paginate(5)
-            ->appends($data);
-        $categories = Category::whereIn('type', ['product', 'service'])->get();
-        return view('items.index', [
-            'items' => $items,
-            'categories' => $categories,
-            'categoryTypes' => [
-                'product' => 'محصولات',
-                'service' => 'خدمات',
-            ],
-            'sorts' => [
-                'جدیدترین‌ها' => [
-                    'sort' => 'created_at',
-                    'order' => 'desc',
-                ],
-                'قدیمی‌ترین‌ها' => [
-                    'sort' => 'created_at',
-                    'order' => 'asc',
-                ],
-            ],
-        ]);
-    }
-
-    public function showItem($type, $item) {
-        if (!in_array($type, ['product', 'service'])) abort(404);
-        /** @var Product|Service $cls */
-        $cls = ($type == 'product' ? Product::class : Service::class);
-        $item = $cls::findOrFail($item);
-        return view('items.show', [
-            'item' => $item,
-        ]);
-    }
-    public function profile() {
-
-        return view('items.profile');
-    }
 
 }
