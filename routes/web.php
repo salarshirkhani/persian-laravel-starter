@@ -42,14 +42,14 @@ Route::prefix('dashboard')
 
                 Route::resource('slider-items', 'SliderItemController')->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
           
-                Route::post('addpost', [
+                Route::post('news/create', [
                     'uses' => 'PostController@CreatePost',
-                    'as' => 'addpost'
+                    'as' => 'news/create'
                 ]);
                 
-                Route::get('news.create', [
+                Route::get('news/create', [
                     'uses' => 'PostController@GetCreatePost',
-                    'as' => 'news.create'
+                    'as' => 'news/create'
                 ]);  
             });
 

@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard\Admin;
+use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -14,23 +15,17 @@ use Illuminate\Support\Facades\Storage;
 class PostController extends Controller
 {
     public function GetCreatePost()
-    {if(Auth::user()->email!='admin@admin.com'){
-        return redirect()->route('login');
-    }
-        return view('admin.news.create');
+    {
+        return view('dashboard.admin.news.create');
     }
 
     public function CreatePost(Request $request)
     {
-        if(Auth::user()->email!='admin@admin.com'){
-            return redirect()->route('login');
-        }
         $post = new post([
             'title' => $request->input('title'),
             'explain' => $request->input('explain'),
             'content' => $request->input('content'),
             'writer' => $request->input('writer'),
-            'category'=> $request->input('category'),
             'special'=> $request->input('special'),
         ]);
     //--------------
@@ -52,6 +47,6 @@ class PostController extends Controller
            $post->file = $filenamee;
           }
         $post->save();
-        return redirect()->route('addpost')->with('info', '  پست جدید ذخیره شد و نام آن' . $request->input('title'));
+        return redirect()->route('dashboard.admin.news.create')->with('info', '  پست جدید ذخیره شد و نام آن' . $request->input('title'));
     }
 }
