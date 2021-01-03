@@ -35,12 +35,22 @@ Route::prefix('dashboard')
 
         Route::prefix('admin')
             ->name('admin.')
-            ->middleware('user_type:admin')
+            ->middleware('user_type:owner')
             ->namespace('Admin')
             ->group(function() {
                 Route::get('', 'IndexController@get')->name('index');
 
                 Route::resource('slider-items', 'SliderItemController')->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
+          
+                Route::post('addpost', [
+                    'uses' => 'PostController@CreatePost',
+                    'as' => 'addpost'
+                ]);
+                
+                Route::get('news.create', [
+                    'uses' => 'PostController@GetCreatePost',
+                    'as' => 'news.create'
+                ]);  
             });
 
         Route::prefix('customer')
