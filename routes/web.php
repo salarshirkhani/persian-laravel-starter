@@ -25,14 +25,6 @@ Route::prefix('dashboard')
     ->namespace('Dashboard')
     ->group(function() {
         Route::get('', 'IndexController@get')->name('index');
-
-        Route::resource('conversations', 'ConversationController')->only(['index', 'show', 'store']);
-        Route::post('conversations/{conversation}/messages', 'ConversationController@sendMessage')->name('sendMessage');
-
-        Route::resource('plans', 'PlanController')->only(['index']);
-        Route::post('plans/{plan}/subscribe', 'PlanController@subscribe')->name('plans.subscribe');
-        Route::get('plans/callback/{transaction}', 'PlanController@callback')->name('plans.callback');
-
         Route::prefix('admin')
             ->name('admin.')
             ->middleware('user_type:owner')
@@ -44,12 +36,12 @@ Route::prefix('dashboard')
           
                 Route::post('news/create', [
                     'uses' => 'PostController@CreatePost',
-                    'as' => 'news/create'
+                    'as' => 'news.create'
                 ]);
                 
                 Route::get('news/create', [
                     'uses' => 'PostController@GetCreatePost',
-                    'as' => 'news/create'
+                    'as' => 'news.create'
                 ]);  
             });
 
@@ -61,7 +53,6 @@ Route::prefix('dashboard')
                 Route::get('', 'IndexController@get')->name('index');
                 Route::get('search', 'SearchController@search')->name('search');
 
-                Route::resource('enquiries', 'EnquiryController')->only(['create', 'store']);
             });
 
         Route::prefix('owner')
@@ -71,9 +62,5 @@ Route::prefix('dashboard')
             ->group(function() {
                 Route::get('', 'IndexController@get')->name('index');
 
-                Route::resource('companies', 'CompanyController')->except('index');
-                Route::resource('products', 'ProductController')->except('index');
-                Route::resource('services', 'ServiceController')->except('index');
-                Route::resource('enquiries', 'EnquiryController')->only(['index', 'show']);
-            });
+     });
     });
