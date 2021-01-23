@@ -59,6 +59,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'type' => ['required', 'in:buyer,seller'],
         ]);
+
     }
 
     /**
@@ -72,16 +73,11 @@ class RegisterController extends Controller
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
+            'monile' => $data['last_name'],
             'email' => $data['email'],
             'mobile' => $data['mobile'],
             'password' => Hash::make($data['password']),
             'type' => $data['type']
         ]);
     }
-
-    protected function registered(Request $request, $user)
-    {
-        $user->notify(new SignedUp($user, $request->post('password')));
-    }
-
 }
