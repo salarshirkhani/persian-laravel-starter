@@ -2,3 +2,4 @@
 <x-sidebar-item title="آیتم‌های اسلایدر" icon="fas fa-stream" route="dashboard.admin.slider-items.index" />
 <x-sidebar-item title="افزودن اسلایدر" icon="fas fa-plus" route="dashboard.admin.slider-items.create" />
 <x-sidebar-item title="افزودن خبر" icon="fas fa-plus" route="dashboard.admin.news.create" />
+<x-sidebar-item title="مدیریت مطالب" icon="fas fa-plus" route="dashboard.admin.news.manage" />

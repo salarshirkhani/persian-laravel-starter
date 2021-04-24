@@ -26,7 +26,6 @@ class PostController extends Controller
             'explain' => $request->input('explain'),
             'content' => $request->input('content'),
             'writer' => $request->input('writer'),
-            'special'=> $request->input('special'),
         ]);
     //--------------
         $uploadedFile = $request->file('img');
@@ -48,5 +47,35 @@ class PostController extends Controller
           }
         $post->save();
         return redirect()->route('dashboard.admin.news.create')->with('info', '  پست جدید ذخیره شد و نام آن' . $request->input('title'));
+    }
+    public function GetManagePost(Request $request)
+    {
+        $posts = post::orderBy('created_at', 'desc')->get();
+        return view('dashboard.admin.news.manage', ['posts' => $posts]);
+    }
+
+    public function DeletePost($id){
+        $post = post::find($id);
+        $post->delete();
+        return redirect()->route('dashboard.admin.news.manage')->with('info', 'پست پاک شد');
+    }
+
+    public function GetEditPost($id)
+    { 
+        $post = post::find($id);
+        return view('dashboard.admin.news.updatepost', ['post' => $post, 'id' => $id]);
+    }
+
+    public function UpdatePost(Request $request)
+    {
+        $post = post::find($request->input('id'));
+        if (!is_null($post)) {
+            $post->title = $request->input('title');
+            $post->explain = $request->input('explain');
+            $post->writer = $request->input('writer');
+            $post->content = $request->input('content');
+            $post->save();
+        }
+        return redirect()->route('dashboard.admin.voip.updatepost',$post->id)->with('info', 'شماره ویرایش شد');
     }
 }

@@ -16,13 +16,10 @@ class CreateCategoriesTable extends Migration
         Schema::enableForeignKeyConstraints();
         Schema::create('categories', function (Blueprint $table) {
             $table->bigInteger('id')->unsigned()->index();
-
             $table->string('name',191);
             $table->string('slug',191)->unique();
             $table->text('description')->nullable();
             $table->string('type',191)->index();
-            $table->unsignedbigInteger('parent_id')->nullable()->index();
-
             $table->timestamps();
         });
 
@@ -35,6 +32,6 @@ class CreateCategoriesTable extends Migration
      * @return void
      */
     public function down()
-    { $table->dropColumn('parent_id');
+    { 
     }
 }

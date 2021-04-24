@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>کوردیش اسپیس | @yield('title', __('داشبورد'))</title>
+    <title>کنترل پنل | @yield('title', __('داشبورد'))</title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
@@ -55,7 +55,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <aside class="main-sidebar sidebar-dark-gray elevation-4">
         <!-- Brand Logo -->
         <a href="{{ route('dashboard.index') }}" class="brand-link">
-            <img src="{{ asset('assets/dashboard/img/logo.png') }}" alt="{{ config('app.name') }}" style=" width: 95%;" class="brand-image "
+            <img src="" alt="{{ config('app.name') }}" style=" width: 95%;" class="brand-image "
                  style="opacity: .8">
             <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
         </a>
@@ -114,7 +114,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <footer class="main-footer">
         <!-- To the right -->
         <div class="float-right d-none d-sm-inline">
-            kurdish space
+            Laravel boiler
         </div>
         <!-- Default to the left -->
         <strong>Copyright &copy; 2020 <a href="https://webitofa.ir">webito</a> & <a href="#">Salar Shirkhani</a>.</strong> All rights reserved.

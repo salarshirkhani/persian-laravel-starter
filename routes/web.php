@@ -27,7 +27,7 @@ Route::prefix('dashboard')
         Route::get('', 'IndexController@get')->name('index');
         Route::prefix('admin')
             ->name('admin.')
-            ->middleware('user_type:owner')
+            ->middleware('user_type:admin')
             ->namespace('Admin')
             ->group(function() {
                 Route::get('', 'IndexController@get')->name('index');
@@ -42,7 +42,12 @@ Route::prefix('dashboard')
                 Route::get('news/create', [
                     'uses' => 'PostController@GetCreatePost',
                     'as' => 'news.create'
-                ]);  
+                ]); 
+                
+                Route::get('news/manage', 'PostController@GetManagePost')->name('news.manage');
+                Route::get('deletepost/{id}','PostController@DeletePost')->name('news.deletepost');  
+                Route::get('updatepost/{id}','PostController@GetEditPost')->name('news.updatepost');
+                Route::post('updatepost/{id}','PostController@UpdatePost')->name('news.updatepost');
             });
 
         Route::prefix('customer')
